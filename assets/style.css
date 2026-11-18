@@ -208,3 +208,10 @@ pre.code .k{color:#FF9E64} pre.code .s{color:#9ECE6A} pre.code .c{color:#7A869A;
   --ok:#5BC994; --ok-soft:#163327; --bad:#F07C75; --bad-soft:#3B1D1C; color-scheme:dark}
 @media print{nav.bar,.topbar,.pager,.opts,.check,.progress{display:none!important}.card{break-inside:avoid}body{background:#fff}}
 @media (max-width:560px){.balance{grid-template-columns:1fr}.stairs li:nth-child(n){margin-left:0}.pager{grid-template-columns:1fr}.pager a.next{text-align:left}}
+.starters{display:grid;gap:8px;border:1.5px dashed var(--accent);border-radius:12px;padding:12px 14px;background:var(--accent-soft)}
+.starters .label{margin:0}
+a.dl{display:grid;gap:2px;padding:10px 12px;border-radius:10px;background:var(--paper);border:1px solid var(--line);text-decoration:none;color:var(--ink)}
+a.dl:hover{border-color:var(--accent)}
+a.dl b{color:var(--accent);font-weight:600}
+a.dl span{font-family:var(--mono);font-size:12px;color:var(--muted)}
+a.dl small{font-size:13.5px;color:var(--muted)}
