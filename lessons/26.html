@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 26. Проєкт «Книжковий рай»: CSS і публікація — Інформатика 8</title><meta name="description" content="Оживляємо лендинг стилями: кольори, шрифти, Flexbox для секцій і карток. Потім тестуємо в різних браузерах і на смартфоні та публікуємо на GitHub Page"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r3">← Усі уроки · Розділ 3</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 26</span><span class="chip gr">Розділ 3</span><span class="chip sun">Практика</span><span class="chip gr">Підручник: проєкт 1, теми 18–19</span></div>
+  <h1>Проєкт «Книжковий рай»: стилі, тестування, публікація</h1>
+  <p class="lead">Оживляємо лендинг стилями: кольори, шрифти, Flexbox для секцій і карток. Потім тестуємо в різних браузерах і на смартфоні та публікуємо на GitHub Pages.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. План</b><span>~5 хв</span></a><a href="#s2" data-k="s2"><b>2. Тестування</b><span>~5 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота</b><span>~35 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. План</a></li><li><a href="#s2">2. Тестування</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">Практика</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>План стилізації</h2></div></div>
+  <div class="tbl"><table><thead><tr><th>Блок</th><th>Головне</th></tr></thead><tbody><tr><td><code>body</code></td><td>Без зовнішніх відступів, шрифт Roboto, колір тексту #333</td></tr><tr><td><code>.section-main</code></td><td>Темно-зелений фон, Flexbox у стовпчик по центру, великий заголовок Lora</td></tr><tr><td><code>.second-section</code></td><td>Flexbox у ряд: фото з рамкою і заокругленням + текст до 600px</td></tr><tr><td><code>.third-section</code></td><td>Світло-сірий фон, картки книг у ряд з переносом (<code>flex-wrap: wrap</code>)</td></tr><tr><td><code>.footer</code></td><td>Світло-зелений фон, форма в стовпчик, кнопка з <code>cursor: pointer</code></td></tr></tbody></table></div><div class="note"><b>Адаптивність</b><code>flex-wrap: wrap</code> і <code>max-width: 100%</code> дозволяють блокам переноситися на вузьких екранах — сайт не «вилазить» за край смартфона.</div>
+</div>
+</section>
+<section id="s2" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A2</span><div><span class="label">Читаємо</span><h2>Тестування</h2></div></div>
+  <ol class="rules"><li><span>Відкрийте сайт у 2–3 браузерах (Chrome, Edge, Firefox, Opera) — чи однаково виглядає?</span></li><li><span>DevTools <kbd>F12</kbd> → режим пристрою <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> → iPhone, Galaxy: чи не з'являється горизонтальна прокрутка?</span></li><li><span>Чи всі зображення завантажились, чи немає «биті» значків?</span></li><li><span>Чи кнопка змінює колір при наведенні, курсор — «рука»?</span></li><li><span>Валідатор W3C: 0 помилок.</span></li></ol>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота</span><h2>Стилізація і публікація «Книжкового раю»</h2></div></div>
+  <p><b>Мета:</b> оформити лендинг стилями CSS, протестувати його і опублікувати на GitHub Pages.</p>
+  <ol class="pw"><li><b class="t">Загальні стилі і головна секція</b><p>Заповніть <code>style.css</code>. Почніть з <code>body</code> і <code>.section-main</code> (код нижче), збережіть, оновіть браузер — і так після кожного блоку.</p></li><li><b class="t">Решта секцій</b><p>Повний зразок стилів — можна взяти за основу і змінити кольори, розміри, відступи під свій смак:</p><pre class="code" data-lang="css">body {
+    <span class="a">margin</span>: 0;
+    <span class="a">font-family</span>: 'Roboto', sans-serif;
+    <span class="a">color</span>: #333;
+    <span class="a">background</span>: #fff;
+}
+<span class="c">/* ---- головна секція ---- */</span>
+.section-main {
+    <span class="a">background</span>: #2E5E4E;
+    <span class="a">padding</span>: 40px 20px 120px;
+    <span class="a">display</span>: flex;
+    <span class="a">flex-direction</span>: column;
+    <span class="a">align-items</span>: center;
+    <span class="a">color</span>: #fff;
+    <span class="a">text-align</span>: center;
+}
+.section-main-logo { <span class="a">width</span>: 100px; }
+.section-main-title {
+    <span class="a">font-family</span>: 'Lora', serif;
+    <span class="a">font-size</span>: 56px;
+    <span class="a">margin</span>: 40px 0 20px;
+}
+.section-main-button {
+    <span class="a">margin-top</span>: 30px;
+    <span class="a">padding</span>: 14px 32px;
+    <span class="a">background</span>: #A8D5BA;
+    <span class="a">color</span>: #2E5E4E;
+    <span class="a">border</span>: none;
+    <span class="a">border-radius</span>: 25px;
+    <span class="a">font-size</span>: 18px;
+    <span class="a">cursor</span>: pointer;
+}
+.<span class="a">section-main-button</span>:hover { <span class="a">background</span>: #fff; }
+<span class="c">/* ---- секція «Про нас» ---- */</span>
+.second-section {
+    <span class="a">display</span>: flex;
+    <span class="a">justify-content</span>: center;
+    <span class="a">align-items</span>: center;
+    <span class="a">gap</span>: 30px;
+    <span class="a">padding</span>: 60px 20px;
+    <span class="a">flex-wrap</span>: wrap;
+}
+.second-section-img {
+    <span class="a">width</span>: 400px;
+    <span class="a">max-width</span>: 100%;
+    <span class="a">border</span>: 5px solid #A8D5BA;
+    <span class="a">border-radius</span>: 20px;
+}
+.second-section-info { <span class="a">max-width</span>: 600px; }
+.section-subtitle { <span class="a">margin</span>: 0 0 10px; <span class="a">color</span>: #2E5E4E; <span class="a">letter-spacing</span>: 2px; }
+.section-title { <span class="a">font-family</span>: 'Lora', serif; <span class="a">font-size</span>: 36px; <span class="a">margin</span>: 0 0 30px; }
+.second-section-name2 { <span class="a">font-weight</span>: 700; <span class="a">color</span>: #2E5E4E; }
+<span class="c">/* ---- колекція ---- */</span>
+.third-section {
+    <span class="a">display</span>: flex;
+    <span class="a">flex-direction</span>: column;
+    <span class="a">align-items</span>: center;
+    <span class="a">background</span>: #F5F5F5;
+    <span class="a">padding</span>: 60px 20px;
+}
+.third-section-books {
+    <span class="a">display</span>: flex;
+    <span class="a">justify-content</span>: center;
+    <span class="a">flex-wrap</span>: wrap;
+    <span class="a">gap</span>: 20px;
+}
+.third-section-book {
+    <span class="a">display</span>: flex;
+    <span class="a">flex-direction</span>: column;
+    <span class="a">align-items</span>: center;
+    <span class="a">width</span>: 200px;
+    <span class="a">background</span>: #fff;
+    <span class="a">padding</span>: 16px;
+    <span class="a">border-radius</span>: 12px;
+    <span class="a">box-shadow</span>: 0 4px 12px rgba(0, 0, 0, .08);
+}
+.book-img { <span class="a">width</span>: 150px; <span class="a">height</span>: 220px; <span class="a">object-fit</span>: cover; <span class="a">border-radius</span>: 6px; }
+.book-title { <span class="a">margin</span>: 12px 0 4px; <span class="a">text-align</span>: center; }
+.book-author { <span class="a">margin</span>: 0; <span class="a">color</span>: #666; <span class="a">text-align</span>: center; }
+.book-price { <span class="a">color</span>: #2E5E4E; <span class="a">font-size</span>: 20px; <span class="a">font-weight</span>: 700; }
+<span class="c">/* ---- футер ---- */</span>
+.footer {
+    <span class="a">display</span>: flex;
+    <span class="a">flex-direction</span>: column;
+    <span class="a">align-items</span>: center;
+    <span class="a">background</span>: #E8F5EC;
+    <span class="a">padding</span>: 60px 20px;
+    <span class="a">text-align</span>: center;
+}
+.footer-form { <span class="a">display</span>: flex; <span class="a">flex-direction</span>: column; <span class="a">width</span>: 400px; <span class="a">max-width</span>: 100%; }
+.form-title { <span class="a">margin</span>: 10px 0 4px; <span class="a">text-align</span>: left; }
+.form-input {
+    <span class="a">height</span>: 40px;
+    <span class="a">padding</span>: 0 10px;
+    <span class="a">border</span>: 1px solid #ddd;
+    <span class="a">border-radius</span>: 8px;
+}
+.footer-button {
+    <span class="a">margin-top</span>: 30px;
+    <span class="a">padding</span>: 10px 25px;
+    <span class="a">background</span>: #2E5E4E;
+    <span class="a">color</span>: #fff;
+    <span class="a">border</span>: none;
+    <span class="a">border-radius</span>: 25px;
+    <span class="a">cursor</span>: pointer;
+}</pre></li><li><b class="t">Протестуйте</b><p>Пройдіть 5 пунктів тестування з теорії. Виправте все, що знайшли.</p></li><li><b class="t">Опублікуйте</b><p>Як на ПР №15: новий репозиторій <code>book-heaven</code> → <span class="path">Add file → Upload files</span> (index.html, style.css, папка img) → Commit → <span class="path">Settings → Pages → main → Save</span>.</p></li><li><b class="t">Звіт тестування</b><p>У Google Документі: у яких браузерах і пристроях перевірили, які помилки знайшли і як виправили (2–4 пункти), скріншот сайту на «смартфоні» з DevTools.</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Посилання</b><p>Адреса сайту <code>…github.io/book-heaven/</code> і репозиторію + звіт тестування.</p></li><li><b class="t">Здайте в Classroom</b><p>Завдання «Проєкт Книжковий рай» → <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Стилі всіх 4 секцій відповідають макету</td><td>4</td></tr><tr><td>Flexbox: секції і картки розташовані правильно</td><td>2</td></tr><tr><td>Шрифти Google Fonts, гармонійні кольори</td><td>1</td></tr><tr><td>Кнопки з :hover і cursor: pointer</td><td>1</td></tr><tr><td>Сайт опубліковано, усе працює онлайн</td><td>3</td></tr><tr><td>Звіт тестування</td><td>1</td></tr></tbody></table></div></div>
+<div class="card"><span class="label">Якщо щось не виходить</span><details><summary>Секції злиплися, немає відступів</summary><p>Перевірте padding у кожної секції і що назви класів у CSS точно збігаються з HTML (без крапки в HTML, з крапкою в CSS).</p></details><details><summary>На смартфоні з'являється горизонтальна прокрутка</summary><p>Якийсь елемент ширший за екран: додайте йому <code>max-width: 100%</code>, а контейнеру — <code>flex-wrap: wrap</code>.</p></details></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Покажіть сайт рідним на їхньому смартфоні. Зберіть одну пораду і внесіть покращення з комітом.</li><li>Підготуйте 5–7 фото для наступного проєкту «Подорожі»: 3 туристичні напрямки, фон для банера, логотип (лише з вільних фотобанків: unsplash.com, pexels.com).</li></ol>
+  <p class="fb">Підручник: проєкт 1, теми 18–19. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="25.html"><span>← Урок 25</span><b>Проєкт «Книжковий рай»: розмітка</b></a><a class="next" href="27.html"><span>Урок 27 →</span><b>Проєкт «Подорожі»: головна сторінка</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · проєкт 1, теми 18–19</footer>
+</div>
+<script>window.LESSON={"n": 26, "q": {"final": [["Як розмістити картки книг у ряд з переносом?", ["display:flex; flex-wrap:wrap", "display:block", "float:center"], 0, ""], ["Що робить object-fit: cover для обкладинки?", ["Заповнює рамку без спотворення пропорцій", "Розтягує зображення", "Ховає зображення"], 0, ""], ["Як перевірити вигляд сайту на смартфоні без смартфона?", ["DevTools → режим пристрою", "Валідатор", "Зменшити шрифт"], 0, ""], ["Сайт на GitHub без стилів. Найімовірніше…", ["style.css не завантажено або назва не збігається", "GitHub не підтримує CSS", "потрібен платний акаунт"], 0, ""], ["Навіщо тестувати в кількох браузерах?", ["Браузери можуть по-різному відображати сторінку", "Щоб сайт швидше працював", "Не потрібно"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 23. Хостинг. Scrum і Kanban. Git — Інформатика 8</title><meta name="description" content="Де «живуть» сайти, як команди розробників планують роботу (Scrum, Kanban) і навіщо програмістам система контролю версій Git і сервіс GitHub."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r3">← Усі уроки · Розділ 3</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 23</span><span class="chip gr">Розділ 3</span><span class="chip gr">Підручник: тема 17</span></div>
+  <h1>Хостинг. Інструменти командної роботи. Система контролю версій</h1>
+  <p class="lead">Де «живуть» сайти, як команди розробників планують роботу (Scrum, Kanban) і навіщо програмістам система контролю версій Git і сервіс GitHub.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Хостинг</b><span>~8 хв</span></a><a href="#s2" data-k="s2"><b>2. Kanban</b><span>~8 хв</span></a><a href="#s3" data-k="s3"><b>3. Git</b><span>~10 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Хостинг</a></li><li><a href="#s2">2. Kanban</a></li><li><a href="#s3">3. Git</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Хостинг</h2></div></div>
+  <p class="def"><b>Хостинг</b> — послуга розміщення вебсайту на сервері, підключеному до інтернету 24/7, щоб сайт могли бачити інші користувачі. Компанії, що її надають, — хостинг-провайдери.</p><div class="tbl"><table><thead><tr><th>Вид</th><th>Суть</th><th>Для кого</th></tr></thead><tbody><tr><td>Безкоштовний статичний</td><td>HTML/CSS/JS без сервера: GitHub Pages, Netlify, Vercel</td><td>Навчальні проєкти, портфоліо</td></tr><tr><td>Віртуальний (shared)</td><td>Один сервер на багато сайтів</td><td>Невеликі сайти, блоги</td></tr><tr><td>VPS</td><td>Віртуальний «власний» сервер</td><td>Середні проєкти</td></tr><tr><td>Виділений сервер</td><td>Окремий фізичний сервер</td><td>Великі сайти</td></tr><tr><td>Хмарний</td><td>Ресурси масштабуються за потреби: AWS, Google Cloud, Azure</td><td>Сервіси з мільйонами користувачів</td></tr></tbody></table></div><p class="def"><b>Доменне ім'я</b> — зручна для людини адреса сайту (<code>school.if.ua</code>) замість IP-адреси сервера. Домен купують у реєстратора, а на GitHub Pages безкоштовно дається адреса <code>ім'я.github.io</code>.</p>
+</div>
+</section>
+<section id="s2">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A2</span><div><span class="label">Читаємо</span><h2>Інструменти координації роботи команди</h2></div></div>
+  <p>Сайти й програми створюють команди: дизайнер, верстальник, програміст, тестувальник, менеджер. Щоб усе встигнути, використовують методи керування проєктами.</p><div class="grid2"><div class="tile"><b>Kanban</b><small>Дошка з колонками «Треба зробити → Виконується → Готово». Кожна задача — картка, яку пересувають. Видно, хто чим зайнятий. Сервіси: Trello, Google Tasks, GitHub Projects.</small></div><div class="tile"><b>Scrum</b><small>Робота короткими циклами — спринтами (1–4 тижні). Щодня — коротка зустріч (що зробив, що робитиму, що заважає). Наприкінці спринту — демонстрація результату і ретроспектива.</small></div><div class="tile"><b>Комунікація</b><small>Чати (Slack, Teams, Telegram), відеозустрічі, спільні документи.</small></div></div>
+</div><div class="card"><span class="label">Вправа 1</span><h3>Що це?</h3><div class="ex" data-quiz="ex1"></div><p class="score" id="ex1s"></p></div>
+</section>
+<section id="s3" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A3</span><div><span class="label">Читаємо</span><h2>Система контролю версій. Git і GitHub</h2></div></div>
+  <p class="def"><b>Система контролю версій (VCS)</b> — програма, яка зберігає історію всіх змін файлів проєкту: що змінено, ким і коли, — і дозволяє повернутися до будь-якої попередньої версії.</p><p>Найпопулярніша — <b>Git</b>. <b>GitHub</b> — онлайн-сервіс, де зберігають Git-проєкти і працюють над ними разом.</p><div class="tbl"><table><thead><tr><th>Поняття</th><th>Що означає</th></tr></thead><tbody><tr><td>Репозиторій (repository)</td><td>Папка проєкту з усією історією змін</td></tr><tr><td>Коміт (commit)</td><td>Збережений «знімок» змін з коротким описом: «Додав форму реєстрації»</td></tr><tr><td>Гілка (branch)</td><td>Паралельна лінія розробки; головна — <code>main</code></td></tr><tr><td>Злиття (merge)</td><td>Об'єднання змін з гілки в main</td></tr><tr><td>Pull request</td><td>Пропозиція змін, яку переглядає команда</td></tr><tr><td>Клонування (clone)</td><td>Копія репозиторію з GitHub на свій комп'ютер</td></tr></tbody></table></div><div class="note"><b>Аналогія</b>Історія версій у Google Документах — це маленька «система контролю версій». Git робить те саме для цілих папок з кодом і для команд з сотень людей.</div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Опрацюйте тему 17.</li><li>Зареєструйтеся на github.com (потрібна електронна пошта; ім'я користувача латиницею — воно буде адресою вашого сайту). Запишіть свій логін — він знадобиться на наступному уроці. <b>Пароль нікому не повідомляйте.</b></li><li>Створіть у Trello або Google Tasks Kanban-дошку зі своїми домашніми завданнями на тиждень.</li></ol>
+  <p class="fb">Підручник: тема 17. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="22.html"><span>← Урок 22</span><b>Аналітика сайту. ПР №14 «Додавання елементів на сайт»</b></a><a class="next" href="24.html"><span>Урок 24 →</span><b>ПР №15 «Створення сайту на GitHub»</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · тема 17</footer>
+</div>
+<script>window.LESSON={"n": 23, "q": {"ex1": [["Дошка з колонками «Треба / Виконується / Готово»", ["Kanban", "Scrum", "Git"], 0, ""], ["Робота двотижневими циклами з демонстрацією результату", ["Kanban", "Scrum", "Хостинг"], 1, ""], ["Сайт-портфоліо з HTML і CSS безкоштовно", ["GitHub Pages", "Виділений сервер", "VPS"], 0, ""]], "final": [["Хостинг — це…", ["послуга розміщення сайту на сервері в інтернеті", "редактор коду", "назва сайту"], 0, ""], ["Доменне ім'я —", ["зручна адреса сайту", "пароль від сервера", "назва файлу"], 0, ""], ["Яка адреса дає GitHub Pages?", ["ім'я.github.io", "ім'я.gov.ua", "github.ім'я.com"], 0, ""], ["Спринт —", ["короткий цикл роботи в Scrum", "швидкий сервер", "тип коміту"], 0, ""], ["Що зберігає система контролю версій?", ["Історію змін файлів", "Лише останню версію", "Паролі"], 0, ""], ["Коміт —", ["збережений знімок змін з описом", "видалення репозиторію", "тип хостингу"], 0, ""], ["Головна гілка репозиторію зазвичай називається…", ["main", "root", "home"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

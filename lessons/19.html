@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 19. Посилання, форми, мультимедіа, CSS — Інформатика 8</title><meta name="description" content="Пов&#x27;язуємо сторінки посиланнями, додаємо відео й аудіо, знайомимось з формами і робимо першу стилізацію за допомогою CSS. А ще — інструменти розробник"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r3">← Усі уроки · Розділ 3</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 19</span><span class="chip gr">Розділ 3</span><span class="chip gr">Підручник: тема 15</span></div>
+  <h1>Покликання і форми. Мультимедіа. Таблиці стилів CSS. Інструменти розробника</h1>
+  <p class="lead">Пов'язуємо сторінки посиланнями, додаємо відео й аудіо, знайомимось з формами і робимо першу стилізацію за допомогою CSS. А ще — інструменти розробника, щоб зазирнути «під капот» будь-якого сайту.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Посилання</b><span>~7 хв</span></a><a href="#s2" data-k="s2"><b>2. Форми</b><span>~10 хв</span></a><a href="#s3" data-k="s3"><b>3. CSS</b><span>~12 хв</span></a><a href="#s4" data-k="s4"><b>4. DevTools</b><span>~6 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Посилання</a></li><li><a href="#s2">2. Форми</a></li><li><a href="#s3">3. CSS</a></li><li><a href="#s4">4. DevTools</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Покликання (гіперпосилання)</h2></div></div>
+  <p class="def"><b>Покликання</b> — елемент, клацнувши на який, користувач переходить на іншу сторінку, файл або місце сторінки. Створюється тегом <code>&lt;a&gt;</code> з атрибутом <code>href</code>.</p><pre class="code" data-lang="html"><span class="t">&lt;a</span> <span class="a">href</span>=<span class="s">"https://uk.wikipedia.org"</span><span class="t">&gt;</span>Вікіпедія<span class="t">&lt;/a</span><span class="t">&gt;</span>            <span class="c">&lt;!-- зовнішнє --&gt;</span>
+<span class="t">&lt;a</span> <span class="a">href</span>=<span class="s">"about.html"</span><span class="t">&gt;</span>Про мене<span class="t">&lt;/a</span><span class="t">&gt;</span>                          <span class="c">&lt;!-- інша сторінка сайту --&gt;</span>
+<span class="t">&lt;a</span> <span class="a">href</span>=<span class="s">"#contacts"</span><span class="t">&gt;</span>До контактів<span class="t">&lt;/a</span><span class="t">&gt;</span>                       <span class="c">&lt;!-- якір на цій сторінці --&gt;</span>
+<span class="t">&lt;a</span> <span class="a">href</span>=<span class="s">"mailto:teacher@school.ua"</span><span class="t">&gt;</span>Написати листа<span class="t">&lt;/a</span><span class="t">&gt;</span>
+<span class="t">&lt;a</span> <span class="a">href</span>=<span class="s">"https://youtube.com"</span> <span class="a">target</span>=<span class="s">"_blank"</span><span class="t">&gt;</span>Відкрити в новій вкладці<span class="t">&lt;/a</span><span class="t">&gt;</span></pre><p>Якір: елементу дають атрибут <code>id="contacts"</code>, а посилання веде на <code>#contacts</code>.</p>
+</div>
+</section>
+<section id="s2" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A2</span><div><span class="label">Читаємо</span><h2>Мультимедіа і форми</h2></div></div>
+  <pre class="code" data-lang="html"><span class="t">&lt;video</span> <span class="a">src</span>=<span class="s">"video/trip.mp4"</span> controls <span class="a">width</span>=<span class="s">"480"</span><span class="t">&gt;</span><span class="t">&lt;/video</span><span class="t">&gt;</span>
+<span class="t">&lt;audio</span> <span class="a">src</span>=<span class="s">"audio/song.mp3"</span> controls<span class="t">&gt;</span><span class="t">&lt;/audio</span><span class="t">&gt;</span>
+
+<span class="c">&lt;!-- відео з YouTube: Поділитися → Вставити → скопіювати код --&gt;</span>
+<span class="t">&lt;iframe</span> <span class="a">width</span>=<span class="s">"480"</span> <span class="a">height</span>=<span class="s">"270"</span> <span class="a">src</span>=<span class="s">"https://www.youtube.com/embed/ID_ВІДЕО"</span><span class="t">&gt;</span><span class="t">&lt;/iframe</span><span class="t">&gt;</span></pre><p class="def"><b>Форма</b> — елемент <code>&lt;form&gt;</code>, через який користувач вводить і надсилає дані: реєстрація, пошук, опитування.</p><div class="tbl"><table><thead><tr><th>Елемент</th><th>Вигляд</th></tr></thead><tbody><tr><td><code>&lt;input type="text"&gt;</code></td><td>Текстове поле</td></tr><tr><td><code>type="email"</code>, <code>"password"</code>, <code>"number"</code>, <code>"date"</code></td><td>Пошта, пароль (крапки), число, дата</td></tr><tr><td><code>type="checkbox"</code> / <code>"radio"</code></td><td>Прапорець / перемикач (один з кількох)</td></tr><tr><td><code>&lt;select&gt;</code> + <code>&lt;option&gt;</code></td><td>Випадний список</td></tr><tr><td><code>&lt;textarea&gt;</code></td><td>Багаторядкове поле</td></tr><tr><td><code>&lt;label for="id"&gt;</code></td><td>Підпис до поля; клік по ньому ставить курсор у поле</td></tr><tr><td><code>&lt;button type="submit"&gt;</code></td><td>Кнопка надсилання</td></tr></tbody></table></div>
+</div>
+</section>
+<section id="s3">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A3</span><div><span class="label">Читаємо</span><h2>Каскадні таблиці стилів (CSS)</h2></div></div>
+  <p class="def"><b>CSS (Cascading Style Sheets)</b> — мова опису зовнішнього вигляду сторінки: кольори, шрифти, відступи, розташування елементів.</p><pre class="code" data-lang="css">селектор {
+    властивість: значення;
+}
+h1 {
+    <span class="a">color</span>: #1E7A55;
+    <span class="a">text-align</span>: center;
+}</pre><div class="tbl"><table><thead><tr><th>Спосіб підключення</th><th>Приклад</th><th>Коли</th></tr></thead><tbody><tr><td>Вбудований (inline)</td><td><code>&lt;p style="color:red"&gt;</code></td><td>Рідко, для одного елемента</td></tr><tr><td>Внутрішній</td><td><code>&lt;style&gt;…&lt;/style&gt;</code> у head</td><td>Одна сторінка</td></tr><tr><td>Зовнішній файл ✔</td><td><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></td><td>Сайт з кількох сторінок — один стиль для всіх</td></tr></tbody></table></div><div class="tbl"><table><thead><tr><th>Селектор</th><th>Кого вибирає</th></tr></thead><tbody><tr><td><code>p</code></td><td>Усі абзаци (за тегом)</td></tr><tr><td><code>.card</code></td><td>Елементи з <code>class="card"</code> (клас — для багатьох)</td></tr><tr><td><code>#logo</code></td><td>Елемент з <code>id="logo"</code> (id — унікальний)</td></tr><tr><td><code>nav a</code></td><td>Посилання всередині nav</td></tr><tr><td><code>a:hover</code></td><td>Посилання під курсором</td></tr></tbody></table></div><p>«Каскадні» — бо до одного елемента можуть застосовуватись кілька правил; перемагає точніше (id &gt; клас &gt; тег) або пізніше записане.</p>
+</div><div class="card"><span class="label">Вправа 1</span><h3>CSS і посилання</h3><div class="ex" data-quiz="ex1"></div><p class="score" id="ex1s"></p></div>
+</section>
+<section id="s4" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A4</span><div><span class="label">Читаємо</span><h2>Інструменти розробника</h2></div></div>
+  <p>У кожному браузері є інструменти розробника (DevTools): <kbd>F12</kbd> або <span class="path">ПКМ → Переглянути код (Inspect)</span>.</p><div class="grid2"><div class="tile"><b>Elements</b><small>HTML-код сторінки і CSS обраного елемента. Значення можна змінювати «на льоту» й одразу бачити результат (зміни зникнуть після оновлення).</small></div><div class="tile"><b>Console</b><small>Повідомлення про помилки JavaScript.</small></div><div class="tile"><b>Network</b><small>Які файли завантажує сторінка і скільки часу.</small></div><div class="tile"><b>Режим пристрою</b><small><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> — подивитися, як сайт виглядає на смартфоні.</small></div></div><div class="note"><b>Спробуйте</b>Відкрийте будь-який сайт, натисніть F12, оберіть інструментом-стрілкою заголовок і змініть у панелі Styles його колір. Це безпечно — змінюється лише ваша копія сторінки.</div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Опрацюйте тему 15 (посилання, мультимедіа, CSS).</li><li>На своїй сторінці про книги: додайте посилання на сторінку однієї книги у Вікіпедії (у новій вкладці) і меню-якорі на розділи сторінки.</li><li>Відкрийте сайт ліцею в DevTools і запишіть: яким тегом зроблено головний заголовок і який у нього колір (color).</li></ol>
+  <p class="fb">Підручник: тема 15. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="18.html"><span>← Урок 18</span><b>HTML: теги, атрибути, валідація. ПР №12</b></a><a class="next" href="20.html"><span>Урок 20 →</span><b>Стилі і шрифти. ПР №13 «Форма реєстрації»</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · тема 15</footer>
+</div>
+<script>window.LESSON={"n": 19, "q": {"ex1": [["Як вибрати всі елементи з class=\"menu\"?", ["menu", ".menu", "#menu"], 1, ""], ["Як підключити зовнішній файл стилів?", ["<style src=\"style.css\">", "<link rel=\"stylesheet\" href=\"style.css\">", "<css>style.css</css>"], 1, ""], ["Що виконає правило  p { color: blue; }", ["Синій фон сторінки", "Синій текст усіх абзаців", "Синю рамку"], 1, ""], ["Як зробити посилання, що відкривається в новій вкладці?", ["target=\"_blank\"", "href=\"_new\"", "new=\"tab\""], 0, ""]], "final": [["Який тег створює посилання?", ["<link>", "<a>", "<href>"], 1, "<link> підключає файли в head, а не створює посилання."], ["Як послатися на елемент з id=\"top\" на тій же сторінці?", ["href=\"top\"", "href=\"#top\"", "href=\".top\""], 1, ""], ["Атрибут controls у <video>…", ["показує кнопки відтворення", "вимикає звук", "запускає відео автоматично"], 0, ""], ["Поле, в якому символи замінюються крапками —", ["type=\"text\"", "type=\"password\"", "type=\"hidden\""], 1, ""], ["Перемикач, де можна обрати лише один варіант, —", ["checkbox", "radio", "textarea"], 1, ""], ["CSS відповідає за…", ["структуру сторінки", "зовнішній вигляд", "зберігання даних"], 1, ""], ["Яка клавіша відкриває інструменти розробника?", ["F1", "F5", "F12"], 2, ""], ["Що сильніше в каскаді: правило для #id чи для тегу?", ["#id", "тег", "однаково"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

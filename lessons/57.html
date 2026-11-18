@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 57. Проєкт «Вартість сайту»: код і тести — Інформатика 8</title><meta name="description" content="Пишемо функцію розрахунку з усіма надбавками і знижкою, робимо миттєве оновлення ціни і тестуємо."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 57</span><span class="chip gr">Розділ 5</span><span class="chip sun">Практика</span><span class="chip gr">Підручник: проєкт 3, теми 42–43</span></div>
+  <h1>Проєкт «Розрахунок вартості розробки сайту»: розробка і тестування</h1>
+  <p class="lead">Пишемо функцію розрахунку з усіма надбавками і знижкою, робимо миттєве оновлення ціни і тестуємо.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Код</b><span>~8 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Код</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">Практика</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Код-зразок</h2></div></div>
+  <pre class="code" data-lang="py"><span class="c"># Проєкт «Розрахунок вартості розробки сайту»</span>
+<span class="k">from</span> tkinter <span class="k">import</span> *
+<span class="k">from</span> tkinter <span class="k">import</span> ttk
+
+PRICES = {<span class="s">"Односторінковий (лендінг)"</span>: 4000,
+          <span class="s">"Багатосторінковий (корпоративний)"</span>: 8000,
+          <span class="s">"Інтернет-магазин"</span>: 26000}
+
+
+<span class="k">def</span> calculate(*args):
+    <span class="s">""</span><span class="s">"Перераховує вартість за всіма обраними параметрами."</span><span class="s">""</span>
+    total = PRICES[site_type.get()]
+    <span class="k">if</span> design.get():
+        total *= 1.5                     <span class="c"># дизайн: +50 %</span>
+    <span class="k">if</span> mobile.get():
+        total *= 1.1                     <span class="c"># адаптація: +10 %</span>
+    days = days_scale.get()
+    <span class="k">if</span> days &lt; 10:
+        total *= 1.2                     <span class="c"># термінове виконання (менше 10 днів): +20 %</span>
+    discount = <span class="k">int</span>(discount_box.get().replace(<span class="s">"%"</span>, <span class="s">""</span>))
+    total *= (100 - discount) / 100
+    result.config(text=f<span class="s">"Вартість: {round(total)} грн за {days} днів"</span>)
+
+
+<span class="k">def</span> hurry():
+    <span class="s">""</span><span class="s">"Кнопка «Хочу швидше» — мінімальний термін."</span><span class="s">""</span>
+    days_scale.set(7)
+    calculate()
+
+
+window = Tk()
+window.title(<span class="s">"Замовлення сайту"</span>)
+window.geometry(<span class="s">"700x560"</span>)
+window.resizable(<span class="k">False</span>, <span class="k">False</span>)
+window.configure(bg=<span class="s">"#FFE5CC"</span>)
+BG = <span class="s">"#FFE5CC"</span>
+
+Label(window, text=<span class="s">"Вартість розробки сайту"</span>, font=(<span class="s">"Arial"</span>, 20, <span class="s">"bold"</span>), bg=BG).pack(pady=10)
+
+Label(window, text=<span class="s">"Який сайт вам потрібен?"</span>, font=(<span class="s">"Arial"</span>, 13, <span class="s">"bold"</span>), bg=BG).pack()
+site_type = StringVar(value=<span class="s">"Односторінковий (лендінг)"</span>)
+<span class="k">for</span> name <span class="k">in</span> PRICES:
+    Radiobutton(window, text=f<span class="s">"{name} — {PRICES[name]} грн"</span>, variable=site_type, value=name,
+                bg=BG, font=(<span class="s">"Arial"</span>, 12), command=calculate).pack(anchor=<span class="s">"w"</span>, padx=200)
+
+Label(window, text=<span class="s">"Додаткові можливості:"</span>, font=(<span class="s">"Arial"</span>, 13, <span class="s">"bold"</span>), bg=BG).pack(pady=(10, 0))
+design = BooleanVar()
+mobile = BooleanVar()
+Checkbutton(window, text=<span class="s">"Розробити дизайн сайту (+50 %)"</span>, variable=design, bg=BG, font=(<span class="s">"Arial"</span>, 12), command=calculate).pack(anchor=<span class="s">"w"</span>, padx=200)
+Checkbutton(window, text=<span class="s">"Адаптація під смартфони (+10 %)"</span>, variable=mobile, bg=BG, font=(<span class="s">"Arial"</span>, 12), command=calculate).pack(anchor=<span class="s">"w"</span>, padx=200)
+
+Label(window, text=<span class="s">"Час на розробку, днів (менше 10 — +20 %):"</span>, font=(<span class="s">"Arial"</span>, 13, <span class="s">"bold"</span>), bg=BG).pack(pady=(10, 0))
+days_scale = Scale(window, from_=7, to=14, orient=HORIZONTAL, length=300, bg=BG, command=calculate)
+days_scale.set(14)
+days_scale.pack()
+Button(window, text=<span class="s">"Хочу швидше"</span>, command=hurry).pack()
+
+Label(window, text=<span class="s">"Знижка:"</span>, font=(<span class="s">"Arial"</span>, 13, <span class="s">"bold"</span>), bg=BG).pack(pady=(10, 0))
+discount_box = ttk.Combobox(window, values=[<span class="s">"0%"</span>, <span class="s">"10%"</span>, <span class="s">"20%"</span>, <span class="s">"30%"</span>], state=<span class="s">"readonly"</span>, width=6)
+discount_box.current(0)
+discount_box.bind(<span class="s">"&lt;&lt;ComboboxSelected&gt;&gt;"</span>, calculate)
+discount_box.pack()
+
+Button(window, text=<span class="s">"Обчислити"</span>, font=(<span class="s">"Arial"</span>, 12), bg=<span class="s">"#E67E22"</span>, fg=<span class="s">"white"</span>, command=calculate).pack(pady=10)
+result = Label(window, text=<span class="s">""</span>, font=(<span class="s">"Arial"</span>, 16, <span class="s">"bold"</span>), bg=BG)
+result.pack()
+
+calculate()
+window.mainloop()</pre><div class="tbl"><table><thead><tr><th>Що нове</th><th>Пояснення</th></tr></thead><tbody><tr><td><code>PRICES = {…}</code></td><td>Словник цін: ключ — тип сайту, значення — ціна</td></tr><tr><td><code>total *= 1.5</code></td><td>Збільшити на 50 %</td></tr><tr><td><code>"10%".replace("%", "")</code></td><td>Прибрати знак % і отримати "10"</td></tr><tr><td><code>calculate()</code> перед mainloop</td><td>Показати ціну одразу при запуску</td></tr></tbody></table></div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота</span><h2>Розробка, тестування і впровадження калькулятора</h2></div></div>
+  <p><b>Мета:</b> реалізувати розрахунок вартості з усіма параметрами і перевірити його.</p>
+  <ol class="pw"><li><b class="t">Функція calculate()</b><p>Базова ціна за типом → надбавки за послуги → надбавка за терміновість → знижка. Результат — у мітку.</p></li><li><b class="t">Миттєве оновлення</b><p>Прив'яжіть <code>calculate</code> до всіх елементів вибору.</p></li><li><b class="t">«Хочу швидше»</b><p>Кнопка ставить повзунок на 7 днів і перераховує.</p></li><li><b class="t">Тестування</b><p>Ваші 3 ручні розрахунки з ДЗ — чи збігаються з програмою?</p></li><li><b class="t">Зображення <span class="star">додатково</span></b><p>Картинка типу сайту змінюється разом з вибором.</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Фінальна здача</b><p>site_cost.py + скріншоти трьох тестів.</p></li><li><b class="t">Здайте в Classroom</b><p>«Проєкт 3» → <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Базова ціна і надбавки правильні</td><td>4</td></tr><tr><td>Знижка і терміновість</td><td>3</td></tr><tr><td>Миттєве оновлення</td><td>2</td></tr><tr><td>Тести збігаються</td><td>2</td></tr><tr><td>Коментарі</td><td>1</td></tr></tbody></table></div></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Додайте ще одну послугу на свій розсуд (наприклад, «Наповнення контентом +3000 грн»).</li></ol>
+  <p class="fb">Підручник: проєкт 3, теми 42–43. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="56.html"><span>← Урок 56</span><b>Проєкт «Вартість сайту»: Radiobutton, Checkbutton, Scale</b></a><a class="next" href="58.html"><span>Урок 58 →</span><b>Проєкт «PyPizza»: кілька вікон</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · проєкт 3, теми 42–43</footer>
+</div>
+<script>window.LESSON={"n": 57, "q": {"final": [["Яка послідовність етапів проєкту правильна?", ["Код → задача → тест", "Задача → підготовка → проєктування → код → тест", "Тест → код → задача"], 1, ""], ["Інтернет-магазин + дизайн + 7 днів + знижка 10 % =", ["42 120 грн", "26 000 грн", "39 000 грн"], 0, "26000 × 1,5 × 1,2 × 0,9."], ["Як зменшити суму на 20 %?", ["total *= 0.8", "total -= 20", "total /= 20"], 0, ""], ["Що робить days_scale.set(7)?", ["Встановлює повзунок на 7", "Читає значення", "Видаляє шкалу"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

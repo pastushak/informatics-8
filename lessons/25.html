@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 25. Проєкт «Книжковий рай»: розмітка — Інформатика 8</title><meta name="description" content="Починаємо перший проєкт — односторінковий сайт-лендинг для бібліотеки «Книжковий рай». Сьогодні: аналіз вимог, проєктування і HTML-розмітка всіх чотир"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r3">← Усі уроки · Розділ 3</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 25</span><span class="chip gr">Розділ 3</span><span class="chip sun">Практика</span><span class="chip gr">Підручник: проєкт 1, теми 18–19</span></div>
+  <h1>Проєкт «Книжковий рай»: аналіз, проєктування, HTML</h1>
+  <p class="lead">Починаємо перший проєкт — односторінковий сайт-лендинг для бібліотеки «Книжковий рай». Сьогодні: аналіз вимог, проєктування і HTML-розмітка всіх чотирьох секцій.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Етапи</b><span>~6 хв</span></a><a href="#s2" data-k="s2"><b>2. Макет</b><span>~6 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота</b><span>~35 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Етапи</a></li><li><a href="#s2">2. Макет</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">Практика</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Етапи вебпроєкту</h2></div></div>
+  <p class="def"><b>Лендинг (landing page)</b> — односторінковий сайт, присвячений одній темі, товару чи організації, з чіткою дією для відвідувача: підписатися, купити, записатися.</p><ol class="stairs"><li><b>Аналіз вимог</b><small>для кого сайт і що він має робити</small></li><li><b>Проєктування</b><small>макет, структура, кольори, шрифти</small></li><li><b>Розробка</b><small>HTML-розмітка і CSS-стилі</small></li><li><b>Тестування</b><small>перевірка в різних браузерах і на смартфоні</small></li><li><b>Впровадження</b><small>публікація на GitHub Pages</small></li></ol><h3>Аналіз вимог «Книжкового раю»</h3><div class="grid2"><div class="tile"><b>Цільова аудиторія</b><small>Любителі читання; учні та студенти, які шукають літературу; місцеві жителі, які шукають затишне місце для читання.</small></div><div class="tile"><b>Функції сайту</b><small>Презентація бібліотеки; перегляд колекції книг; підписка на розсилку новин; контакти.</small></div></div>
+</div>
+</section>
+<section id="s2" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A2</span><div><span class="label">Читаємо</span><h2>Проєктування: макет і стиль</h2></div></div>
+  <figure class="fig"><svg viewBox="0 0 300 230" width="300"><g font-family="sans-serif" font-size="11" text-anchor="middle"><rect x="10" y="5" width="280" height="60" rx="6" fill="#2E5E4E"/><text x="150" y="30" fill="#fff">main: логотип, h1, h2, кнопка</text><text x="150" y="48" fill="#A8D5BA">«Книжковий Рай»</text><rect x="10" y="72" width="110" height="48" rx="6" fill="#A8D5BA"/><text x="65" y="100">фото</text><rect x="128" y="72" width="162" height="48" rx="6" fill="#E0F2EA"/><text x="209" y="100">про бібліотеку</text><rect x="10" y="127" width="280" height="50" rx="6" fill="#F5F5F5" stroke="#ccc"/><rect x="24" y="137" width="52" height="32" rx="4" fill="#fff" stroke="#bbb"/><rect x="92" y="137" width="52" height="32" rx="4" fill="#fff" stroke="#bbb"/><rect x="160" y="137" width="52" height="32" rx="4" fill="#fff" stroke="#bbb"/><rect x="228" y="137" width="52" height="32" rx="4" fill="#fff" stroke="#bbb"/><text x="150" y="190" fill="#666">колекція — картки книг</text><rect x="10" y="196" width="280" height="30" rx="6" fill="#E8F5EC"/><text x="150" y="215">footer: форма підписки, контакти</text></g></svg><figcaption>Макет лендингу з чотирьох секцій</figcaption></figure><div class="tbl"><table><thead><tr><th>Елемент стилю</th><th>Рішення</th></tr></thead><tbody><tr><td>Кольори</td><td>Темно-зелений <code>#2E5E4E</code>, світло-зелений <code>#A8D5BA</code>, сірий <code>#666</code>, білий <code>#FFF</code></td></tr><tr><td>Шрифти</td><td>Lora — заголовки, Roboto — текст (Google Fonts, з кирилицею)</td></tr><tr><td>Структура файлів</td><td><code>book-heaven/</code> → <code>index.html</code>, <code>style.css</code>, <code>img/</code></td></tr></tbody></table></div><div class="note"><b>Можна по-своєму</b>Назву, кольори і книги можна змінити: «Книгарня мрії», «Бібліотека ліцею», свої улюблені книги. Структура з 4 секцій — обов'язкова.</div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота</span><h2>Розмітка лендингу «Книжковий рай»</h2></div></div>
+  <p><b>Мета:</b> створити структуру проєкту і HTML-розмітку всіх чотирьох секцій сайту.</p>
+  <ol class="pw"><li><b class="t">Створіть структуру проєкту</b><p>Папка <code>book-heaven</code> → файли <code>index.html</code>, <code>style.css</code> (поки порожній) і папка <code>img</code>. Збережіть у <code>img</code>: логотип (PNG без фону, наприклад з flaticon.com), фото бібліотеки, 4–6 обкладинок. Назви — латиницею: <code>logo.png</code>, <code>library.jpg</code>, <code>book1.jpg</code>…</p></li><li><b class="t">Каркас і чотири блоки</b><p>Створіть каркас документа з підключенням шрифтів і стилів, а в body — <code>main.section-main</code>, <code>section.second-section</code>, <code>section.third-section</code>, <code>footer.footer</code>.</p></li><li><b class="t">Заповніть секції</b><p>Візьміть за основу код нижче. Напишіть <b>власний</b> опис бібліотеки, змініть ім'я засновника, додайте 4–6 карток своїх книг з цінами.</p><pre class="code" data-lang="html"><span class="t">&lt;!DOCTYPE</span> html<span class="t">&gt;</span>
+<span class="t">&lt;html</span> <span class="a">lang</span>=<span class="s">"uk"</span><span class="t">&gt;</span>
+<span class="t">&lt;head</span><span class="t">&gt;</span>
+    <span class="t">&lt;meta</span> <span class="a">charset</span>=<span class="s">"UTF-8"</span><span class="t">&gt;</span>
+    <span class="t">&lt;meta</span> <span class="a">name</span>=<span class="s">"viewport"</span> <span class="a">content</span>=<span class="s">"width=device-width, initial-scale=1.0"</span><span class="t">&gt;</span>
+    <span class="t">&lt;title</span><span class="t">&gt;</span>Книжковий Рай<span class="t">&lt;/title</span><span class="t">&gt;</span>
+    <span class="t">&lt;link</span> <span class="a">href</span>=<span class="s">"https://fonts.googleapis.com/css2?family=Lora:wght@700&amp;family=Roboto:wght@400;700&amp;display=swap"</span> <span class="a">rel</span>=<span class="s">"stylesheet"</span><span class="t">&gt;</span>
+    <span class="t">&lt;link</span> <span class="a">rel</span>=<span class="s">"stylesheet"</span> <span class="a">href</span>=<span class="s">"style.css"</span><span class="t">&gt;</span>
+<span class="t">&lt;/head</span><span class="t">&gt;</span>
+<span class="t">&lt;body</span><span class="t">&gt;</span>
+    <span class="t">&lt;main</span> <span class="a">class</span>=<span class="s">"section-main"</span><span class="t">&gt;</span>
+        <span class="t">&lt;img</span> <span class="a">class</span>=<span class="s">"section-main-logo"</span> <span class="a">src</span>=<span class="s">"img/logo.png"</span> <span class="a">alt</span>=<span class="s">"логотип"</span><span class="t">&gt;</span>
+        <span class="t">&lt;h1</span> <span class="a">class</span>=<span class="s">"section-main-title"</span><span class="t">&gt;</span>Книжковий Рай<span class="t">&lt;/h1</span><span class="t">&gt;</span>
+        <span class="t">&lt;h2</span> <span class="a">class</span>=<span class="s">"section-main-subtitle"</span><span class="t">&gt;</span>Відкрий для себе наступну чудову книгу<span class="t">&lt;/h2</span><span class="t">&gt;</span>
+        <span class="t">&lt;button</span> <span class="a">class</span>=<span class="s">"section-main-button"</span> <span class="a">type</span>=<span class="s">"button"</span><span class="t">&gt;</span>Дізнатися більше<span class="t">&lt;/button</span><span class="t">&gt;</span>
+    <span class="t">&lt;/main</span><span class="t">&gt;</span>
+
+    <span class="t">&lt;section</span> <span class="a">class</span>=<span class="s">"second-section"</span><span class="t">&gt;</span>
+        <span class="t">&lt;img</span> <span class="a">class</span>=<span class="s">"second-section-img"</span> <span class="a">src</span>=<span class="s">"img/library.jpg"</span> <span class="a">alt</span>=<span class="s">"зображення бібліотеки"</span><span class="t">&gt;</span>
+        <span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"second-section-info"</span><span class="t">&gt;</span>
+            <span class="t">&lt;h3</span> <span class="a">class</span>=<span class="s">"section-subtitle"</span><span class="t">&gt;</span>ЛАСКАВО ПРОСИМО ДО КНИЖКОВОГО РАЮ<span class="t">&lt;/h3</span><span class="t">&gt;</span>
+            <span class="t">&lt;p</span> <span class="a">class</span>=<span class="s">"second-section-text"</span><span class="t">&gt;</span>Тут ваш опис бібліотеки: 3–4 речення.<span class="t">&lt;/p</span><span class="t">&gt;</span>
+            <span class="t">&lt;p</span> <span class="a">class</span>=<span class="s">"second-section-name"</span><span class="t">&gt;</span><span class="t">&lt;span</span> <span class="a">class</span>=<span class="s">"second-section-name2"</span><span class="t">&gt;</span>ІВАН ІВАНЕНКО<span class="t">&lt;/span</span><span class="t">&gt;</span> — засновник Книжкового Раю<span class="t">&lt;/p</span><span class="t">&gt;</span>
+        <span class="t">&lt;/div</span><span class="t">&gt;</span>
+    <span class="t">&lt;/section</span><span class="t">&gt;</span>
+
+    <span class="t">&lt;section</span> <span class="a">class</span>=<span class="s">"third-section"</span><span class="t">&gt;</span>
+        <span class="t">&lt;h3</span> <span class="a">class</span>=<span class="s">"section-subtitle"</span><span class="t">&gt;</span>РЕКОМЕНДОВАНІ КНИГИ<span class="t">&lt;/h3</span><span class="t">&gt;</span>
+        <span class="t">&lt;h3</span> <span class="a">class</span>=<span class="s">"section-title"</span><span class="t">&gt;</span>Наша колекція<span class="t">&lt;/h3</span><span class="t">&gt;</span>
+        <span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"third-section-books"</span><span class="t">&gt;</span>
+            <span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"third-section-book"</span><span class="t">&gt;</span>
+                <span class="t">&lt;img</span> <span class="a">class</span>=<span class="s">"book-img"</span> <span class="a">src</span>=<span class="s">"img/book1.jpg"</span> <span class="a">alt</span>=<span class="s">"книга 1"</span><span class="t">&gt;</span>
+                <span class="t">&lt;h4</span> <span class="a">class</span>=<span class="s">"book-title"</span><span class="t">&gt;</span>Маленький принц<span class="t">&lt;/h4</span><span class="t">&gt;</span>
+                <span class="t">&lt;p</span> <span class="a">class</span>=<span class="s">"book-author"</span><span class="t">&gt;</span>Антуан де Сент-Екзюпері<span class="t">&lt;/p</span><span class="t">&gt;</span>
+                <span class="t">&lt;p</span> <span class="a">class</span>=<span class="s">"book-price"</span><span class="t">&gt;</span>150 грн<span class="t">&lt;/p</span><span class="t">&gt;</span>
+            <span class="t">&lt;/div</span><span class="t">&gt;</span>
+            <span class="c">&lt;!-- ще 3–5 таких карток --&gt;</span>
+        <span class="t">&lt;/div</span><span class="t">&gt;</span>
+    <span class="t">&lt;/section</span><span class="t">&gt;</span>
+
+    <span class="t">&lt;footer</span> <span class="a">class</span>=<span class="s">"footer"</span><span class="t">&gt;</span>
+        <span class="t">&lt;h3</span> <span class="a">class</span>=<span class="s">"section-subtitle"</span><span class="t">&gt;</span>КНИЖКОВИЙ РАЙ<span class="t">&lt;/h3</span><span class="t">&gt;</span>
+        <span class="t">&lt;h3</span> <span class="a">class</span>=<span class="s">"section-title footer-title"</span><span class="t">&gt;</span>Приєднуйтесь до нашої спільноти<span class="t">&lt;/h3</span><span class="t">&gt;</span>
+        <span class="t">&lt;p</span> <span class="a">class</span>=<span class="s">"footer-text"</span><span class="t">&gt;</span><span class="t">&lt;span</span> <span class="a">class</span>=<span class="s">"footer-text-main"</span><span class="t">&gt;</span>Підпишіться на нашу розсилку, щоб отримувати новини.<span class="t">&lt;/span</span><span class="t">&gt;</span><span class="t">&lt;br</span><span class="t">&gt;</span>
+            Телефон: (012) 345-67-89<span class="t">&lt;/p</span><span class="t">&gt;</span>
+        <span class="t">&lt;form</span> <span class="a">class</span>=<span class="s">"footer-form"</span> <span class="a">action</span>=<span class="s">""</span><span class="t">&gt;</span>
+            <span class="t">&lt;p</span> <span class="a">class</span>=<span class="s">"form-title"</span><span class="t">&gt;</span>Ім'я<span class="t">&lt;/p</span><span class="t">&gt;</span>
+            <span class="t">&lt;input</span> <span class="a">class</span>=<span class="s">"form-input"</span> <span class="a">type</span>=<span class="s">"text"</span> <span class="a">id</span>=<span class="s">"name"</span><span class="t">&gt;</span>
+            <span class="t">&lt;p</span> <span class="a">class</span>=<span class="s">"form-title"</span><span class="t">&gt;</span>Електронна пошта<span class="t">&lt;/p</span><span class="t">&gt;</span>
+            <span class="t">&lt;input</span> <span class="a">class</span>=<span class="s">"form-input"</span> <span class="a">type</span>=<span class="s">"email"</span> <span class="a">id</span>=<span class="s">"email"</span><span class="t">&gt;</span>
+            <span class="t">&lt;p</span> <span class="a">class</span>=<span class="s">"form-title"</span><span class="t">&gt;</span>Телефон<span class="t">&lt;/p</span><span class="t">&gt;</span>
+            <span class="t">&lt;input</span> <span class="a">class</span>=<span class="s">"form-input"</span> <span class="a">type</span>=<span class="s">"tel"</span> <span class="a">id</span>=<span class="s">"phone"</span><span class="t">&gt;</span>
+            <span class="t">&lt;button</span> <span class="a">class</span>=<span class="s">"footer-button"</span> <span class="a">type</span>=<span class="s">"submit"</span><span class="t">&gt;</span>Підписатися<span class="t">&lt;/button</span><span class="t">&gt;</span>
+        <span class="t">&lt;/form</span><span class="t">&gt;</span>
+    <span class="t">&lt;/footer</span><span class="t">&gt;</span>
+<span class="t">&lt;/body</span><span class="t">&gt;</span>
+<span class="t">&lt;/html</span><span class="t">&gt;</span></pre></li><li><b class="t">Перевірте структуру</b><p>Відкрийте index.html у браузері: без стилів сторінка виглядає «голо» — це нормально. Перевірте, що всі зображення видно і українські літери відображаються правильно. Перевірте валідатором validator.w3.org.</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Збережіть проєкт</b><p>Наступного уроку продовжите в тих самих файлах. Заархівуйте папку book-heaven у ZIP.</p></li><li><b class="t">Здайте проміжний результат</b><p>Classroom: завдання «Проєкт Книжковий рай — етап 1» → ZIP → <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Структура папок і файлів, латинські назви</td><td>2</td></tr><tr><td>Каркас документа, шрифти і CSS підключено</td><td>2</td></tr><tr><td>Секція main: логотип, h1, h2, кнопка</td><td>2</td></tr><tr><td>Секція «Про нас»: фото, власний текст</td><td>2</td></tr><tr><td>Колекція: 4–6 карток з класами</td><td>2</td></tr><tr><td>Футер: форма з трьома полями і кнопкою</td><td>2</td></tr></tbody></table></div></div>
+<div class="card"><span class="label">Якщо щось не виходить</span><details><summary>Логотип з білим квадратом навколо</summary><p>Потрібен PNG з прозорим фоном. Можна прибрати фон на remove.bg або в Canva.</p></details><details><summary>Хочу іншу тему лендингу</summary><p>Можна (кав'ярня, спортклуб, гурток) за умови, що зберігаються 4 секції, картки і форма. Узгодьте з учителем у Classroom.</p></details></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Допишіть тексти і додайте всі картки книг, якщо не встигли на уроці.</li><li>Знайдіть на сайтах книгарень (yakaboo.ua, book-ye.com.ua) 2 лендинги або головні сторінки і запишіть 3 ідеї оформлення, які хочете використати.</li></ol>
+  <p class="fb">Підручник: проєкт 1, теми 18–19. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="24.html"><span>← Урок 24</span><b>ПР №15 «Створення сайту на GitHub»</b></a><a class="next" href="26.html"><span>Урок 26 →</span><b>Проєкт «Книжковий рай»: CSS і публікація</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · проєкт 1, теми 18–19</footer>
+</div>
+<script>window.LESSON={"n": 25, "q": {"final": [["Лендинг — це…", ["односторінковий сайт на одну тему з чіткою дією", "сайт з сотнею сторінок", "шаблон презентації"], 0, ""], ["Який етап іде першим?", ["Розробка", "Аналіз вимог", "Тестування"], 1, ""], ["Скільки секцій у лендингу «Книжковий рай»?", ["2", "4", "10"], 1, "main, дві section, footer."], ["Де зберігаємо зображення сайту?", ["У папці img поруч з index.html", "На робочому столі", "У style.css"], 0, ""], ["Навіщо в head рядок meta viewport?", ["Щоб сайт правильно масштабувався на смартфонах", "Для кольорів", "Для шрифтів"], 0, ""], ["Чому для кількох однакових карток книг використовують class, а не id?", ["id має бути унікальним на сторінці", "class швидший", "id не працює з div"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

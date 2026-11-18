@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 10. Резервне копіювання. Архівування. ПР №7 — Інформатика 8</title><meta name="description" content="Чому зникають дані і як цьому запобігти, як створювати резервні копії на диску й у хмарі, як працюють архіви."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r1">← Усі уроки · Розділ 1</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 10</span><span class="chip gr">Розділ 1</span><span class="chip sun">ПР №7</span><span class="chip gr">Підручник: тема 7</span></div>
+  <h1>Зберігання даних. Резервне копіювання. Архівування. ПР №7</h1>
+  <p class="lead">Чому зникають дані і як цьому запобігти, як створювати резервні копії на диску й у хмарі, як працюють архіви.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Втрата даних</b><span>~8 хв</span></a><a href="#s2" data-k="s2"><b>2. Backup</b><span>~9 хв</span></a><a href="#s3" data-k="s3"><b>3. Архіви</b><span>~8 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота №7</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Втрата даних</a></li><li><a href="#s2">2. Backup</a></li><li><a href="#s3">3. Архіви</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">ПР №7</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Втрата даних: причини і запобігання</h2></div></div>
+  <div class="tbl"><table><thead><tr><th>Причина</th><th>Як запобігти</th></tr></thead><tbody><tr><td>Фізичне ушкодження (падіння, перегрів, знос)</td><td>Резервні копії, обережне поводження, ДБЖ</td></tr><tr><td>Програмні збої, раптове вимкнення</td><td>Автозбереження, оновлення, безпечне від'єднання</td></tr><tr><td>Віруси, програми-вимагачі</td><td>Антивірус, оновлення, обережність з вкладеннями</td></tr><tr><td>Випадкове видалення чи форматування</td><td>Кошик, історія версій, резервні копії</td></tr><tr><td>Крадіжка, втрата пристрою</td><td>Пароль, шифрування, хмарна копія, «Знайти пристрій»</td></tr></tbody></table></div>
+</div>
+</section>
+<section id="s2" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A2</span><div><span class="label">Читаємо</span><h2>Резервне копіювання</h2></div></div>
+  <div class="grid2"><div class="tile"><b>Зовнішні носії</b><small>Зовнішній диск, флешка. Швидко, без інтернету. Але носій теж можна втратити чи пошкодити.</small></div><div class="tile"><b>Хмара</b><small>Google Диск (15 Гбайт безкоштовно), OneDrive, iCloud, Dropbox. Доступ звідусіль, автоматична синхронізація. Потрібні інтернет і надійний пароль з двофакторною автентифікацією.</small></div></div><div class="tbl"><table><thead><tr><th>ОС</th><th>Вбудований інструмент</th></tr></thead><tbody><tr><td>Windows</td><td>Історія файлів; Резервне копіювання та відновлення; OneDrive</td></tr><tr><td>macOS</td><td>Time Machine; iCloud</td></tr><tr><td>Linux</td><td>Déjà Dup, rsync, Timeshift</td></tr><tr><td>Android / iOS</td><td>Google One / iCloud — фото, контакти, налаштування</td></tr></tbody></table></div><div class="note"><b>Повне чи інкрементне</b>Повна копія — копіюємо все. Інкрементна — лише те, що змінилось з минулого разу: швидше і менше місця.</div>
+</div>
+</section>
+<section id="s3">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A3</span><div><span class="label">Читаємо</span><h2>Архівування</h2></div></div>
+  <p class="def"><b>Архівування</b> — об'єднання одного або кількох файлів в один файл-архів, зазвичай зі стисненням. Зручно пересилати і зберігати.</p><div class="tbl"><table><thead><tr><th>Формат</th><th>Програми</th><th>Особливості</th></tr></thead><tbody><tr><td>ZIP</td><td>Вбудовано в Windows/macOS, 7-Zip</td><td>Найсумісніший</td></tr><tr><td>7Z</td><td>7-Zip (безкоштовна, відкрита)</td><td>Найкраще стиснення</td></tr><tr><td>RAR</td><td>WinRAR (shareware)</td><td>Багатотомні архіви, відновлення</td></tr></tbody></table></div><ul class="clean"><li>Створити ZIP: <span class="path">ПКМ на файлах → Стиснути до ZIP-файлу</span>.</li><li>Розпакувати: <span class="path">ПКМ на архіві → Видобути все</span>.</li><li>Архів можна захистити паролем (7-Zip, WinRAR).</li></ul><div class="note"><b>Що стискається добре</b>Тексти, таблиці, програми — у 2–10 разів. JPEG, MP3, MP4 вже стиснені, тож архів майже не зменшить їх.</div>
+</div><div class="card"><span class="label">Вправа 1</span><h3>Прогнозуємо</h3><div class="ex" data-quiz="ex1"></div><p class="score" id="ex1s"></p></div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота №7</span><h2>Резервне копіювання та відновлення. Архівування даних</h2></div></div>
+  <p><b>Мета:</b> створити резервну копію навчальної папки, заархівувати дані різними способами і порівняти результати.</p>
+  <ol class="pw"><li><b class="t">Підготуйте папку</b><p>Створіть папку «Навчання_Прізвище» з 5–8 файлами різних типів: документи, таблиця, фото, ваші практичні роботи.</p></li><li><b class="t">Резервна копія в хмару</b><p>Завантажте папку на Google Диск (<span class="path">Створити → Завантажити папку</span>). Видаліть один файл з комп'ютера і відновіть його з Диска. Скріншоти.</p></li><li><b class="t">ZIP-архів</b><p><span class="path">ПКМ на папці → Стиснути до ZIP-файлу</span>. Запишіть розмір папки і архіву.</p></li><li><b class="t">7Z-архів з паролем (якщо можна встановити програми)</b><p>Встановіть 7-Zip з офіційного сайту 7-zip.org. <span class="path">ПКМ → 7-Zip → Додати до архіву</span>: формат 7z, рівень «Ультра», задайте пароль. Запишіть розмір.</p></li><li><b class="t">Додайте і видобудьте</b><p>Відкрийте архів, перетягніть у нього ще один файл. Потім розпакуйте архів в нову папку і перевірте, що файли відкриваються.</p></li><li><b class="t">Таблиця результатів</b><p>У Google Таблиці: Спосіб · Розмір · Ступінь стиснення (<code>=розмір_архіву/розмір_папки</code>, формат %) · Висновок.</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Збережіть результат</b><p>Перевірте, що файл або посилання відкривається і має доступ «Усі, хто має посилання — переглядач».</p></li><li><b class="t">Здайте в Classroom</b><p>Відкрийте завдання «Практична робота №7» → <span class="path">+ Додати або створити</span> → прикріпіть файл або посилання → <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Резервна копія в хмарі і відновлення файлу</td><td>3</td></tr><tr><td>ZIP-архів</td><td>2</td></tr><tr><td>Другий архів (7Z або інший)/з паролем</td><td>2</td></tr><tr><td>Додавання і видобування</td><td>2</td></tr><tr><td>Таблиця зі ступенем стиснення і висновок</td><td>3</td></tr></tbody></table></div></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Складіть свій план резервного копіювання за правилом 3-2-1: що копіюєте, куди, як часто.</li><li>Перевірте, чи ввімкнено резервне копіювання на вашому смартфоні.</li></ol>
+  <p class="fb">Підручник: тема 7. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу №7</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="09.html"><span>← Урок 9</span><b>Форматування. Оновлення ПЗ. ПР №6</b></a><a class="next" href="11.html"><span>Урок 11 →</span><b>Віруси, антивіруси, фішинг. ПР №8</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · тема 7</footer>
+</div>
+<script>window.LESSON={"n": 10, "q": {"ex1": [["Текстовий файл 1 Мбайт у ZIP стане приблизно…", ["1 Мбайт", "200–400 Кбайт", "5 Мбайт"], 1, ""], ["Відео MP4 1 Гбайт у ZIP стане приблизно…", ["100 Мбайт", "майже 1 Гбайт", "10 Мбайт"], 1, "Відео вже стиснене."], ["Найкращий ступінь стиснення серед цих форматів", ["ZIP", "7Z", "TXT"], 1, ""]], "final": [["Найкращий захист від програми-вимагача —", ["резервна копія", "новий монітор", "дефрагментація"], 0, ""], ["Перевага хмарного резервного копіювання:", ["працює без інтернету", "доступ з будь-якого пристрою", "не потребує пароля"], 1, ""], ["Інкрементне копіювання зберігає…", ["усе знову", "лише змінене з минулого разу", "лише фото"], 1, ""], ["Архівування — це…", ["видалення файлів", "об'єднання файлів в один зі стисненням", "шифрування диска"], 1, ""], ["Безкоштовна відкрита програма-архіватор —", ["7-Zip", "WinRAR", "Photoshop"], 0, ""], ["Інструмент резервного копіювання macOS —", ["Time Machine", "Історія файлів", "chkdsk"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

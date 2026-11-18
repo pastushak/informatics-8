@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 43. ПР №22 «Математичні функції» — Інформатика 8</title><meta name="description" content="Програми з кнопками: змінюємо колір вікна, обчислюємо периметр і площу прямокутника та розв&#x27;язуємо інші математичні задачі."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 43</span><span class="chip gr">Розділ 5</span><span class="chip sun">ПР №22</span><span class="chip gr">Підручник: тема 30</span></div>
+  <h1>Практична робота №22 «Складання програм з використанням математичних функцій»</h1>
+  <p class="lead">Програми з кнопками: змінюємо колір вікна, обчислюємо периметр і площу прямокутника та розв'язуємо інші математичні задачі.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Зразок</b><span>~5 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота №22</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Зразок</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">ПР №22</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Кнопка, що змінює колір вікна</h2></div></div>
+  <pre class="code" data-lang="py"><span class="k">from</span> tkinter <span class="k">import</span> *
+
+<span class="k">def</span> change_to_green():
+    window.configure(bg=<span class="s">"green"</span>)
+    window.title(<span class="s">"Зелений"</span>)
+
+window = Tk()
+window.title(<span class="s">"Зміна кольору фону"</span>)
+window.geometry(<span class="s">"400x300"</span>)
+
+Button(window, text=<span class="s">"Зелений"</span>, command=change_to_green, width=12).pack(pady=10)
+
+window.mainloop()</pre><div class="note"><b>Немає комп'ютера з Python?</b>Консольні програми (з <code>print</code> та <code>input</code>) можна запускати онлайн: <b>onlinegdb.com</b> (оберіть Language: Python 3), <b>programiz.com/python-programming/online-compiler</b>, на смартфоні — застосунок <b>Pydroid 3</b>. Програми з вікнами Tkinter онлайн не працюють — у Pydroid 3 вони запускаються.</div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота №22</span><h2>Складання програм з використанням математичних функцій</h2></div></div>
+  <p><b>Мета:</b> створювати програми з графічним інтерфейсом, у яких кнопки виконують обчислення.</p>
+  <ol class="pw"><li><b class="t">Завдання 1. Зміна кольору фону</b><p>Вікно 400×300 «Зміна кольору фону» з трьома кнопками: «Червоний» (фон <code>red</code>, заголовок «Червоний»), «Зелений», «Синій». Для кожної кнопки — своя функція. <span class="star">додатково</span> Задайте кнопкам розмір, колір, шрифт.</p></li><li><b class="t">Завдання 2. Периметр і площа прямокутника</b><p>Вікно 400×400 «Периметр і площа прямокутника»: дві мітки і два поля (довжина, ширина), три кнопки: <b>Обчислити периметр</b>, <b>Обчислити площу</b>, <b>Обчислити діагональ</b> (<code>math.sqrt</code>), і мітка для результату. Результат округліть до 2 знаків.</p></li><li><b class="t">Завдання 3. Коло</b><p>Поле для радіуса, кнопки «Довжина кола» (<code>2 * math.pi * r</code>) і «Площа круга» (<code>math.pi * r ** 2</code>).</p></li><li><b class="t">Завдання 4. Час <span class="star">додатково</span></b><p>Користувач вводить кількість секунд — програма виводить години, хвилини і секунди (<code>//</code> і <code>%</code>).</p></li><li><b class="t">Консольний варіант</b><p>Якщо Tkinter недоступний — виконайте завдання 2–4 з <code>input()</code> і <code>print()</code>; завдання 1 опишіть кодом без запуску.</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Зберіть код</b><p>Файли .py + скріншоти вікон з результатами.</p></li><li><b class="t">Здайте в Classroom</b><p>→ <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Завдання 1: три кнопки з функціями</td><td>3</td></tr><tr><td>Завдання 2: правильні формули, введення з Entry</td><td>4</td></tr><tr><td>Завдання 3: коло</td><td>3</td></tr><tr><td>Округлення, зрозумілі підписи</td><td>2</td></tr></tbody></table></div></div>
+<div class="card"><span class="label">Якщо щось не виходить</span><details><summary>Кнопка спрацьовує одразу при запуску, а потім не реагує</summary><p>Ви написали <code>command=func()</code> з дужками. Потрібно <code>command=func</code>.</p></details><details><summary>ValueError при натисканні</summary><p>Поле порожнє або в ньому кома. Введіть число з крапкою.</p></details></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Програма «Калькулятор знижки»: ціна товару і знижка у % → нова ціна і скільки зекономили.</li></ol>
+  <p class="fb">Підручник: тема 30. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу №22</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="42.html"><span>← Урок 42</span><b>Арифметика і модуль math</b></a><a class="next" href="44.html"><span>Урок 44 →</span><b>Логічний тип. Порівняння. and, or, not</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · тема 30</footer>
+</div>
+<script>window.LESSON={"n": 43, "q": {"final": [["Периметр прямокутника 5×3 —", ["15", "16", "8"], 1, ""], ["Площа прямокутника 5×3 —", ["15", "16", "8"], 0, ""], ["Діагональ прямокутника 3×4 —", ["5", "7", "12"], 0, "math.sqrt(3**2 + 4**2) = 5."], ["Як змінити текст мітки result?", ["result.config(text=\"...\")", "result = \"...\"", "print(result)"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

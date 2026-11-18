@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 5. Апгрейд. Файлова система. Кешування. Шифрування — Інформатика 8</title><meta name="description" content="Як прискорити старий комп&#x27;ютер, не купуючи новий, що робити з електронним сміттям, як диск організовує файли і як дані захищають шифруванням."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r1">← Усі уроки · Розділ 1</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 5</span><span class="chip gr">Розділ 1</span><span class="chip gr">Підручник: тема 3</span></div>
+  <h1>Апгрейд комп'ютера. Файлова система. Кешування. Шифрування</h1>
+  <p class="lead">Як прискорити старий комп'ютер, не купуючи новий, що робити з електронним сміттям, як диск організовує файли і як дані захищають шифруванням.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Апгрейд</b><span>~9 хв</span></a><a href="#s2" data-k="s2"><b>2. Файлова система</b><span>~9 хв</span></a><a href="#s3" data-k="s3"><b>3. Кеш і шифр</b><span>~12 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Апгрейд</a></li><li><a href="#s2">2. Файлова система</a></li><li><a href="#s3">3. Кеш і шифр</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Апгрейд і електронне сміття</h2></div></div>
+  <p class="def"><b>Апгрейд (модернізація)</b> — заміна або додавання компонентів комп'ютера для підвищення його продуктивності.</p><div class="tbl"><table><thead><tr><th>Що замінити</th><th>Ефект</th></tr></thead><tbody><tr><td>HDD → SSD</td><td>Найпомітніше прискорення: система вантажиться за секунди</td></tr><tr><td>Додати оперативну пам'ять</td><td>Більше програм і вкладок без гальмувань</td></tr><tr><td>Відеокарта</td><td>Ігри, 3D, відеомонтаж</td></tr><tr><td>Процесор</td><td>Загальна швидкість (треба перевірити сумісність із материнською платою)</td></tr><tr><td>Система охолодження, термопаста</td><td>Комп'ютер не перегрівається і не скидає частоту</td></tr></tbody></table></div><div class="note"><b>Перед апгрейдом</b>Перевірте сумісність: сокет процесора, тип пам'яті (DDR4/DDR5), потужність блока живлення, розмір корпусу.</div><p><b>Електронне сміття</b> — старі комп'ютери, телефони, батарейки — містить свинець, ртуть, кадмій. Його не можна викидати у звичайне сміття. Здавайте у спеціальні пункти прийому (магазини техніки, екопункти), а придатну техніку передавайте тим, кому вона потрібна.</p>
+</div>
+</section>
+<section id="s2" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A2</span><div><span class="label">Читаємо</span><h2>Файлова система</h2></div></div>
+  <p class="def"><b>Файлова система</b> — спосіб організації, зберігання та іменування файлів на носії. Вона визначає, як файли записуються, де знаходяться і які мають атрибути.</p><div class="tbl"><table><thead><tr><th>Файлова система</th><th>Де використовується</th><th>Особливості</th></tr></thead><tbody><tr><td>NTFS</td><td>Windows</td><td>Великі файли, права доступу, шифрування, журналювання</td></tr><tr><td>FAT32</td><td>Флешки, старі пристрої</td><td>Сумісна з усім, але файл не більше 4 Гбайт</td></tr><tr><td>exFAT</td><td>Флешки, карти пам'яті</td><td>Великі файли + сумісність</td></tr><tr><td>ext4</td><td>Linux</td><td>Надійна, швидка</td></tr><tr><td>APFS</td><td>macOS, iOS</td><td>Оптимізована для SSD, вбудоване шифрування</td></tr></tbody></table></div><p>Файли організовані в <b>ієрархію папок</b>. Шлях до файлу: <code>C:\Users\Ivan\Documents\Звіт.docx</code>.</p>
+</div>
+</section>
+<section id="s3">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A3</span><div><span class="label">Читаємо</span><h2>Кешування і шифрування</h2></div></div>
+  <p class="def"><b>Кешування</b> — зберігання часто потрібних даних у швидкій пам'яті, щоб наступного разу отримати їх швидше.</p><p>Кеш є в процесорі, на диску, у браузері (зберігає картинки сайтів, щоб сторінка відкривалася швидше). Якщо сайт показується «по-старому», допомагає очищення кешу або <kbd>Ctrl</kbd>+<kbd>F5</kbd>.</p><p class="def"><b>Шифрування</b> — перетворення даних у нечитабельний вигляд, який можна прочитати лише за допомогою ключа.</p><div class="grid2"><div class="tile"><b>Симетричне</b><small>Один ключ шифрує і розшифровує. Швидке. Приклад: AES.</small></div><div class="tile"><b>Асиметричне</b><small>Два ключі: відкритий шифрує, закритий розшифровує. Використовується в HTTPS, месенджерах.</small></div><div class="tile"><b>Де трапляється</b><small>BitLocker (Windows), FileVault (macOS), шифрування смартфона, замок у браузері (HTTPS), наскрізне шифрування в Signal, WhatsApp.</small></div></div><p>Найпростіший шифр — <b>шифр Цезаря</b>: кожну літеру зсуваємо на 3 позиції. «КОД» → «НСЄ».</p>
+</div><div class="card"><span class="label">Вправа 1</span><h3>Ситуації</h3><div class="ex" data-quiz="ex1"></div><p class="score" id="ex1s"></p></div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Опрацюйте тему 3 (апгрейд, файлова система, кешування, шифрування).</li><li>Зашифруйте шифром Цезаря (зсув 3) своє ім'я і прізвище. Українська абетка: А Б В Г Ґ Д Е Є Ж З И І Ї Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ь Ю Я.</li><li>Дізнайтеся, яка файлова система на диску C: вашого комп'ютера (<span class="path">ПКМ на диску → Властивості</span>) або на флешці.</li></ol>
+  <p class="fb">Підручник: тема 3. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="04.html"><span>← Урок 4</span><b>Периферійні пристрої. ПР №2</b></a><a class="next" href="06.html"><span>Урок 6 →</span><b>Дефрагментація. ПР №3 «Апгрейд конфігурації ПК»</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · тема 3</footer>
+</div>
+<script>window.LESSON={"n": 5, "q": {"ex1": [["Флешку треба читати і на Windows, і на Mac, файли до 10 Гбайт. Яка ФС?", ["FAT32", "exFAT", "NTFS"], 1, "FAT32 не допускає файлів понад 4 Гбайт, а NTFS погано пишеться на Mac."], ["Старий ноутбук довго вантажиться. Найефективніший апгрейд?", ["Новий корпус", "Замінити HDD на SSD", "Нова миша"], 1, ""], ["Браузер показує стару версію сайту. Що допоможе?", ["Очистити кеш", "Дефрагментація", "Нова клавіатура"], 0, ""], ["Повідомлення може прочитати лише власник ключа. Це…", ["кешування", "шифрування", "архівування"], 1, ""]], "final": [["Апгрейд — це…", ["купівля нового комп'ютера", "заміна або додавання компонентів для підвищення продуктивності", "встановлення ігор"], 1, ""], ["Що перевірити перед заміною процесора?", ["Сумісність із сокетом материнської плати", "Колір корпусу", "Марку миші"], 0, ""], ["Куди подіти старий телефон?", ["У звичайне сміття", "У пункт прийому електронних відходів", "Закопати"], 1, ""], ["Основна файлова система Windows —", ["NTFS", "APFS", "ext4"], 0, ""], ["Обмеження FAT32:", ["не працює з флешками", "файл не більше 4 Гбайт", "лише для Linux"], 1, ""], ["Кешування потрібне, щоб…", ["швидше отримувати часто вживані дані", "шифрувати файли", "видаляти віруси"], 0, ""], ["Скільки ключів в асиметричному шифруванні?", ["Один", "Два", "Жодного"], 1, "Відкритий і закритий."]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

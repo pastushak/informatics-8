@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 46. Розгалуження: if, elif, else — Інформатика 8</title><meta name="description" content="Програма вчиться вибирати: якщо умова істинна — одне, інакше — інше. Оператори if, elif, else, вкладені умови і повідомлення для користувача."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 46</span><span class="chip gr">Розділ 5</span><span class="chip gr">Підручник: теми 32–33</span></div>
+  <h1>Команда розгалуження</h1>
+  <p class="lead">Програма вчиться вибирати: якщо умова істинна — одне, інакше — інше. Оператори if, elif, else, вкладені умови і повідомлення для користувача.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. if / else</b><span>~8 хв</span></a><a href="#s2" data-k="s2"><b>2. elif</b><span>~10 хв</span></a><a href="#s3" data-k="s3"><b>3. Вкладені</b><span>~7 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. if / else</a></li><li><a href="#s2">2. elif</a></li><li><a href="#s3">3. Вкладені</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Оператор if і else</h2></div></div>
+  <p class="def"><b>Розгалуження</b> — алгоритмічна структура, у якій залежно від умови виконується одна або інша послідовність команд.</p><pre class="code" data-lang="py">t = <span class="k">float</span>(<span class="k">input</span>(<span class="s">"Температура: "</span>))
+<span class="k">if</span> t &lt; 0:
+    <span class="k">print</span>(<span class="s">"Мороз! Одягніть шапку"</span>)
+<span class="k">else</span>:
+    <span class="k">print</span>(<span class="s">"Морозу немає"</span>)
+<span class="k">print</span>(<span class="s">"Гарного дня"</span>)        <span class="c"># виконається завжди</span></pre><ol class="rules"><li><span>Після умови — двокрапка <code>:</code>.</span></li><li><span>Команди всередині — з відступом 4 пробіли (<kbd>Tab</kbd>).</span></li><li><span><code>else</code> не має умови і стоїть на рівні <code>if</code>.</span></li><li><span>Рядок без відступу — вже поза розгалуженням.</span></li></ol>
+</div>
+</section>
+<section id="s2">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A2</span><div><span class="label">Читаємо</span><h2>Кілька варіантів: elif</h2></div></div>
+  <pre class="code" data-lang="py">ph = <span class="k">float</span>(<span class="k">input</span>(<span class="s">"Значення pH: "</span>))
+<span class="k">if</span> ph &lt; 7:
+    <span class="k">print</span>(<span class="s">"Кислий"</span>)
+<span class="k">elif</span> ph == 7:
+    <span class="k">print</span>(<span class="s">"Нейтральний"</span>)
+<span class="k">else</span>:
+    <span class="k">print</span>(<span class="s">"Лужний"</span>)</pre><p><code>elif</code> («else if») перевіряється, лише якщо всі попередні умови хибні. Виконується <b>перша</b> істинна гілка, решта пропускаються.</p><pre class="code" data-lang="py">mark = <span class="k">int</span>(<span class="k">input</span>(<span class="s">"Бал (1–12): "</span>))
+<span class="k">if</span> mark &gt;= 10:
+    <span class="k">print</span>(<span class="s">"Високий рівень"</span>)
+<span class="k">elif</span> mark &gt;= 7:
+    <span class="k">print</span>(<span class="s">"Достатній рівень"</span>)
+<span class="k">elif</span> mark &gt;= 4:
+    <span class="k">print</span>(<span class="s">"Середній рівень"</span>)
+<span class="k">else</span>:
+    <span class="k">print</span>(<span class="s">"Початковий рівень"</span>)</pre>
+</div><div class="card"><span class="label">Вправа 1</span><h3>Простежте виконання</h3><div class="ex" data-quiz="ex1"></div><p class="score" id="ex1s"></p></div>
+</section>
+<section id="s3" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A3</span><div><span class="label">Читаємо</span><h2>Вкладені умови і розгалуження у вікні</h2></div></div>
+  <pre class="code" data-lang="py">price = <span class="k">float</span>(<span class="k">input</span>(<span class="s">"Ціна: "</span>))
+money = <span class="k">float</span>(<span class="k">input</span>(<span class="s">"Гроші: "</span>))
+<span class="k">if</span> money &gt;= price:
+    change = money - price
+    <span class="k">if</span> change == 0:
+        <span class="k">print</span>(<span class="s">"Без решти"</span>)
+    <span class="k">else</span>:
+        <span class="k">print</span>(f<span class="s">"Решта: {round(change, 2)} грн"</span>)
+<span class="k">else</span>:
+    <span class="k">print</span>(f<span class="s">"Не вистачає {round(price - money, 2)} грн"</span>)</pre><p>У Tkinter результат виводять у мітку, а колір вікна можна змінювати залежно від гілки: <code>window.configure(bg="lightgreen")</code>.</p>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Опрацюйте теми 32–33.</li><li>Програма «Пора року»: номер місяця 1–12 → назва пори року; для інших чисел — «Такого місяця немає».</li></ol>
+  <p class="fb">Підручник: теми 32–33. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="45.html"><span>← Урок 45</span><b>ПР №23 «Логічні оператори»</b></a><a class="next" href="47.html"><span>Урок 47 →</span><b>ПР №24 «Програми з розгалуженнями»</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · теми 32–33</footer>
+</div>
+<script>window.LESSON={"n": 46, "q": {"ex1": [["mark = 8. Що виведе програма з балами?", ["Високий", "Достатній", "Середній"], 1, ""], ["mark = 12", ["Високий", "Достатній", "Усі три"], 0, "Виконується лише перша істинна гілка."], ["Чого бракує: if x > 0 print(\"+\")", ["Двокрапки і відступу", "Дужок", "else"], 0, ""]], "final": [["Що ставлять після умови if?", [";", ":", "{"], 1, ""], ["Скільки гілок elif може бути?", ["Лише одна", "Скільки завгодно", "Жодної"], 1, ""], ["Коли виконується else?", ["Коли всі умови хибні", "Завжди", "Коли перша умова істинна"], 0, ""], ["x = 5. Що виведе: if x > 3: print(\"A\") elif x > 1: print(\"B\")", ["A", "B", "A і B"], 0, ""], ["Як Python визначає, які команди всередині if?", ["За відступом", "За дужками", "За крапкою з комою"], 0, ""], ["Чи обов'язковий else?", ["Ні", "Так"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

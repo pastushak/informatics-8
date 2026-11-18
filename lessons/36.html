@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 36. IDE. Компілятори й інтерпретатори — Інформатика 8</title><meta name="description" content="Починаємо програмувати мовою Python. Спершу розберемося, у чому пишуть код, як комп&#x27;ютер «розуміє» програму і що таке програмний проєкт."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 36</span><span class="chip gr">Розділ 5</span><span class="chip gr">Підручник: тема 27</span></div>
+  <h1>Середовища для написання коду. Транслятори. Програмний проєкт</h1>
+  <p class="lead">Починаємо програмувати мовою Python. Спершу розберемося, у чому пишуть код, як комп'ютер «розуміє» програму і що таке програмний проєкт.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. IDE</b><span>~8 хв</span></a><a href="#s2" data-k="s2"><b>2. Транслятори</b><span>~8 хв</span></a><a href="#s3" data-k="s3"><b>3. Проєкт</b><span>~7 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. IDE</a></li><li><a href="#s2">2. Транслятори</a></li><li><a href="#s3">3. Проєкт</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Середовище розробки (IDE)</h2></div></div>
+  <p class="def"><b>Середовище для написання коду (IDE, інтегроване середовище розробки)</b> — програма, яка об'єднує інструменти для написання, запуску, перевірки і виправлення коду.</p><div class="grid2"><div class="tile"><b>Редактор коду</b><small>Підсвічує синтаксис, робить автовідступи, підказує назви команд.</small></div><div class="tile"><b>Транслятор</b><small>Компілятор або інтерпретатор перетворює код на команди для комп'ютера.</small></div><div class="tile"><b>Відладчик (дебагер)</b><small>Дозволяє виконувати програму покроково і бачити значення змінних — щоб знайти помилку.</small></div><div class="tile"><b>Керування файлами</b><small>Організовує файли великого проєкту.</small></div></div><div class="tbl"><table><thead><tr><th>IDE</th><th>Особливості</th></tr></thead><tbody><tr><td>IDLE</td><td>Встановлюється разом з Python. Просте, для початківців</td></tr><tr><td>Thonny</td><td>Створене для навчання: показує, як змінюються змінні під час виконання</td></tr><tr><td>Visual Studio Code</td><td>Безкоштовний, легкий, підтримує багато мов через розширення</td></tr><tr><td>PyCharm</td><td>Потужне середовище саме для Python</td></tr><tr><td>Онлайн: OnlineGDB, Programiz, Replit</td><td>Працюють у браузері, нічого не треба встановлювати</td></tr></tbody></table></div><div class="note"><b>Немає комп'ютера з Python?</b>Консольні програми (з <code>print</code> та <code>input</code>) можна запускати онлайн: <b>onlinegdb.com</b> (оберіть Language: Python 3), <b>programiz.com/python-programming/online-compiler</b>, на смартфоні — застосунок <b>Pydroid 3</b>. Програми з вікнами Tkinter онлайн не працюють — у Pydroid 3 вони запускаються.</div>
+</div>
+</section>
+<section id="s2">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A2</span><div><span class="label">Читаємо</span><h2>Транслятори: компілятори та інтерпретатори</h2></div></div>
+  <p class="def"><b>Транслятор</b> — програма, яка перетворює код, написаний програмістом мовою програмування, у машинний код, зрозумілий процесору.</p><div class="grid2"><div class="tile"><b>Компілятор</b><small>Перекладає <b>всю</b> програму наперед і створює виконуваний файл (.exe). Як переклад книжки перед тим, як її читатимуть. Програма потім працює швидко. Мови: C, C++, Go, Rust.</small></div><div class="tile"><b>Інтерпретатор</b><small>Перекладає і виконує програму <b>рядок за рядком</b>. Як синхронний перекладач на зустрічі. Зручно для навчання: помилку видно одразу. Мови: Python, JavaScript, PHP.</small></div></div><p>Python — інтерпретована мова. Якщо в 10-му рядку помилка, перші 9 рядків уже виконаються, а потім з'явиться повідомлення про помилку з номером рядка.</p>
+</div><div class="card"><span class="label">Вправа 1</span><h3>Хто це робить?</h3><div class="ex" data-quiz="ex1"></div><p class="score" id="ex1s"></p></div>
+</section>
+<section id="s3" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A3</span><div><span class="label">Читаємо</span><h2>Програмний проєкт</h2></div></div>
+  <p class="def"><b>Програмний проєкт</b> — сукупність файлів (код, зображення, дані, налаштування), об'єднаних в одну папку, які разом утворюють програму.</p><ol class="stairs"><li><b>Постановка задачі</b><small>що має робити програма і для кого</small></li><li><b>Проєктування</b><small>алгоритм, інтерфейс, структура файлів</small></li><li><b>Програмування</b><small>написання коду</small></li><li><b>Тестування і налагодження</b><small>пошук і виправлення помилок</small></li><li><b>Впровадження і підтримка</b><small>передача користувачам, оновлення</small></li></ol><p>Файли Python мають розширення <code>.py</code>. Назви — латиницею, без пробілів: <code>welcome.py</code>, <code>math_operations.py</code>.</p><pre class="code" data-lang="py"><span class="k">print</span>(<span class="s">"Hello, Python!"</span>)
+<span class="k">print</span>(<span class="s">"Мене звати Олександр"</span>)</pre><div class="out-box">Hello, Python!
+Мене звати Олександр</div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Встановіть Python з python.org (на Windows позначте <b>Add python.exe to PATH</b>) і Thonny або VS Code. Немає комп'ютера — встановіть Pydroid 3 на смартфон або зареєструйтесь на onlinegdb.com.</li><li>Запишіть 3 відмінності компілятора від інтерпретатора.</li></ol>
+  <p class="fb">Підручник: тема 27. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="35.html"><span>← Урок 35</span><b>ПР №18 «Завершення дизайну сайту»</b></a><a class="next" href="37.html"><span>Урок 37 →</span><b>ПР №19 «Знайомство з IDE»</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · тема 27</footer>
+</div>
+<script>window.LESSON={"n": 36, "q": {"ex1": [["Програма перекладається повністю і зберігається як .exe", ["Компілятор", "Інтерпретатор"], 0, ""], ["Python виконує код рядок за рядком", ["Компілятор", "Інтерпретатор"], 1, ""], ["Інструмент для покрокового пошуку помилок", ["Відладчик", "Редактор", "Браузер"], 0, ""]], "final": [["IDE —", ["інтегроване середовище розробки", "тип процесора", "мова програмування"], 0, ""], ["Що робить транслятор?", ["Перетворює код на машинні команди", "Малює інтерфейс", "Зберігає файли в хмару"], 0, ""], ["Python —", ["компільована мова", "інтерпретована мова"], 1, ""], ["Компілятор…", ["перекладає всю програму наперед", "виконує рядок за рядком"], 0, ""], ["Розширення файлів Python —", [".py", ".pt", ".exe"], 0, ""], ["Яке середовище встановлюється разом із Python?", ["IDLE", "PyCharm", "Word"], 0, ""], ["Відладчик потрібен, щоб…", ["знаходити помилки, виконуючи програму покроково", "писати швидше", "малювати вікна"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

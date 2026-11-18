@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 53. Проєкт «Квадратні рівняння»: код і тести — Інформатика 8</title><meta name="description" content="Пишемо функції обчислення і очищення, обробляємо помилки введення, тестуємо програму на різних рівняннях."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 53</span><span class="chip gr">Розділ 5</span><span class="chip sun">Практика</span><span class="chip gr">Підручник: проєкт 1, теми 38–39</span></div>
+  <h1>Проєкт «Розв'язування квадратних рівнянь»: розробка і тестування</h1>
+  <p class="lead">Пишемо функції обчислення і очищення, обробляємо помилки введення, тестуємо програму на різних рівняннях.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Код</b><span>~8 хв</span></a><a href="#s2" data-k="s2"><b>2. Тести</b><span>~5 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Код</a></li><li><a href="#s2">2. Тести</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">Практика</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Повний код-зразок</h2></div></div>
+  <p>Спробуйте спочатку написати функції самостійно. Зразок — для перевірки або якщо застрягли:</p><pre class="code" data-lang="py"><span class="c"># Проєкт «Розв'язування квадратних рівнянь» ax² + bx + c = 0</span>
+<span class="k">from</span> tkinter <span class="k">import</span> *
+<span class="k">from</span> tkinter <span class="k">import</span> messagebox
+<span class="k">from</span> math <span class="k">import</span> sqrt
+
+
+<span class="k">def</span> solve():
+    <span class="s">""</span><span class="s">"Читає коефіцієнти, обчислює дискримінант і корені."</span><span class="s">""</span>
+    <span class="k">try</span>:
+        a = <span class="k">float</span>(entry_a.get())
+        b = <span class="k">float</span>(entry_b.get())
+        c = <span class="k">float</span>(entry_c.get())
+    <span class="k">except</span> ValueError:
+        messagebox.showerror(<span class="s">"Помилка"</span>, <span class="s">"Введіть числа в усі три поля"</span>)
+        <span class="k">return</span>
+    <span class="k">if</span> a == 0:
+        messagebox.showwarning(<span class="s">"Увага"</span>, <span class="s">"a не може дорівнювати 0 — це не квадратне рівняння"</span>)
+        <span class="k">return</span>
+    d = b ** 2 - 4 * a * c                     <span class="c"># дискримінант</span>
+    <span class="k">if</span> d &gt; 0:
+        x1 = (-b + sqrt(d)) / (2 * a)
+        x2 = (-b - sqrt(d)) / (2 * a)
+        text = f<span class="s">"D = {d}\nДва корені: x₁ = {round(x1, 3)}, x₂ = {round(x2, 3)}"</span>
+    <span class="k">elif</span> d == 0:
+        x = -b / (2 * a)
+        text = f<span class="s">"D = 0\nОдин корінь: x = {round(x, 3)}"</span>
+    <span class="k">else</span>:
+        text = f<span class="s">"D = {d} &lt; 0\nДійсних коренів немає"</span>
+    result.config(text=text)
+
+
+<span class="k">def</span> clear():
+    <span class="s">""</span><span class="s">"Очищає поля для нового обчислення."</span><span class="s">""</span>
+    <span class="k">for</span> e <span class="k">in</span> (entry_a, entry_b, entry_c):
+        e.delete(0, END)
+    result.config(text=<span class="s">""</span>)
+
+
+window = Tk()
+window.title(<span class="s">"Розв'язування квадратних рівнянь"</span>)
+window.geometry(<span class="s">"500x350"</span>)
+window.resizable(<span class="k">False</span>, <span class="k">False</span>)
+window.configure(bg=<span class="s">"#EAF2F8"</span>)
+
+Label(window, text=<span class="s">"ax² + bx + c = 0"</span>, font=(<span class="s">"Arial"</span>, 20, <span class="s">"bold"</span>), bg=<span class="s">"#EAF2F8"</span>).pack(pady=15)
+
+frame = Frame(window, bg=<span class="s">"#EAF2F8"</span>)
+frame.pack()
+entries = []
+<span class="k">for</span> i, name <span class="k">in</span> enumerate((<span class="s">"a"</span>, <span class="s">"b"</span>, <span class="s">"c"</span>)):
+    Label(frame, text=f<span class="s">"{name} ="</span>, font=(<span class="s">"Arial"</span>, 14), bg=<span class="s">"#EAF2F8"</span>).grid(row=0, column=i * 2, padx=5)
+    e = Entry(frame, width=6, font=(<span class="s">"Arial"</span>, 14))
+    e.grid(row=0, column=i * 2 + 1, padx=5)
+    entries.append(e)
+entry_a, entry_b, entry_c = entries
+
+buttons = Frame(window, bg=<span class="s">"#EAF2F8"</span>)
+buttons.pack(pady=15)
+Button(buttons, text=<span class="s">"Розрахувати"</span>, font=(<span class="s">"Arial"</span>, 12), bg=<span class="s">"#2E86C1"</span>, fg=<span class="s">"white"</span>, command=solve).pack(side=LEFT, padx=5)
+Button(buttons, text=<span class="s">"Очистити"</span>, font=(<span class="s">"Arial"</span>, 12), command=clear).pack(side=LEFT, padx=5)
+
+result = Label(window, text=<span class="s">""</span>, font=(<span class="s">"Arial"</span>, 14), bg=<span class="s">"#EAF2F8"</span>)
+result.pack(pady=10)
+
+window.mainloop()</pre><div class="tbl"><table><thead><tr><th>Що нове</th><th>Пояснення</th></tr></thead><tbody><tr><td><code>entry.delete(0, END)</code></td><td>Очищує поле</td></tr><tr><td><code>return</code> у функції</td><td>Достроково виходить з функції після помилки</td></tr><tr><td><code>for e in (entry_a, entry_b, entry_c)</code></td><td>Цикл по набору полів</td></tr></tbody></table></div>
+</div>
+</section>
+<section id="s2" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A2</span><div><span class="label">Читаємо</span><h2>Тестування</h2></div></div>
+  <div class="tbl"><table><thead><tr><th>a, b, c</th><th>Очікуваний результат</th></tr></thead><tbody><tr><td>1, −3, 2</td><td>x₁ = 2, x₂ = 1</td></tr><tr><td>1, 2, 1</td><td>x = −1</td></tr><tr><td>1, 0, 1</td><td>коренів немає</td></tr><tr><td>2, −7, 3</td><td>x₁ = 3, x₂ = 0,5</td></tr><tr><td>0, 1, 1</td><td>попередження: a ≠ 0</td></tr><tr><td>«abc», 1, 1</td><td>повідомлення про помилку</td></tr></tbody></table></div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота</span><h2>Розробка, тестування і впровадження</h2></div></div>
+  <p><b>Мета:</b> реалізувати обчислення коренів, очищення полів, обробку помилок і протестувати програму.</p>
+  <ol class="pw"><li><b class="t">Функція solve()</b><p>Зчитує a, b, c (<code>float(entry.get())</code>), перевіряє a ≠ 0, обчислює D і корені, виводить результат у мітку, округливши до 3 знаків.</p></li><li><b class="t">Обробка помилок</b><p><code>try / except ValueError</code> + <code>messagebox.showerror</code>.</p></li><li><b class="t">Функція clear()</b><p>Очищує три поля і мітку результату.</p></li><li><b class="t">Тестування</b><p>Перевірте всі 6 випадків з таблиці + 2 свої з домашнього завдання. Заповніть таблицю тестів (вхід · очікувано · отримано · ✔/✘).</p></li><li><b class="t">Коментарі та покращення</b><p>Коментарі до функцій. <span class="star">додатково</span> Показуйте у вікні і значення D; змінюйте колір мітки залежно від кількості коренів.</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Фінальна здача</b><p>quadratic.py + таблиця тестів + скріншоти трьох випадків.</p></li><li><b class="t">Здайте в Classroom</b><p>«Проєкт 1» → <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Правильні корені в усіх трьох випадках D</td><td>4</td></tr><tr><td>Перевірка a = 0 і неправильного введення</td><td>3</td></tr><tr><td>Очищення полів</td><td>1</td></tr><tr><td>Таблиця тестування</td><td>2</td></tr><tr><td>Коментарі, охайний код</td><td>2</td></tr></tbody></table></div></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Покажіть програму рідним і попросіть «зламати» її неправильним введенням. Якщо вдалося — виправте.</li></ol>
+  <p class="fb">Підручник: проєкт 1, теми 38–39. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="52.html"><span>← Урок 52</span><b>Проєкт «Квадратні рівняння»: інтерфейс</b></a><a class="next" href="54.html"><span>Урок 54 →</span><b>Проєкт «Індекс маси тіла»: інтерфейс</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · проєкт 1, теми 38–39</footer>
+</div>
+<script>window.LESSON={"n": 53, "q": {"final": [["Яка послідовність етапів проєкту правильна?", ["Код → задача → тест", "Задача → підготовка → проєктування → код → тест", "Тест → код → задача"], 1, ""], ["Як очистити поле Entry?", ["entry.delete(0, END)", "entry = \"\"", "entry.clear"], 0, ""], ["Для 2x² − 7x + 3 = 0 корені —", ["3 і 0,5", "−3 і −0,5", "7 і 3"], 0, ""], ["Навіщо тестувати на «abc»?", ["Перевірити обробку неправильного введення", "Так красиво", "Щоб знайти корені"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

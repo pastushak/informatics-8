@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 22. Аналітика сайту. ПР №14 «Додавання елементів на сайт» — Інформатика 8</title><meta name="description" content="Як власники сайтів дізнаються, скільки людей заходить і що їм цікаво. На практичній роботі за допомогою Flexbox створите навігаційну панель і картку п"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r3">← Усі уроки · Розділ 3</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 22</span><span class="chip gr">Розділ 3</span><span class="chip sun">ПР №14</span><span class="chip gr">Підручник: тема 16</span></div>
+  <h1>Аналіз відвідування сайту. ПР №14</h1>
+  <p class="lead">Як власники сайтів дізнаються, скільки людей заходить і що їм цікаво. На практичній роботі за допомогою Flexbox створите навігаційну панель і картку профілю.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Аналітика</b><span>~10 хв</span></a><a href="#s2" data-k="s2"><b>2. Навігація</b><span>~6 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота №14</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Аналітика</a></li><li><a href="#s2">2. Навігація</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">ПР №14</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Аналіз відвідування сайту</h2></div></div>
+  <p>Сайт створюють для людей, тому важливо знати, як відвідувачі ним користуються. Для цього на сторінки додають код лічильника, а сервіс аналітики збирає статистику.</p><div class="tbl"><table><thead><tr><th>Показник</th><th>Що означає</th></tr></thead><tbody><tr><td>Відвідувачі (користувачі)</td><td>Скільки різних людей заходило</td></tr><tr><td>Сеанси і перегляди сторінок</td><td>Скільки разів заходили і скільки сторінок переглянули</td></tr><tr><td>Показник відмов</td><td>Частка відвідувачів, які пішли з першої сторінки, нічого не зробивши</td></tr><tr><td>Тривалість сеансу</td><td>Скільки часу провели на сайті</td></tr><tr><td>Джерела трафіку</td><td>Звідки прийшли: пошук Google, соцмережі, пряме введення адреси, посилання з інших сайтів</td></tr><tr><td>Пристрої, географія</td><td>Смартфон чи ПК, з якого міста / країни</td></tr></tbody></table></div><div class="grid2"><div class="tile"><b>Google Analytics</b><small>Найпоширеніший безкоштовний сервіс аналітики.</small></div><div class="tile"><b>Google Search Console</b><small>Як сайт показується в пошуку Google, за якими запитами його знаходять.</small></div><div class="tile"><b>Теплові карти</b><small>Microsoft Clarity, Hotjar — куди клацають і докуди гортають.</small></div></div><div class="note"><b>Висновки з цифр</b>Високий показник відмов на сторінці — сигнал: можливо, вона повільно вантажиться або не відповідає тому, що шукали. 70 % відвідувачів зі смартфонів — сайт обов'язково має бути адаптивним.</div>
+</div><div class="card"><span class="label">Вправа 1</span><h3>Аналітик</h3><div class="ex" data-quiz="ex1"></div><p class="score" id="ex1s"></p></div>
+</section>
+<section id="s2" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A2</span><div><span class="label">Читаємо</span><h2>Нагадування: Flexbox для навігації і карток</h2></div></div>
+  <pre class="code" data-lang="html"><span class="t">&lt;nav</span> <span class="a">class</span>=<span class="s">"nav"</span><span class="t">&gt;</span>
+    <span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"logo"</span><span class="t">&gt;</span>Логотип<span class="t">&lt;/div</span><span class="t">&gt;</span>
+    <span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"nav-links"</span><span class="t">&gt;</span>
+        <span class="t">&lt;a</span> <span class="a">class</span>=<span class="s">"nav-links-item"</span> <span class="a">href</span>=<span class="s">"#"</span><span class="t">&gt;</span>Головна<span class="t">&lt;/a</span><span class="t">&gt;</span>
+        <span class="t">&lt;a</span> <span class="a">class</span>=<span class="s">"nav-links-item"</span> <span class="a">href</span>=<span class="s">"#"</span><span class="t">&gt;</span>Про нас<span class="t">&lt;/a</span><span class="t">&gt;</span>
+        <span class="t">&lt;a</span> <span class="a">class</span>=<span class="s">"nav-links-item"</span> <span class="a">href</span>=<span class="s">"#"</span><span class="t">&gt;</span>Контакти<span class="t">&lt;/a</span><span class="t">&gt;</span>
+    <span class="t">&lt;/div</span><span class="t">&gt;</span>
+<span class="t">&lt;/nav</span><span class="t">&gt;</span></pre><pre class="code" data-lang="css">.nav {
+    <span class="a">display</span>: flex;
+    <span class="a">justify-content</span>: space-between;
+    <span class="a">align-items</span>: center;
+    <span class="a">background</span>: #333;
+    <span class="a">padding</span>: 10px 20px;
+}
+.nav-links-item {
+    <span class="a">color</span>: white;
+    <span class="a">text-decoration</span>: none;     <span class="c">/* без підкреслення */</span>
+    <span class="a">padding</span>: 8px 12px;
+}
+.<span class="a">nav-links-item</span>:hover {
+    <span class="a">background</span>: #575757;
+    <span class="a">border-radius</span>: 5px;
+}</pre>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота №14</span><h2>Додавання елементів на сайт</h2></div></div>
+  <p><b>Мета:</b> навчитися розташовувати елементи за допомогою Flexbox: блоки в ряд і в стовпчик, навігаційна панель, картка профілю.</p>
+  <ol class="pw"><li><b class="t">Завдання 1. Три блоки в ряд по центру</b><p>Створіть <code>div.container</code> з трьома <code>div.box</code> (100×100, різні кольори). Для <code>body</code>: <code>height: 100vh; display: flex; justify-content: center; align-items: center;</code>. Для контейнера: <code>display: flex; gap: 20px;</code>.</p></li><li><b class="t">Завдання 2. Рівні проміжки</b><p>Скопіюйте файл. Контейнеру задайте ширину 600px і <code>justify-content: space-between</code>, потім спробуйте <code>space-around</code>. Скріншоти обох.</p></li><li><b class="t">Завдання 3. Стовпчик</b><p>Ті самі блоки — <code>flex-direction: column; align-items: center;</code>.</p></li><li><b class="t">Завдання 4. Навігаційна панель</b><p>За прикладом з теорії: логотип ліворуч, 4 пункти меню праворуч (Головна, Про нас, Послуги, Контакти). <code>body { margin: 0; font-family: Arial; }</code>, темний фон, білий текст, <code>:hover</code> з фоном <code>#575757</code> і заокругленням 5px.</p></li><li><b class="t">Завдання 5. Картка профілю</b><pre class="code" data-lang="html"><span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"profile-card"</span><span class="t">&gt;</span>
+    <span class="t">&lt;img</span> <span class="a">src</span>=<span class="s">"photo.jpg"</span> <span class="a">alt</span>=<span class="s">"Фото профілю"</span> <span class="a">class</span>=<span class="s">"profile-image"</span><span class="t">&gt;</span>
+    <span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"profile-info"</span><span class="t">&gt;</span>
+        <span class="t">&lt;h2</span> <span class="a">class</span>=<span class="s">"profile-name"</span><span class="t">&gt;</span>Ім'я Користувача<span class="t">&lt;/h2</span><span class="t">&gt;</span>
+        <span class="t">&lt;p</span> <span class="a">class</span>=<span class="s">"profile-description"</span><span class="t">&gt;</span>Короткий опис: захоплення, мрії.<span class="t">&lt;/p</span><span class="t">&gt;</span>
+        <span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"social-links"</span><span class="t">&gt;</span>
+            <span class="t">&lt;a</span> <span class="a">href</span>=<span class="s">"#"</span> <span class="a">class</span>=<span class="s">"social-link"</span><span class="t">&gt;</span>Instagram<span class="t">&lt;/a</span><span class="t">&gt;</span>
+            <span class="t">&lt;a</span> <span class="a">href</span>=<span class="s">"#"</span> <span class="a">class</span>=<span class="s">"social-link"</span><span class="t">&gt;</span>YouTube<span class="t">&lt;/a</span><span class="t">&gt;</span>
+        <span class="t">&lt;/div</span><span class="t">&gt;</span>
+    <span class="t">&lt;/div</span><span class="t">&gt;</span>
+<span class="t">&lt;/div</span><span class="t">&gt;</span></pre><p><code>body</code> — картка в центрі екрана. <code>.profile-card</code>: <code>display: flex; flex-direction: column; align-items: center;</code>, ширина 300px, білий фон, тінь, заокруглення. <code>.profile-image</code>: 100×100px, <code>border-radius: 50%</code>, <code>object-fit: cover</code>. <code>.social-links</code>: <code>display: flex; gap: 10px</code>. Замість фото людини можна взяти аватар-малюнок.</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Зберіть файли</b><p>Окремі HTML-файли (або один файл з усіма завданнями) + CSS у ZIP або посилання на codepen.io.</p></li><li><b class="t">Здайте в Classroom</b><p>Додайте скріншоти кожного завдання → <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Завдання 1–3: правильні flex-властивості</td><td>4</td></tr><tr><td>Навігаційна панель з :hover</td><td>3</td></tr><tr><td>Картка профілю: структура і стилі</td><td>4</td></tr><tr><td>Охайність коду (відступи, назви класів)</td><td>1</td></tr></tbody></table></div></div>
+<div class="card"><span class="label">Якщо щось не виходить</span><details><summary>Блоки не стають у ряд</summary><p>display: flex треба задавати контейнеру (батьківському елементу), а не самим блокам.</p></details><details><summary>Не центрується по вертикалі</summary><p>Контейнеру потрібна висота: для body — <code>height: 100vh</code>.</p></details><details><summary>Фото в картці розтягнуте</summary><p>Додайте <code>object-fit: cover;</code>.</p></details></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Додайте навігаційну панель на свою сторінку «Мої улюблені книги» з посиланнями-якорями на розділи.</li><li>Пройдіть ще 6 рівнів flexboxfroggy.com.</li></ol>
+  <p class="fb">Підручник: тема 16. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу №14</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="21.html"><span>← Урок 21</span><b>Flexbox. Макет. Технічне завдання</b></a><a class="next" href="23.html"><span>Урок 23 →</span><b>Хостинг. Scrum і Kanban. Git</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · тема 16</footer>
+</div>
+<script>window.LESSON={"n": 22, "q": {"ex1": [["80 % відвідувачів — зі смартфонів. Що важливо?", ["Адаптивна версія сайту", "Великі банери", "Більше сторінок"], 0, ""], ["Люди одразу йдуть з головної сторінки. Цей показник —", ["показник відмов", "джерело трафіку", "перегляди"], 0, ""], ["Як дізнатися, за якими запитами сайт знаходять у Google?", ["Google Search Console", "Блокнот", "Валідатор W3C"], 0, ""]], "final": [["Навіщо аналізувати відвідування сайту?", ["Щоб зрозуміти, як ним користуються, і покращити його", "Щоб він швидше працював сам собою", "Для валідації"], 0, ""], ["Найпоширеніший безкоштовний сервіс аналітики —", ["Google Analytics", "Canva", "GitHub"], 0, ""], ["Джерело трафіку «соцмережі» означає…", ["відвідувачі прийшли за посиланням із соцмережі", "сайт є соцмережею", "відвідувачі з ПК"], 0, ""], ["Теплова карта показує…", ["куди клацають відвідувачі", "температуру сервера", "колір сайту"], 0, ""], ["Як прибрати підкреслення посилання?", ["text-decoration: none;", "underline: off;", "border: none;"], 0, ""], ["Чим вирівняти логотип і меню по краях смуги?", ["justify-content: space-between", "text-align: justify", "margin: auto auto"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

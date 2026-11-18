@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 37. ПР №19 «Знайомство з IDE» — Інформатика 8</title><meta name="description" content="Пишемо і запускаємо перші програми на Python: у встановленому середовищі і в онлайн-середовищі OnlineGDB."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 37</span><span class="chip gr">Розділ 5</span><span class="chip sun">ПР №19</span><span class="chip gr">Підручник: тема 27</span></div>
+  <h1>Практична робота №19 «Знайомство із середовищем розробки IDE»</h1>
+  <p class="lead">Пишемо і запускаємо перші програми на Python: у встановленому середовищі і в онлайн-середовищі OnlineGDB.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. print()</b><span>~5 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота №19</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. print()</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">ПР №19</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Перша програма</h2></div></div>
+  <p>Функція <code>print()</code> виводить на екран те, що в дужках. Текст беруть у лапки, числа і вирази — без лапок. Кілька значень розділяють комою — між ними з'явиться пробіл.</p><pre class="code" data-lang="py"><span class="k">print</span>(<span class="s">"Сума:"</span>, 45 + 15)
+<span class="k">print</span>(<span class="s">"Частка:"</span>, 45 / 15)</pre><div class="out-box">Сума: 60
+Частка: 3.0</div><div class="tbl"><table><thead><tr><th>Середовище</th><th>Як запустити програму</th></tr></thead><tbody><tr><td>IDLE</td><td><kbd>F5</kbd> (Run → Run Module), спочатку зберегти файл</td></tr><tr><td>Thonny</td><td>Зелена кнопка ▶ або <kbd>F5</kbd></td></tr><tr><td>VS Code</td><td>Кнопка ▶ у правому верхньому куті (потрібне розширення Python)</td></tr><tr><td>OnlineGDB</td><td>Кнопка Run угорі, результат — у вікні внизу</td></tr></tbody></table></div><div class="note"><b>Немає комп'ютера з Python?</b>Консольні програми (з <code>print</code> та <code>input</code>) можна запускати онлайн: <b>onlinegdb.com</b> (оберіть Language: Python 3), <b>programiz.com/python-programming/online-compiler</b>, на смартфоні — застосунок <b>Pydroid 3</b>. Програми з вікнами Tkinter онлайн не працюють — у Pydroid 3 вони запускаються.</div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота №19</span><h2>Знайомство із середовищем розробки IDE</h2></div></div>
+  <p><b>Мета:</b> навчитися створювати, запускати і зберігати програми Python у середовищі розробки та онлайн.</p>
+  <ol class="pw"><li><b class="t">Завдання 1. Перша програма</b><p>Відкрийте IDLE, Thonny або VS Code. Створіть папку <code>python8</code>, у ній файл <code>welcome.py</code>:</p><pre class="code" data-lang="py"><span class="k">print</span>(<span class="s">"Hello, Python!"</span>)
+<span class="k">print</span>(<span class="s">"Мене звати ..."</span>)   <span class="c"># своє ім'я</span></pre><p>Запустіть. Запишіть: які частини вікна IDE ви використали, що з'явилося в консолі.</p></li><li><b class="t">Завдання 2. Математичні операції</b><p>Новий файл <code>math_operations.py</code>:</p><pre class="code" data-lang="py">a = 45
+b = 15
+<span class="k">print</span>(<span class="s">"Сума:"</span>, a + b)
+<span class="k">print</span>(<span class="s">"Різниця:"</span>, a - b)
+<span class="k">print</span>(<span class="s">"Добуток:"</span>, a * b)
+<span class="k">print</span>(<span class="s">"Частка:"</span>, a / b)</pre><p>Запустіть, потім змініть значення <code>a</code> і <code>b</code> (наприклад, 7 і 2) і запустіть знову. Що змінилося?</p></li><li><b class="t">Завдання 3. Онлайн-середовище</b><p>Відкрийте onlinegdb.com → Language: <b>Python 3</b>. Напишіть:</p><pre class="code" data-lang="py"><span class="k">print</span>(<span class="s">"Hello, OnlineGDB!"</span>)
+name = <span class="k">input</span>(<span class="s">"Введіть ваше ім'я: "</span>)
+<span class="k">print</span>(<span class="s">"Привіт,"</span>, name, <span class="s">"!"</span>)</pre><p>Натисніть <b>Run</b>, введіть ім'я у вікні внизу і натисніть Enter.</p></li><li><b class="t">Поділіться кодом</b><p>У OnlineGDB натисніть <b>Share</b> → скопіюйте посилання. Також натисніть <b>Download</b> і відкрийте завантажений файл у своєму редакторі.</p></li><li><b class="t">Дайте відповіді</b><ul class="clean"><li>Що робить кожна команда print() у завданні 2?</li><li>Чим відрізняється результат a / b від a * b за типом числа?</li></ul></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Зберіть результати</b><p>Файли .py або скріншоти коду з результатами + посилання Share з OnlineGDB + відповіді (у коментарі чи документі).</p></li><li><b class="t">Здайте в Classroom</b><p>→ <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Завдання 1 виконано, програма запускається</td><td>3</td></tr><tr><td>Завдання 2 зі зміненими значеннями</td><td>3</td></tr><tr><td>Завдання 3 в онлайн-середовищі з input</td><td>3</td></tr><tr><td>Відповіді на запитання</td><td>3</td></tr></tbody></table></div></div>
+<div class="card"><span class="label">Якщо щось не виходить</span><details><summary>Помилка SyntaxError</summary><p>Перевірте лапки й дужки: кожна відкрита має бути закрита. Лапки мають бути прямі <code>"</code>, а не «ялинки».</p></details><details><summary>NameError: name 'Print' is not defined</summary><p>Python розрізняє великі й малі літери: <code>print</code>, а не <code>Print</code>.</p></details></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Напишіть програму, яка виводить 3 рядки про вас: ім'я, улюблений предмет, хобі.</li><li>Порахуйте програмою, скільки хвилин у тижні (7 * 24 * 60).</li></ol>
+  <p class="fb">Підручник: тема 27. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу №19</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="36.html"><span>← Урок 36</span><b>IDE. Компілятори й інтерпретатори</b></a><a class="next" href="38.html"><span>Урок 38 →</span><b>Змінні і типи даних</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · тема 27</footer>
+</div>
+<script>window.LESSON={"n": 37, "q": {"final": [["Що виведе print(\"2 + 3\")?", ["5", "2 + 3", "Помилку"], 1, "У лапках — це текст, його не обчислюють."], ["Що виведе print(2 + 3)?", ["5", "2 + 3", "23"], 0, ""], ["Що виведе print(\"Сума:\", 7)?", ["Сума: 7", "Сума:7", "\"Сума:\", 7"], 0, "Кома в print вставляє пробіл."], ["Що виведе print(10 / 2)?", ["5", "5.0", "10/2"], 1, "Ділення / завжди дає дробове число."], ["Яка клавіша запускає програму в IDLE і Thonny?", ["F5", "F12", "Enter"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

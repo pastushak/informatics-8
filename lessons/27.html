@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 27. Проєкт «Подорожі»: головна сторінка — Інформатика 8</title><meta name="description" content="Другий проєкт — сайт туристичної агенції з трьох сторінок: Головна, Напрямки, Контакти. Вчимося пов&#x27;язувати сторінки меню і використовувати один CSS-ф"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r3">← Усі уроки · Розділ 3</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 27</span><span class="chip gr">Розділ 3</span><span class="chip sun">Практика</span><span class="chip gr">Підручник: проєкт 2, теми 20–21</span></div>
+  <h1>Проєкт «Подорожі»: багатосторінковий сайт. Головна сторінка</h1>
+  <p class="lead">Другий проєкт — сайт туристичної агенції з трьох сторінок: Головна, Напрямки, Контакти. Вчимося пов'язувати сторінки меню і використовувати один CSS-файл для всього сайту.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Структура</b><span>~8 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота</b><span>~35 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Структура</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">Практика</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Багатосторінковий сайт</h2></div></div>
+  <p>У багатосторінковому сайті кожна сторінка — окремий HTML-файл, а пов'язує їх однакове меню. Усі сторінки підключають <b>один спільний</b> <code>style.css</code> — змінюєте колір в одному місці, і він змінюється всюди.</p><figure class="fig"><svg viewBox="0 0 330 120" width="330"><g font-family="sans-serif" font-size="11" text-anchor="middle"><rect x="5" y="10" width="95" height="50" rx="6" fill="#FF6F61"/><text x="52" y="40" fill="#fff">index.html</text><rect x="118" y="10" width="95" height="50" rx="6" fill="#333"/><text x="165" y="40" fill="#fff">destinations.html</text><rect x="231" y="10" width="95" height="50" rx="6" fill="#333"/><text x="278" y="40" fill="#fff">contact.html</text><path d="M100 35h18M213 35h18" stroke="#999" stroke-width="2"/><rect x="95" y="88" width="140" height="26" rx="6" fill="#E0F2EA" stroke="#1E7A55"/><text x="165" y="105" fill="#1E7A55">style.css — спільний</text><path d="M52 60L140 88M165 60v28M278 60L190 88" stroke="#1E7A55" stroke-dasharray="3"/></g></svg><figcaption>Три сторінки, одне меню, один файл стилів</figcaption></figure><div class="grid2"><div class="tile"><b>Цільова аудиторія</b><small>Люди, які люблять подорожувати; туристичні агенції; ті, хто шукає інформацію про популярні напрямки.</small></div><div class="tile"><b>Функції</b><small>Презентація напрямків; контакти; підписка на новини та акції; форма зворотного зв'язку.</small></div><div class="tile"><b>Стиль</b><small>Темно-сірий #333, білий, кораловий #FF6F61, світло-сірий #FAFAFA; шрифт Arial.</small></div></div><div class="note"><b>Активний пункт меню</b>На кожній сторінці додайте клас <code>active</code> посиланню на поточну сторінку — відвідувач бачитиме, де він.</div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота</span><h2>Головна сторінка сайту «Подорожі»</h2></div></div>
+  <p><b>Мета:</b> створити структуру багатосторінкового сайту, головну сторінку з меню, банером, картками переваг і спільний файл стилів.</p>
+  <ol class="pw"><li><b class="t">Структура проєкту</b><p>Папка <code>travels</code>: <code>index.html</code>, <code>destinations.html</code>, <code>contact.html</code>, <code>style.css</code>, папка <code>img</code> з фото (logo.png, hero.jpg, 3 фото для карток).</p></li><li><b class="t">Розмітка головної сторінки</b><p>Чотири блоки: <code>header.head</code> (логотип + меню), <code>section.hero</code> (привітання), <code>section.intro</code> (три картки «Чому слід обрати нас»), <code>footer.footer</code>.</p><pre class="code" data-lang="html"><span class="t">&lt;!DOCTYPE</span> html<span class="t">&gt;</span>
+<span class="t">&lt;html</span> <span class="a">lang</span>=<span class="s">"uk"</span><span class="t">&gt;</span>
+<span class="t">&lt;head</span><span class="t">&gt;</span>
+    <span class="t">&lt;meta</span> <span class="a">charset</span>=<span class="s">"UTF-8"</span><span class="t">&gt;</span>
+    <span class="t">&lt;meta</span> <span class="a">name</span>=<span class="s">"viewport"</span> <span class="a">content</span>=<span class="s">"width=device-width, initial-scale=1.0"</span><span class="t">&gt;</span>
+    <span class="t">&lt;title</span><span class="t">&gt;</span>Подорожі — Головна<span class="t">&lt;/title</span><span class="t">&gt;</span>
+    <span class="t">&lt;link</span> <span class="a">rel</span>=<span class="s">"stylesheet"</span> <span class="a">href</span>=<span class="s">"style.css"</span><span class="t">&gt;</span>
+<span class="t">&lt;/head</span><span class="t">&gt;</span>
+<span class="t">&lt;body</span><span class="t">&gt;</span>
+    <span class="t">&lt;header</span> <span class="a">class</span>=<span class="s">"head"</span><span class="t">&gt;</span>
+        <span class="t">&lt;img</span> <span class="a">src</span>=<span class="s">"img/logo.png"</span> <span class="a">class</span>=<span class="s">"logo"</span> <span class="a">alt</span>=<span class="s">"логотип"</span><span class="t">&gt;</span>
+        <span class="t">&lt;nav</span> <span class="a">class</span>=<span class="s">"menu"</span><span class="t">&gt;</span>
+            <span class="t">&lt;ul</span> <span class="a">class</span>=<span class="s">"menu-links"</span><span class="t">&gt;</span>
+                <span class="t">&lt;li</span> <span class="a">class</span>=<span class="s">"menu-item"</span><span class="t">&gt;</span><span class="t">&lt;a</span> <span class="a">href</span>=<span class="s">"index.html"</span> <span class="a">class</span>=<span class="s">"menu-item-link active"</span><span class="t">&gt;</span>Головна<span class="t">&lt;/a</span><span class="t">&gt;</span><span class="t">&lt;/li</span><span class="t">&gt;</span>
+                <span class="t">&lt;li</span> <span class="a">class</span>=<span class="s">"menu-item"</span><span class="t">&gt;</span><span class="t">&lt;a</span> <span class="a">href</span>=<span class="s">"destinations.html"</span> <span class="a">class</span>=<span class="s">"menu-item-link"</span><span class="t">&gt;</span>Напрямки<span class="t">&lt;/a</span><span class="t">&gt;</span><span class="t">&lt;/li</span><span class="t">&gt;</span>
+                <span class="t">&lt;li</span> <span class="a">class</span>=<span class="s">"menu-item"</span><span class="t">&gt;</span><span class="t">&lt;a</span> <span class="a">href</span>=<span class="s">"contact.html"</span> <span class="a">class</span>=<span class="s">"menu-item-link"</span><span class="t">&gt;</span>Контакти<span class="t">&lt;/a</span><span class="t">&gt;</span><span class="t">&lt;/li</span><span class="t">&gt;</span>
+            <span class="t">&lt;/ul</span><span class="t">&gt;</span>
+        <span class="t">&lt;/nav</span><span class="t">&gt;</span>
+    <span class="t">&lt;/header</span><span class="t">&gt;</span>
+
+    <span class="t">&lt;section</span> <span class="a">class</span>=<span class="s">"hero"</span><span class="t">&gt;</span>
+        <span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"hero-info"</span><span class="t">&gt;</span>
+            <span class="t">&lt;h1</span> <span class="a">class</span>=<span class="s">"hero-title"</span><span class="t">&gt;</span>Ласкаво просимо до світу подорожей!<span class="t">&lt;/h1</span><span class="t">&gt;</span>
+            <span class="t">&lt;p</span> <span class="a">class</span>=<span class="s">"hero-text"</span><span class="t">&gt;</span>Відкрийте для себе нові місця та враження<span class="t">&lt;/p</span><span class="t">&gt;</span>
+        <span class="t">&lt;/div</span><span class="t">&gt;</span>
+    <span class="t">&lt;/section</span><span class="t">&gt;</span>
+
+    <span class="t">&lt;section</span> <span class="a">class</span>=<span class="s">"intro"</span><span class="t">&gt;</span>
+        <span class="t">&lt;h2</span> <span class="a">class</span>=<span class="s">"intro-title"</span><span class="t">&gt;</span>Чому слід обрати нас<span class="t">&lt;/h2</span><span class="t">&gt;</span>
+        <span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"cards"</span><span class="t">&gt;</span>
+            <span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"card"</span><span class="t">&gt;</span>
+                <span class="t">&lt;img</span> <span class="a">src</span>=<span class="s">"img/destinations.jpg"</span> <span class="a">alt</span>=<span class="s">"Найкращі напрямки"</span> <span class="a">class</span>=<span class="s">"card-img"</span><span class="t">&gt;</span>
+                <span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"card-content"</span><span class="t">&gt;</span>
+                    <span class="t">&lt;h3</span> <span class="a">class</span>=<span class="s">"card-title"</span><span class="t">&gt;</span>Найкращі напрямки для вашої подорожі<span class="t">&lt;/h3</span><span class="t">&gt;</span>
+                    <span class="t">&lt;ul</span> <span class="a">class</span>=<span class="s">"card-list"</span><span class="t">&gt;</span>
+                        <span class="t">&lt;li</span><span class="t">&gt;</span>Екзотичні острови<span class="t">&lt;/li</span><span class="t">&gt;</span>
+                        <span class="t">&lt;li</span><span class="t">&gt;</span>Історичні міста<span class="t">&lt;/li</span><span class="t">&gt;</span>
+                        <span class="t">&lt;li</span><span class="t">&gt;</span>Культурні центри<span class="t">&lt;/li</span><span class="t">&gt;</span>
+                    <span class="t">&lt;/ul</span><span class="t">&gt;</span>
+                <span class="t">&lt;/div</span><span class="t">&gt;</span>
+            <span class="t">&lt;/div</span><span class="t">&gt;</span>
+            <span class="c">&lt;!-- ще дві картки: «Індивідуальні тури», «Відмінний сервіс» --&gt;</span>
+        <span class="t">&lt;/div</span><span class="t">&gt;</span>
+    <span class="t">&lt;/section</span><span class="t">&gt;</span>
+
+    <span class="t">&lt;footer</span> <span class="a">class</span>=<span class="s">"footer"</span><span class="t">&gt;</span>
+        <span class="t">&lt;p</span><span class="t">&gt;</span>© 2026 Подорожі · Коломия · info@travel.ua<span class="t">&lt;/p</span><span class="t">&gt;</span>
+    <span class="t">&lt;/footer</span><span class="t">&gt;</span>
+<span class="t">&lt;/body</span><span class="t">&gt;</span>
+<span class="t">&lt;/html</span><span class="t">&gt;</span></pre></li><li><b class="t">Три картки переваг</b><ul class="clean"><li>«Найкращі напрямки для вашої подорожі»: екзотичні острови, історичні міста, культурні центри;</li><li>«Індивідуальні тури під ваші потреби»: сімейні тури, романтичні подорожі, екстремальні пригоди;</li><li>«Відмінний сервіс»: підтримка 24/7, зручне бронювання, гарантована якість.</li></ul></li><li><b class="t">Спільні стилі</b><pre class="code" data-lang="css">* { <span class="a">box-sizing</span>: border-box; }
+body { <span class="a">margin</span>: 0; <span class="a">font-family</span>: Arial, Helvetica, sans-serif; <span class="a">color</span>: #333; }
+<span class="c">/* шапка і меню — спільні для всіх сторінок */</span>
+.head {
+    <span class="a">display</span>: flex;
+    <span class="a">justify-content</span>: space-between;
+    <span class="a">align-items</span>: center;
+    <span class="a">background</span>: #333;
+    <span class="a">padding</span>: 10px 40px;
+}
+.logo { <span class="a">height</span>: 50px; }
+.menu-links { <span class="a">display</span>: flex; <span class="a">gap</span>: 10px; <span class="a">list-style</span>: none; <span class="a">margin</span>: 0; <span class="a">padding</span>: 0; }
+.menu-item-link {
+    <span class="a">color</span>: #fff;
+    <span class="a">text-decoration</span>: none;
+    <span class="a">padding</span>: 8px 16px;
+    <span class="a">border-radius</span>: 5px;
+}
+.<span class="a">menu-item-link</span>:hover, .menu-item-link.active { <span class="a">background</span>: #FF6F61; }
+<span class="c">/* головний банер */</span>
+.hero {
+    <span class="a">height</span>: 70vh;
+    <span class="a">display</span>: flex;
+    <span class="a">justify-content</span>: center;
+    <span class="a">align-items</span>: center;
+    <span class="a">background</span>: url(<span class="s">"img/hero.jpg"</span>) center / cover;
+    <span class="a">text-align</span>: center;
+}
+.hero-info { <span class="a">background</span>: rgba(0, 0, 0, .5); <span class="a">color</span>: #fff; <span class="a">padding</span>: 30px 40px; <span class="a">border-radius</span>: 12px; }
+.hero-title { <span class="a">font-size</span>: 44px; <span class="a">margin</span>: 0 0 10px; }
+<span class="c">/* переваги */</span>
+.intro { <span class="a">padding</span>: 60px 20px; <span class="a">text-align</span>: center; <span class="a">background</span>: #FAFAFA; }
+.cards { <span class="a">display</span>: flex; <span class="a">justify-content</span>: center; <span class="a">flex-wrap</span>: wrap; <span class="a">gap</span>: 24px; }
+.card {
+    <span class="a">width</span>: 300px;
+    <span class="a">background</span>: #fff;
+    <span class="a">border-radius</span>: 12px;
+    <span class="a">overflow</span>: hidden;
+    <span class="a">box-shadow</span>: 0 4px 12px rgba(0, 0, 0, .1);
+    <span class="a">text-align</span>: left;
+}
+.card-img { <span class="a">width</span>: 100%; <span class="a">height</span>: 180px; <span class="a">object-fit</span>: cover; }
+.card-content { <span class="a">padding</span>: 16px; }
+.card-title { <span class="a">color</span>: #FF6F61; <span class="a">margin-top</span>: 0; }
+<span class="c">/* підвал */</span>
+.footer { <span class="a">background</span>: #333; <span class="a">color</span>: #fff; <span class="a">text-align</span>: center; <span class="a">padding</span>: 20px; }</pre></li><li><b class="t">Перевірте</b><p>Меню веде на три сторінки (дві поки порожні — це нормально, буде помилка «файл не знайдено», якщо їх не створено; створіть порожні файли). Банер займає 70 % висоти екрана, картки переносяться на вузькому екрані.</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Збережіть проєкт</b><p>Продовжите на наступному уроці. Архів папки travels.</p></li><li><b class="t">Проміжна здача</b><p>Classroom: «Проєкт Подорожі — етап 1» → ZIP або скріншоти → <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Структура проєкту з трьома HTML і одним CSS</td><td>2</td></tr><tr><td>Шапка з логотипом і меню на три сторінки</td><td>2</td></tr><tr><td>Банер з фоновим зображенням і привітанням</td><td>2</td></tr><tr><td>Три картки з фото, заголовком і списком</td><td>3</td></tr><tr><td>Підвал</td><td>1</td></tr><tr><td>Стилі: Flexbox, кольорова схема, :hover</td><td>2</td></tr></tbody></table></div></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Доробіть головну сторінку. Напишіть власний текст привітання (2–3 речення) про агенцію.</li><li>Оберіть 3–6 туристичних напрямків для сторінки «Напрямки» (можна українські: Карпати, Львів, Кам'янець-Подільський) і підготуйте по 2–3 речення опису кожного.</li></ol>
+  <p class="fb">Підручник: проєкт 2, теми 20–21. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="26.html"><span>← Урок 26</span><b>Проєкт «Книжковий рай»: CSS і публікація</b></a><a class="next" href="28.html"><span>Урок 28 →</span><b>Проєкт «Подорожі»: сторінки і публікація</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · проєкт 2, теми 20–21</footer>
+</div>
+<script>window.LESSON={"n": 27, "q": {"final": [["Як перейти з index.html на сторінку контактів?", ["<a href=\"contact.html\">", "<a href=\"#contact\">", "<link href=\"contact.html\">"], 0, ""], ["Навіщо один спільний style.css?", ["Однаковий вигляд усіх сторінок і зміни в одному місці", "Так вимагає браузер", "Щоб сайт був довшим"], 0, ""], ["Що має бути однаковим на всіх сторінках?", ["Шапка з меню і підвал", "Основний вміст", "Заголовки h1"], 0, ""], ["Як зробити фонове зображення банера на весь блок?", ["background: url(...) center / cover", "img width=100%", "background-color"], 0, ""], ["Клас active у меню потрібен, щоб…", ["показати поточну сторінку", "запустити анімацію", "відкрити меню"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

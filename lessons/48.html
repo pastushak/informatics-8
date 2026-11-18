@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 48. Цикли: for, while, range() — Інформатика 8</title><meta name="description" content="Цикли дозволяють повторювати дії без копіювання коду: цикл for з range(), цикл while з умовою, накопичення суми і пошук дільників."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 48</span><span class="chip gr">Розділ 5</span><span class="chip gr">Підручник: теми 34–35</span></div>
+  <h1>Команди повторення</h1>
+  <p class="lead">Цикли дозволяють повторювати дії без копіювання коду: цикл for з range(), цикл while з умовою, накопичення суми і пошук дільників.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. for</b><span>~10 хв</span></a><a href="#s2" data-k="s2"><b>2. Сума</b><span>~8 хв</span></a><a href="#s3" data-k="s3"><b>3. while</b><span>~8 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. for</a></li><li><a href="#s2">2. Сума</a></li><li><a href="#s3">3. while</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Цикл for і функція range()</h2></div></div>
+  <p class="def"><b>Цикл</b> — алгоритмічна структура, яка повторює набір команд кілька разів.</p><pre class="code" data-lang="py"><span class="k">for</span> i <span class="k">in</span> <span class="k">range</span>(5):
+    <span class="k">print</span>(<span class="s">"Привіт!"</span>, i)</pre><div class="out-box">Привіт! 0
+Привіт! 1
+Привіт! 2
+Привіт! 3
+Привіт! 4</div><div class="tbl"><table><thead><tr><th>Запис</th><th>Значення i</th></tr></thead><tbody><tr><td><code>range(5)</code></td><td>0, 1, 2, 3, 4 (до 5, не включно)</td></tr><tr><td><code>range(1, 6)</code></td><td>1, 2, 3, 4, 5</td></tr><tr><td><code>range(2, 11, 2)</code></td><td>2, 4, 6, 8, 10 (крок 2)</td></tr><tr><td><code>range(10, 0, -1)</code></td><td>10, 9, …, 1</td></tr></tbody></table></div><pre class="code" data-lang="py"><span class="k">for</span> letter <span class="k">in</span> <span class="s">"Python"</span>:     <span class="c"># по символах рядка</span>
+    <span class="k">print</span>(letter)</pre>
+</div>
+</section>
+<section id="s2">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A2</span><div><span class="label">Читаємо</span><h2>Накопичення: сума і кількість</h2></div></div>
+  <pre class="code" data-lang="py">n = <span class="k">int</span>(<span class="k">input</span>(<span class="s">"Введіть N: "</span>))
+s = 0                        <span class="c"># спочатку сума нуль</span>
+<span class="k">for</span> i <span class="k">in</span> <span class="k">range</span>(1, n + 1):
+    s += i                   <span class="c"># додаємо кожне число</span>
+<span class="k">print</span>(f<span class="s">"Сума чисел від 1 до {n}: {s}"</span>)</pre><pre class="code" data-lang="py">a = <span class="k">int</span>(<span class="k">input</span>(<span class="s">"a = "</span>))
+b = <span class="k">int</span>(<span class="k">input</span>(<span class="s">"b = "</span>))
+gcd = 1
+<span class="k">for</span> i <span class="k">in</span> <span class="k">range</span>(1, <span class="k">min</span>(a, b) + 1):
+    <span class="k">if</span> a % i == 0 <span class="k">and</span> b % i == 0:
+        gcd = i              <span class="c"># запам'ятовуємо останній спільний дільник</span>
+<span class="k">print</span>(<span class="s">"НСД ="</span>, gcd)</pre>
+</div><div class="card"><span class="label">Вправа 1</span><h3>Простежте цикл</h3><div class="ex" data-quiz="ex1"></div><p class="score" id="ex1s"></p></div>
+</section>
+<section id="s3" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A3</span><div><span class="label">Читаємо</span><h2>Цикл while</h2></div></div>
+  <p class="def"><b>Цикл while</b> — повторює команди, <b>поки</b> умова істинна. Використовують, коли кількість повторень наперед невідома.</p><pre class="code" data-lang="py">password = <span class="s">""</span>
+<span class="k">while</span> password != <span class="s">"python"</span>:
+    password = <span class="k">input</span>(<span class="s">"Пароль: "</span>)
+<span class="k">print</span>(<span class="s">"Доступ дозволено"</span>)</pre><pre class="code" data-lang="py">money = 1000
+years = 0
+<span class="k">while</span> money &lt; 2000:          <span class="c"># скільки років, щоб подвоїти вклад під 10 %?</span>
+    money = money * 1.1
+    years += 1
+<span class="k">print</span>(years)</pre><div class="note"><b>Нескінченний цикл</b>Якщо умова while ніколи не стане хибною, програма «зависне». Зупинити: <kbd>Ctrl</kbd>+<kbd>C</kbd> або кнопка Stop. <code>break</code> достроково виходить з циклу.</div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Опрацюйте теми 34–35.</li><li>Виведіть таблицю множення на 7 циклом for: «7 × 1 = 7» … «7 × 10 = 70».</li></ol>
+  <p class="fb">Підручник: теми 34–35. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="47.html"><span>← Урок 47</span><b>ПР №24 «Програми з розгалуженнями»</b></a><a class="next" href="49.html"><span>Урок 49 →</span><b>ПР №25 «Програми з циклами»</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · теми 34–35</footer>
+</div>
+<script>window.LESSON={"n": 48, "q": {"ex1": [["Скільки разів виконається for i in range(3)?", ["2", "3", "4"], 1, ""], ["Останнє значення i в range(1, 10)", ["9", "10", "1"], 0, ""], ["Що виведе: s = 0; for i in range(1, 4): s += i; print(s)", ["6", "10", "3"], 0, "1+2+3 = 6."]], "final": [["Що виведе range(2, 6)?", ["2 3 4 5", "2 3 4 5 6", "3 4 5 6"], 0, ""], ["Коли краще використати while?", ["Коли кількість повторень невідома", "Завжди", "Ніколи"], 0, ""], ["Що робить break?", ["Достроково завершує цикл", "Пропускає рядок", "Зупиняє комп'ютер"], 0, ""], ["Як отримати числа 10, 20, 30, 40, 50?", ["range(10, 51, 10)", "range(10, 50)", "range(5, 10)"], 0, ""], ["Чому s = 0 пишуть ДО циклу?", ["Щоб сума не обнулялась на кожному повторі", "Так вимагає Python", "Без причини"], 0, ""], ["Що буде, якщо умова while завжди True?", ["Нескінченний цикл", "Помилка синтаксису", "Цикл не виконається"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 58. Проєкт «PyPizza»: кілька вікон — Інформатика 8</title><meta name="description" content="Фінальний проєкт розділу — застосунок піцерії з трьома вікнами: старт, конструктор піци, оформлення замовлення. Вчимося відкривати нові вікна і переда"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 58</span><span class="chip gr">Розділ 5</span><span class="chip sun">Практика</span><span class="chip gr">Підручник: проєкт 4, теми 44–45</span></div>
+  <h1>Проєкт «Створення додатку для замовлення PyPizza»: кілька вікон</h1>
+  <p class="lead">Фінальний проєкт розділу — застосунок піцерії з трьома вікнами: старт, конструктор піци, оформлення замовлення. Вчимося відкривати нові вікна і передавати між ними дані.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Вікна</b><span>~10 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Вікна</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">Практика</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Задача і структура</h2></div></div>
+  <div class="tbl"><table><thead><tr><th>Вікно</th><th>Що містить</th></tr></thead><tbody><tr><td>1. Стартове (Tk)</td><td>Назва, кнопки «Піца» і «Суші»</td></tr><tr><td>2. Конструктор (Toplevel)</td><td>Основа (Radiobutton): тонка 100, класична 120, сирна 150 грн; начинка (Checkbutton): сир +20, м'ясо +30, овочі +15; напій (Radiobutton): кола 15, сік 25, вода 20; вартість; кнопка «Оформити»</td></tr><tr><td>3. Замовлення (Toplevel)</td><td>Сума до сплати, поля ім'я, телефон, адреса, кнопка «Підтвердити»</td></tr></tbody></table></div><p class="def"><b>Toplevel</b> — додаткове вікно Tkinter. Головне вікно <code>Tk()</code> у програмі лише одне, а Toplevel — скільки завгодно.</p><pre class="code" data-lang="py"><span class="k">def</span> open_pizza():
+    pizza = Toplevel(start)          <span class="c"># нове вікно поверх стартового</span>
+    pizza.title(<span class="s">"Створи свою піцу"</span>)
+    pizza.geometry(<span class="s">"420x520"</span>)
+
+Button(start, text=<span class="s">"Піца"</span>, command=open_pizza).pack()</pre><p class="def"><b>lambda</b> — коротка безіменна функція. Потрібна, щоб передати аргумент у функцію кнопки: <code>command=lambda: open_order(price())</code>.</p>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота</span><h2>Стартове вікно і конструктор піци</h2></div></div>
+  <p><b>Мета:</b> створити стартове вікно і вікно конструктора з вибором складників і динамічним розрахунком ціни.</p>
+  <ol class="pw"><li><b class="t">Стартове вікно</b><p>Назва PyPizza, підзаголовок, кнопки «Піца» і «Суші» (для суші поки — повідомлення).</p></li><li><b class="t">Словники цін</b><pre class="code" data-lang="py">BASES = {<span class="s">"Тонка основа"</span>: 100, <span class="s">"Класична основа"</span>: 120, <span class="s">"Сирна основа"</span>: 150}
+TOPPINGS = {<span class="s">"Сир"</span>: 20, <span class="s">"М'ясо"</span>: 30, <span class="s">"Овочі"</span>: 15}
+DRINKS = {<span class="s">"Без напою"</span>: 0, <span class="s">"Кока-кола"</span>: 15, <span class="s">"Сік"</span>: 25, <span class="s">"Мінеральна вода"</span>: 20}</pre></li><li><b class="t">Конструктор піци</b><p>Функція <code>open_pizza()</code> створює Toplevel з перемикачами основи, прапорцями начинки, перемикачами напою (цикл <code>for name, cost in BASES.items():</code>) і міткою вартості.</p></li><li><b class="t">Динамічна ціна</b><p>Функція <code>update()</code> рахує суму і змінює мітку; її викликає кожен перемикач і прапорець.</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Проміжна здача</b><p>pypizza.py + скріншоти.</p></li><li><b class="t">Здайте в Classroom</b><p>«Проєкт 4 — етап 1» → <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Стартове вікно з кнопками</td><td>2</td></tr><tr><td>Toplevel відкривається</td><td>2</td></tr><tr><td>Усі складники зі словників</td><td>4</td></tr><tr><td>Ціна оновлюється миттєво</td><td>4</td></tr></tbody></table></div></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Придумайте меню суші (3–4 позиції з цінами) для додаткового завдання.</li></ol>
+  <p class="fb">Підручник: проєкт 4, теми 44–45. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="57.html"><span>← Урок 57</span><b>Проєкт «Вартість сайту»: код і тести</b></a><a class="next" href="59.html"><span>Урок 59 →</span><b>Проєкт «PyPizza»: замовлення і тести</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · проєкт 4, теми 44–45</footer>
+</div>
+<script>window.LESSON={"n": 58, "q": {"final": [["Яка послідовність етапів проєкту правильна?", ["Код → задача → тест", "Задача → підготовка → проєктування → код → тест", "Тест → код → задача"], 1, ""], ["Як створити додаткове вікно?", ["Toplevel(start)", "Tk() ще раз", "Frame()"], 0, ""], ["Класична основа + сир + м'ясо + сік =", ["195 грн", "170 грн", "120 грн"], 0, "120 + 20 + 30 + 25."], ["Навіщо lambda в command=lambda: open_order(price())?", ["Щоб передати аргумент і викликати функцію лише при натисканні", "Для швидкості", "Для кольору"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 54. Проєкт «Індекс маси тіла»: інтерфейс — Інформатика 8</title><meta name="description" content="Другий проєкт: програма, що обчислює індекс маси тіла за вагою і зростом, визначає категорію і показує відповідне зображення."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 54</span><span class="chip gr">Розділ 5</span><span class="chip sun">Практика</span><span class="chip gr">Підручник: проєкт 2, теми 40–41</span></div>
+  <h1>Проєкт «Визначення індексу маси тіла»: аналіз і інтерфейс</h1>
+  <p class="lead">Другий проєкт: програма, що обчислює індекс маси тіла за вагою і зростом, визначає категорію і показує відповідне зображення.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Задача</b><span>~10 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Задача</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">Практика</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Задача</h2></div></div>
+  <p>Індекс маси тіла: <code>ІМТ = вага (кг) / зріст (м)²</code>. Зріст користувач вводить у сантиметрах — ділимо на 100.</p><div class="tbl"><table><thead><tr><th>ІМТ</th><th>Категорія (для дорослих)</th></tr></thead><tbody><tr><td>менше 18,5</td><td>дефіцит маси</td></tr><tr><td>18,5 – 24,9</td><td>норма</td></tr><tr><td>25 – 29,9</td><td>надлишкова вага</td></tr><tr><td>30 і більше</td><td>ожиріння</td></tr></tbody></table></div><div class="note"><b>Важливо</b>Таблиця категорій ІМТ розроблена для <b>дорослих</b>. У підлітків ІМТ оцінюють за віковими таблицями ВООЗ, і робить це лікар. Тестуйте програму на вигаданих даних дорослих людей — це навчальна задача з програмування.</div><ul class="clean"><li>Вікно 400×330 (з картинкою — більше), без зміни розміру.</li><li>Поля для ваги (кг) і зросту (см), кнопка «Визначити».</li><li>Мітка результату (колір фону залежить від категорії) і мітка для зображення.</li></ul><h3>Зображення у вікні</h3><pre class="code" data-lang="py">img = PhotoImage(file=<span class="s">"norma.png"</span>)    <span class="c"># лише PNG або GIF!</span>
+picture = Label(window, image=img)
+picture.pack()
+picture.config(image=img)             <span class="c"># змінити зображення</span></pre><p>Підготуйте 4 невеликі (до 200 px) тематичні PNG-зображення — іконки або ілюстрації, без фото людей. Збережіть у папку з програмою, назви латиницею.</p>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота</span><h2>Інтерфейс програми ІМТ</h2></div></div>
+  <p><b>Мета:</b> підготувати зображення і створити вікно програми.</p>
+  <ol class="pw"><li><b class="t">Підготуйте папку</b><p><code>bmi_project</code>: файл <code>bmi.py</code> і 4 зображення PNG (deficit.png, norma.png, over.png, obese.png).</p></li><li><b class="t">Створіть вікно</b><p>Заголовок, мітки і поля для ваги й зросту, кнопка «Визначити», мітка результату, мітка для зображення.</p></li><li><b class="t">Перевірте зображення</b><p>Тимчасово покажіть одне зображення у вікні, щоб переконатися, що шлях правильний.</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Проміжна здача</b><p>bmi.py + скріншот вікна.</p></li><li><b class="t">Здайте в Classroom</b><p>«Проєкт 2 — етап 1» → <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Підготовлено 4 зображення PNG</td><td>3</td></tr><tr><td>Вікно з полями і кнопкою</td><td>5</td></tr><tr><td>Зображення відображається</td><td>2</td></tr><tr><td>Оформлення</td><td>2</td></tr></tbody></table></div></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Складіть 5 тестів (вага, зріст вигаданих дорослих людей → очікувана категорія), щоб перевірити кожну межу (18,5; 25; 30).</li></ol>
+  <p class="fb">Підручник: проєкт 2, теми 40–41. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="53.html"><span>← Урок 53</span><b>Проєкт «Квадратні рівняння»: код і тести</b></a><a class="next" href="55.html"><span>Урок 55 →</span><b>Проєкт «Індекс маси тіла»: код і тести</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · проєкт 2, теми 40–41</footer>
+</div>
+<script>window.LESSON={"n": 54, "q": {"final": [["Яка послідовність етапів проєкту правильна?", ["Код → задача → тест", "Задача → підготовка → проєктування → код → тест", "Тест → код → задача"], 1, ""], ["Вага 70 кг, зріст 175 см. ІМТ ≈", ["22,9", "40", "0,4"], 0, "70 / 1,75² ≈ 22,9."], ["Як перевести 175 см у метри?", ["175 / 100", "175 * 100", "175 / 10"], 0, ""], ["Які формати зображень підтримує PhotoImage?", ["PNG і GIF", "лише JPEG", "будь-які"], 0, ""], ["Яка конструкція обирає категорію?", ["if / elif / else", "for", "while"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

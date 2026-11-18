@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 21. Flexbox. Макет. Технічне завдання — Інформатика 8</title><meta name="description" content="Як розташовувати блоки в ряд і в стовпчик за допомогою Flexbox, як спланувати макет сайту, визначити цільову аудиторію і скласти технічне завдання."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r3">← Усі уроки · Розділ 3</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 21</span><span class="chip gr">Розділ 3</span><span class="chip gr">Підручник: тема 16</span></div>
+  <h1>Гнучкі блоки Flexbox. Макет сайту. Цільова аудиторія і технічне завдання</h1>
+  <p class="lead">Як розташовувати блоки в ряд і в стовпчик за допомогою Flexbox, як спланувати макет сайту, визначити цільову аудиторію і скласти технічне завдання.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Контейнери</b><span>~6 хв</span></a><a href="#s2" data-k="s2"><b>2. Flexbox</b><span>~12 хв</span></a><a href="#s3" data-k="s3"><b>3. ТЗ</b><span>~10 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Контейнери</a></li><li><a href="#s2">2. Flexbox</a></li><li><a href="#s3">3. ТЗ</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Контейнери в HTML</h2></div></div>
+  <p>Щоб розташовувати частини сторінки, їх групують у контейнери. <code>&lt;div&gt;</code> — універсальний контейнер. Семантичні теги ще й пояснюють браузеру та пошуковикам, що в них:</p><div class="tbl"><table><thead><tr><th>Тег</th><th>Призначення</th></tr></thead><tbody><tr><td><code>&lt;header&gt;</code></td><td>Шапка: логотип, назва, меню</td></tr><tr><td><code>&lt;nav&gt;</code></td><td>Навігація (меню)</td></tr><tr><td><code>&lt;main&gt;</code></td><td>Основний вміст</td></tr><tr><td><code>&lt;section&gt;</code></td><td>Тематичний розділ</td></tr><tr><td><code>&lt;article&gt;</code></td><td>Самостійний матеріал: стаття, картка товару</td></tr><tr><td><code>&lt;aside&gt;</code></td><td>Бічна панель</td></tr><tr><td><code>&lt;footer&gt;</code></td><td>Підвал: контакти, авторські права</td></tr></tbody></table></div>
+</div>
+</section>
+<section id="s2">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A2</span><div><span class="label">Читаємо</span><h2>Модуль гнучких блоків Flexbox</h2></div></div>
+  <p class="def"><b>Flexbox</b> — модуль CSS для розташування елементів у ряд або стовпчик з гнучким вирівнюванням і розподілом простору. Вмикається для контейнера: <code>display: flex;</code> — і всі його дочірні елементи стають flex-елементами.</p><div class="tbl"><table><thead><tr><th>Властивість контейнера</th><th>Значення</th><th>Що робить</th></tr></thead><tbody><tr><td><code>flex-direction</code></td><td><code>row</code> | <code>column</code></td><td>Напрямок: у ряд / у стовпчик</td></tr><tr><td><code>justify-content</code></td><td><code>flex-start</code> | <code>center</code> | <code>space-between</code> | <code>space-around</code></td><td>Вирівнювання вздовж головної осі</td></tr><tr><td><code>align-items</code></td><td><code>stretch</code> | <code>center</code> | <code>flex-start</code></td><td>Вирівнювання поперек осі</td></tr><tr><td><code>flex-wrap</code></td><td><code>wrap</code></td><td>Переносити на новий рядок, якщо не вміщаються</td></tr><tr><td><code>gap</code></td><td><code>20px</code></td><td>Проміжок між елементами</td></tr></tbody></table></div><pre class="code" data-lang="css">.container {
+    <span class="a">display</span>: flex;
+    <span class="a">justify-content</span>: space-between;   <span class="c">/* рівні проміжки між блоками */</span>
+    <span class="a">align-items</span>: center;              <span class="c">/* по центру вертикально */</span>
+    <span class="a">gap</span>: 20px;
+}
+.box {
+    <span class="a">width</span>: 100px;
+    <span class="a">height</span>: 100px;
+    <span class="a">background</span>: #1E7A55;
+}</pre><div class="note"><b>Центр екрана</b>Класичне завдання — поставити блок рівно в центр: <code>body { height: 100vh; display: flex; justify-content: center; align-items: center; }</code>. <code>100vh</code> — 100 % висоти вікна.</div>
+</div><div class="card"><span class="label">Вправа 1</span><h3>Яку властивість задати?</h3><div class="ex" data-quiz="ex1"></div><p class="score" id="ex1s"></p></div>
+</section>
+<section id="s3" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A3</span><div><span class="label">Читаємо</span><h2>Макет, цільова аудиторія, технічне завдання</h2></div></div>
+  <p class="def"><b>Макет сайту</b> — схема розташування основних блоків сторінки: шапка, меню, основний вміст, бічна панель, підвал. Спочатку — ескіз на папері або у Figma/Canva (wireframe), потім — верстка.</p><p class="def"><b>Цільова аудиторія (ЦА)</b> — група людей, для яких створюється сайт. Від неї залежать дизайн, мова, вміст і функції.</p><p>Опишіть ЦА: вік, інтереси, звідки заходять (смартфон чи ПК), що хочуть знайти. Сайт бібліотеки для першокласників і для студентів виглядатиме зовсім по-різному.</p><p class="def"><b>Технічне завдання (ТЗ)</b> — документ, у якому замовник і розробник фіксують усі вимоги до сайту.</p><ul class="clean"><li><b>Мета сайту</b> — навіщо він;</li><li><b>Цільова аудиторія</b>;</li><li><b>Структура</b> — перелік сторінок і розділів;</li><li><b>Функціонал</b> — форма, галерея, пошук, мапа;</li><li><b>Дизайн</b> — кольори, шрифти, стиль, адаптивність до смартфонів;</li><li><b>Вміст</b> — тексти, фото: хто готує;</li><li><b>Терміни і бюджет</b>.</li></ul>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Опрацюйте тему 16.</li><li>Пограйте у flexboxfroggy.com (є українська мова): пройдіть щонайменше 12 рівнів, скріншот останнього здайте в Classroom.</li><li>Намалюйте від руки макет головної сторінки сайту вашої улюбленої справи (хобі, спорт, музика): шапка, меню, 3 блоки, підвал. Сфотографуйте.</li></ol>
+  <p class="fb">Підручник: тема 16. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="20.html"><span>← Урок 20</span><b>Стилі і шрифти. ПР №13 «Форма реєстрації»</b></a><a class="next" href="22.html"><span>Урок 22 →</span><b>Аналітика сайту. ПР №14 «Додавання елементів на сайт»</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · тема 16</footer>
+</div>
+<script>window.LESSON={"n": 21, "q": {"ex1": [["Меню: логотип ліворуч, посилання праворуч", ["justify-content: space-between", "justify-content: center", "flex-direction: column"], 0, ""], ["Три картки одна під одною", ["flex-direction: column", "flex-wrap: wrap", "gap: 0"], 0, ""], ["Картки не вміщаються в рядок і мають переноситись", ["flex-wrap: wrap", "align-items: center", "display: block"], 0, ""], ["Без чого Flexbox не працюватиме?", ["display: flex у контейнера", "gap", "height: 100vh"], 0, ""]], "final": [["Який тег — для меню навігації?", ["<nav>", "<aside>", "<menu-bar>"], 0, ""], ["Як увімкнути Flexbox?", ["display: flex;", "flex: on;", "position: flex;"], 0, ""], ["justify-content: center вирівнює…", ["вздовж головної осі", "лише текст", "нічого"], 0, ""], ["flex-direction: column розміщує елементи…", ["у ряд", "у стовпчик", "по колу"], 1, ""], ["Що таке 100vh?", ["100 пікселів", "100 % висоти вікна", "100 рядків"], 1, ""], ["Цільова аудиторія —", ["усі люди світу", "група людей, для яких створюють сайт", "розробники сайту"], 1, ""], ["Технічне завдання містить…", ["усі вимоги до сайту", "лише ціну", "паролі"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 39. ПР №20 «Змінні і типи даних» — Інформатика 8</title><meta name="description" content="Практикуємося зі змінними різних типів, обчислюємо периметр і площу саду, рахуємо гроші в гаманці та створюємо вікна з різними властивостями."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 39</span><span class="chip gr">Розділ 5</span><span class="chip sun">ПР №20</span><span class="chip gr">Підручник: тема 28</span></div>
+  <h1>Практична робота №20 «Створення змінних та робота з типами даних»</h1>
+  <p class="lead">Практикуємося зі змінними різних типів, обчислюємо периметр і площу саду, рахуємо гроші в гаманці та створюємо вікна з різними властивостями.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. input()</b><span>~5 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота №20</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. input()</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">ПР №20</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Нагадування: введення чисел</h2></div></div>
+  <p>Функція <code>input()</code> завжди повертає <b>рядок</b>. Щоб рахувати, перетворіть його на число: <code>int()</code> — ціле, <code>float()</code> — дробове.</p><pre class="code" data-lang="py">a = <span class="k">float</span>(<span class="k">input</span>(<span class="s">"Введіть довжину саду: "</span>))
+b = <span class="k">float</span>(<span class="k">input</span>(<span class="s">"Введіть ширину саду: "</span>))
+<span class="k">print</span>(<span class="s">"Площа:"</span>, a * b, <span class="s">"м²"</span>)</pre><div class="note"><b>Типова помилка</b>Без перетворення <code>input("…") + input("…")</code> з 2 і 3 дасть <code>23</code> — рядки склеюються, а не додаються.</div><div class="note"><b>Немає комп'ютера з Python?</b>Консольні програми (з <code>print</code> та <code>input</code>) можна запускати онлайн: <b>onlinegdb.com</b> (оберіть Language: Python 3), <b>programiz.com/python-programming/online-compiler</b>, на смартфоні — застосунок <b>Pydroid 3</b>. Програми з вікнами Tkinter онлайн не працюють — у Pydroid 3 вони запускаються.</div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота №20</span><h2>Створення змінних та робота з типами даних</h2></div></div>
+  <p><b>Мета:</b> створювати змінні різних типів, обчислювати за формулами введені дані і налаштовувати вікна Tkinter.</p>
+  <ol class="pw"><li><b class="t">Завдання 1. Про себе</b><p>Створіть 4 змінні: ім'я (str), вік (int), зріст у метрах (float), чи любите програмування (bool). Виведіть:</p><pre class="code" data-lang="py"><span class="k">print</span>(<span class="s">"Моє ім'я:"</span>, name)
+<span class="k">print</span>(<span class="s">"Мені"</span>, age, <span class="s">"років"</span>)
+<span class="k">print</span>(<span class="s">"Мій зріст:"</span>, height, <span class="s">"м"</span>)
+<span class="k">print</span>(<span class="s">"Чи люблю програмувати:"</span>, loves_programming)</pre></li><li><b class="t">Завдання 2. Сад</b><p>Користувач вводить довжину і ширину саду. Обчисліть <b>периметр</b> (довжина паркану) і <b>площу</b> (скільки засіяти). <span class="star">додатково</span> Скільки грамів насіння купити, якщо на 1 м² — 300 г?</p></li><li><b class="t">Завдання 3. Гаманець</b><p>Запитайте, скільки монет по 1, 2, 5 і 10 гривень і купюр по 20, 50, 100 грн. Обчисліть і виведіть загальну суму.</p></li><li><b class="t">Завдання 4. Вікна з різними властивостями (Tkinter)</b><ul class="clean"><li>а) 400×300, заголовок «Базове вікно», фон <code>"blue"</code>, без зміни розміру.</li><li>б) 500×500, «Обмеження розміру», фон у форматі HEX, мінімум 300×300, максимум 800×800.</li><li>в) 450×350, «Вікно зі зміщенням», фон бірюзовий <code>"turquoise"</code>, зміщення 200 і 100 пікселів: <code>geometry("450x350+200+100")</code>.</li></ul></li><li><b class="t">Завдання 5. Вікно з іконкою <span class="star">додатково</span></b><p>Вікно 300×200, заголовок «Вікно з іконкою». Збережіть невелике PNG-зображення в папку з програмою:</p><pre class="code" data-lang="py">icon = PhotoImage(file=<span class="s">"myicon.png"</span>)
+window.iconphoto(<span class="k">False</span>, icon)</pre></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Зберіть код</b><p>Файли .py (або скріншоти коду і результату). Завдання 4 без комп'ютера — скріншоти з Pydroid 3 або код без запуску.</p></li><li><b class="t">Здайте в Classroom</b><p>→ <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Завдання 1: 4 змінні правильних типів</td><td>2</td></tr><tr><td>Завдання 2: введення і правильні формули</td><td>3</td></tr><tr><td>Завдання 3: гаманець</td><td>2</td></tr><tr><td>Завдання 4: три вікна з усіма властивостями</td><td>4</td></tr><tr><td>Охайний код, змістовні імена змінних</td><td>1</td></tr></tbody></table></div></div>
+<div class="card"><span class="label">Якщо щось не виходить</span><details><summary>ValueError: could not convert string to float</summary><p>Ви ввели число з комою (2,5). У Python — крапка: 2.5.</p></details><details><summary>TclError: unknown color name</summary><p>Назва кольору англійською без помилок (<code>"turquoise"</code>) або HEX з решіткою (<code>"#40E0D0"</code>).</p></details></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Програма: користувач вводить ціну одного зошита і кількість — програма виводить вартість покупки.</li></ol>
+  <p class="fb">Підручник: тема 28. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу №20</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="38.html"><span>← Урок 38</span><b>Змінні і типи даних</b></a><a class="next" href="40.html"><span>Урок 40 →</span><b>Введення, виведення, присвоєння</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · тема 28</footer>
+</div>
+<script>window.LESSON={"n": 39, "q": {"final": [["Що повертає input()?", ["Число", "Рядок", "Логічне значення"], 1, ""], ["Як отримати від користувача ціле число?", ["int(input())", "input(int)", "str(input())"], 0, ""], ["\"2\" + \"3\" дорівнює…", ["5", "\"23\"", "помилка"], 1, ""], ["Метод, що забороняє змінювати розмір вікна, —", ["resizable(False, False)", "geometry()", "title()"], 0, ""], ["Периметр прямокутного саду 10×6 м —", ["60", "32", "16"], 1, "2 × (10 + 6) = 32."]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

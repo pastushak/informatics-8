@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 45. ПР №23 «Логічні оператори» — Інформатика 8</title><meta name="description" content="Перевіряємо рівність випадкових чисел, порівнюємо числа, перевіряємо парність і діапазони з виведенням True / False."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 45</span><span class="chip gr">Розділ 5</span><span class="chip sun">ПР №23</span><span class="chip gr">Підручник: тема 31</span></div>
+  <h1>Практична робота №23 «Складання програмних проєктів з використанням логічних операторів»</h1>
+  <p class="lead">Перевіряємо рівність випадкових чисел, порівнюємо числа, перевіряємо парність і діапазони з виведенням True / False.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Зразок</b><span>~5 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота №23</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Зразок</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">ПР №23</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Зразок: генерація і перевірка</h2></div></div>
+  <pre class="code" data-lang="py"><span class="k">from</span> tkinter <span class="k">import</span> *
+<span class="k">import</span> random
+
+num1 = num2 = 0
+
+<span class="k">def</span> generation():
+    global num1, num2
+    num1 = random.randint(1, 10)
+    num2 = random.randint(1, 10)
+    first.config(text=f<span class="s">"Перше число: {num1}"</span>)
+    second.config(text=f<span class="s">"Друге число: {num2}"</span>)
+
+<span class="k">def</span> check():
+    result.config(text=f<span class="s">"Результат: {num1 == num2}"</span>)
+
+window = Tk()
+window.title(<span class="s">"Перевірка рівності"</span>)
+window.geometry(<span class="s">"300x200"</span>)
+first = Label(window, text=<span class="s">"Перше число: ?"</span>); first.pack()
+second = Label(window, text=<span class="s">"Друге число: ?"</span>); second.pack()
+Button(window, text=<span class="s">"Згенерувати"</span>, command=generation).pack(pady=3)
+Button(window, text=<span class="s">"Перевірити"</span>, command=check).pack(pady=3)
+result = Label(window, text=<span class="s">"Результат:"</span>); result.pack()
+window.mainloop()</pre><div class="note"><b>Немає комп'ютера з Python?</b>Консольні програми (з <code>print</code> та <code>input</code>) можна запускати онлайн: <b>onlinegdb.com</b> (оберіть Language: Python 3), <b>programiz.com/python-programming/online-compiler</b>, на смартфоні — застосунок <b>Pydroid 3</b>. Програми з вікнами Tkinter онлайн не працюють — у Pydroid 3 вони запускаються.</div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота №23</span><h2>Складання програмних проєктів з використанням логічних операторів</h2></div></div>
+  <p><b>Мета:</b> складати програми з логічними виразами, що виводять True або False.</p>
+  <ol class="pw"><li><b class="t">Завдання 1. Рівність випадкових чисел</b><p>За зразком: кнопка «Згенерувати» створює два числа від 1 до 10, кнопка «Перевірити» показує, чи рівні вони.</p></li><li><b class="t">Завдання 2. Чи перше більше?</b><p>Два поля для чисел, кнопка «Перевірити» викликає <code>check1()</code>:</p><pre class="code" data-lang="py">num1 = <span class="k">float</span>(entry1.get())
+num2 = <span class="k">float</span>(entry2.get())
+res = num1 &gt; num2</pre><p>Мітка: «Чи перше число більше? True/False».</p></li><li><b class="t">Завдання 3. Перевірка на парність</b><p>Поле для цілого числа, кнопка, мітка з результатом <code>n % 2 == 0</code>.</p></li><li><b class="t">Завдання 4. Двоцифрове число</b><p>Перевірте, чи введене число двоцифрове: <code>10 <= abs(n) <= 99</code>.</p></li><li><b class="t">Завдання 5. Високосний рік <span class="star">додатково</span></b><p>Введіть рік і виведіть, чи високосний він (умова — у самоперевірці).</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Зберіть код</b><p>Файли .py + скріншоти.</p></li><li><b class="t">Здайте в Classroom</b><p>→ <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Завдання 1: генерація і перевірка</td><td>3</td></tr><tr><td>Завдання 2: порівняння</td><td>2</td></tr><tr><td>Завдання 3: парність</td><td>2</td></tr><tr><td>Завдання 4: подвійна умова</td><td>3</td></tr><tr><td>Інтерфейс зрозумілий, підписи</td><td>2</td></tr></tbody></table></div></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Програма: користувач вводить вік — виведіть True, якщо він може самостійно отримати ID-картку (з 14 років).</li></ol>
+  <p class="fb">Підручник: тема 31. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу №23</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="44.html"><span>← Урок 44</span><b>Логічний тип. Порівняння. and, or, not</b></a><a class="next" href="46.html"><span>Урок 46 →</span><b>Розгалуження: if, elif, else</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · тема 31</footer>
+</div>
+<script>window.LESSON={"n": 45, "q": {"final": [["Навіщо global у функції generation()?", ["Щоб змінити змінні, створені поза функцією", "Щоб прискорити програму", "Для випадкових чисел"], 0, ""], ["Як перевірити, що n ділиться на 3?", ["n % 3 == 0", "n / 3 == 0", "n // 3"], 0, ""], ["Рік високосний, якщо ділиться на 4 і не на 100, або ділиться на 400. Яка умова?", ["(y % 4 == 0 and y % 100 != 0) or y % 400 == 0", "y % 4 == 0", "y % 400 == 0 and y % 4 == 0"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

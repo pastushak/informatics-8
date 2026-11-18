@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 59. Проєкт «PyPizza»: замовлення і тести — Інформатика 8</title><meta name="description" content="Завершуємо PyPizza: вікно оформлення замовлення з перевіркою полів, повне тестування і підсумок розділу «Алгоритми та їхні коди»."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 59</span><span class="chip gr">Розділ 5</span><span class="chip sun">Практика</span><span class="chip gr">Підручник: проєкт 4, теми 44–45</span></div>
+  <h1>Проєкт «Створення додатку для замовлення PyPizza»: розробка і тестування</h1>
+  <p class="lead">Завершуємо PyPizza: вікно оформлення замовлення з перевіркою полів, повне тестування і підсумок розділу «Алгоритми та їхні коди».</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Код</b><span>~8 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Код</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">Практика</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Повний код-зразок</h2></div></div>
+  <pre class="code" data-lang="py"><span class="c"># Проєкт «PyPizza» — замовлення піци у трьох вікнах</span>
+<span class="k">from</span> tkinter <span class="k">import</span> *
+<span class="k">from</span> tkinter <span class="k">import</span> messagebox
+
+BG = <span class="s">"#FFF3E0"</span>
+BASES = {<span class="s">"Тонка основа"</span>: 100, <span class="s">"Класична основа"</span>: 120, <span class="s">"Сирна основа"</span>: 150}
+TOPPINGS = {<span class="s">"Сир"</span>: 20, <span class="s">"М'ясо"</span>: 30, <span class="s">"Овочі"</span>: 15}
+DRINKS = {<span class="s">"Без напою"</span>: 0, <span class="s">"Кока-кола"</span>: 15, <span class="s">"Сік"</span>: 25, <span class="s">"Мінеральна вода"</span>: 20}
+
+
+<span class="k">def</span> open_pizza():
+    <span class="s">""</span><span class="s">"Вікно 2: конструктор піци."</span><span class="s">""</span>
+    pizza = Toplevel(start)
+    pizza.title(<span class="s">"Створи свою піцу"</span>)
+    pizza.geometry(<span class="s">"420x520"</span>)
+    pizza.configure(bg=BG)
+
+    base = StringVar(value=<span class="s">"Класична основа"</span>)
+    toppings = {name: BooleanVar() <span class="k">for</span> name <span class="k">in</span> TOPPINGS}
+    drink = StringVar(value=<span class="s">"Без напою"</span>)
+
+    <span class="k">def</span> price():
+        total = BASES[base.get()]
+        <span class="k">for</span> name, var <span class="k">in</span> toppings.items():
+            <span class="k">if</span> var.get():
+                total += TOPPINGS[name]
+        total += DRINKS[drink.get()]
+        <span class="k">return</span> total
+
+    <span class="k">def</span> update():
+        price_label.config(text=f<span class="s">"Вартість: {price()} грн"</span>)
+
+    Label(pizza, text=<span class="s">"Основа:"</span>, font=(<span class="s">"Calibri"</span>, 14, <span class="s">"bold"</span>), bg=BG).pack(anchor=<span class="s">"w"</span>, padx=20, pady=(10, 0))
+    <span class="k">for</span> name, cost <span class="k">in</span> BASES.items():
+        Radiobutton(pizza, text=f<span class="s">"{name} ({cost} грн)"</span>, variable=base, value=name, bg=BG,
+                    font=(<span class="s">"Calibri"</span>, 13), command=update).pack(anchor=<span class="s">"w"</span>, padx=40)
+    Label(pizza, text=<span class="s">"Начинка:"</span>, font=(<span class="s">"Calibri"</span>, 14, <span class="s">"bold"</span>), bg=BG).pack(anchor=<span class="s">"w"</span>, padx=20, pady=(10, 0))
+    <span class="k">for</span> name, cost <span class="k">in</span> TOPPINGS.items():
+        Checkbutton(pizza, text=f<span class="s">"{name} (+{cost} грн)"</span>, variable=toppings[name], bg=BG,
+                    font=(<span class="s">"Calibri"</span>, 13), command=update).pack(anchor=<span class="s">"w"</span>, padx=40)
+    Label(pizza, text=<span class="s">"Напій:"</span>, font=(<span class="s">"Calibri"</span>, 14, <span class="s">"bold"</span>), bg=BG).pack(anchor=<span class="s">"w"</span>, padx=20, pady=(10, 0))
+    <span class="k">for</span> name, cost <span class="k">in</span> DRINKS.items():
+        Radiobutton(pizza, text=f<span class="s">"{name} ({cost} грн)"</span>, variable=drink, value=name, bg=BG,
+                    font=(<span class="s">"Calibri"</span>, 13), command=update).pack(anchor=<span class="s">"w"</span>, padx=40)
+
+    price_label = Label(pizza, text=<span class="s">""</span>, font=(<span class="s">"Calibri"</span>, 16, <span class="s">"bold"</span>), bg=BG, fg=<span class="s">"#C0392B"</span>)
+    price_label.pack(pady=10)
+    Button(pizza, text=<span class="s">"Оформити замовлення"</span>, font=(<span class="s">"Calibri"</span>, 13), bg=<span class="s">"#C0392B"</span>, fg=<span class="s">"white"</span>,
+           command=lambda: open_order(price())).pack()
+    update()
+
+
+<span class="k">def</span> open_order(total):
+    <span class="s">""</span><span class="s">"Вікно 3: контактні дані."</span><span class="s">""</span>
+    order = Toplevel(start)
+    order.title(<span class="s">"Оформлення замовлення"</span>)
+    order.geometry(<span class="s">"360x300"</span>)
+    order.configure(bg=BG)
+    Label(order, text=f<span class="s">"До сплати: {total} грн"</span>, font=(<span class="s">"Calibri"</span>, 16, <span class="s">"bold"</span>), bg=BG).pack(pady=10)
+    fields = {}
+    <span class="k">for</span> name <span class="k">in</span> (<span class="s">"Ім'я"</span>, <span class="s">"Телефон"</span>, <span class="s">"Адреса"</span>):
+        Label(order, text=name + <span class="s">":"</span>, bg=BG, font=(<span class="s">"Calibri"</span>, 12)).pack()
+        fields[name] = Entry(order, font=(<span class="s">"Calibri"</span>, 12), width=30)
+        fields[name].pack()
+
+    <span class="k">def</span> confirm():
+        <span class="k">if</span> any(e.get().strip() == <span class="s">""</span> <span class="k">for</span> e <span class="k">in</span> fields.values()):
+            messagebox.showwarning(<span class="s">"Увага"</span>, <span class="s">"Заповніть усі поля"</span>, parent=order)
+            <span class="k">return</span>
+        name = fields[<span class="s">"Ім'я"</span>].get()
+        messagebox.showinfo(<span class="s">"Дякуємо!"</span>, f<span class="s">"{name}, замовлення прийнято!\nОчікуйте дзвінка."</span>, parent=order)
+        order.destroy()
+
+    Button(order, text=<span class="s">"Підтвердити"</span>, font=(<span class="s">"Calibri"</span>, 13), bg=<span class="s">"#27AE60"</span>, fg=<span class="s">"white"</span>, command=confirm).pack(pady=15)
+
+
+start = Tk()
+start.title(<span class="s">"PyPizza"</span>)
+start.geometry(<span class="s">"400x260"</span>)
+start.configure(bg=BG)
+Label(start, text=<span class="s">"🍕 PyPizza"</span>, font=(<span class="s">"Calibri"</span>, 28, <span class="s">"bold"</span>), bg=BG, fg=<span class="s">"#C0392B"</span>).pack(pady=20)
+Label(start, text=<span class="s">"Що замовимо сьогодні?"</span>, font=(<span class="s">"Calibri"</span>, 14), bg=BG).pack()
+row = Frame(start, bg=BG)
+row.pack(pady=20)
+Button(row, text=<span class="s">"Піца"</span>, width=10, font=(<span class="s">"Calibri"</span>, 14), command=open_pizza).pack(side=LEFT, padx=10)
+Button(row, text=<span class="s">"Суші"</span>, width=10, font=(<span class="s">"Calibri"</span>, 14),
+       command=lambda: messagebox.showinfo(<span class="s">"Суші"</span>, <span class="s">"Меню суші — ваше додаткове завдання!"</span>)).pack(side=LEFT, padx=10)
+start.mainloop()</pre><div class="tbl"><table><thead><tr><th>Що нове</th><th>Пояснення</th></tr></thead><tbody><tr><td><code>{name: BooleanVar() for name in TOPPINGS}</code></td><td>Словник змінних для прапорців — створюється в один рядок</td></tr><tr><td><code>any(...)</code></td><td>True, якщо хоча б одна умова істинна (хоча б одне поле порожнє)</td></tr><tr><td><code>.strip()</code></td><td>Прибирає пробіли на початку і в кінці рядка</td></tr><tr><td><code>parent=order</code></td><td>Повідомлення з'являється над вікном замовлення</td></tr></tbody></table></div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота</span><h2>Оформлення замовлення, тестування, впровадження</h2></div></div>
+  <p><b>Мета:</b> завершити застосунок PyPizza і протестувати весь сценарій замовлення.</p>
+  <ol class="pw"><li><b class="t">Вікно замовлення</b><p>Функція <code>open_order(total)</code>: сума, поля ім'я, телефон, адреса, кнопка «Підтвердити».</p></li><li><b class="t">Перевірка полів</b><p>Порожні поля → попередження; усе заповнено → «Ім'я, замовлення прийнято!» і закриття вікна.</p></li><li><b class="t">Тестування</b><p>Пройдіть 3 різні замовлення від старту до підтвердження. Перевірте суми вручну.</p></li><li><b class="t">Додатково</b><ul class="clean"><li>Меню суші у власному вікні.</li><li>Телефон — лише цифри (<code>phone.isdigit()</code>).</li><li>Кількість піц (Spinbox) з перерахунком ціни.</li></ul></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Фінальна здача</b><p>pypizza.py + скріншоти всіх вікон.</p></li><li><b class="t">Здайте в Classroom</b><p>«Проєкт 4» → <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Три вікна, переходи працюють</td><td>3</td></tr><tr><td>Ціна правильна в усіх тестах</td><td>3</td></tr><tr><td>Перевірка полів і повідомлення</td><td>3</td></tr><tr><td>Додаткові функції / власний стиль</td><td>2</td></tr><tr><td>Коментарі</td><td>1</td></tr></tbody></table></div></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Підсумок розділу: який з чотирьох проєктів сподобався найбільше і чому? Яку власну програму ви хотіли б написати? 3–5 речень у Classroom.</li></ol>
+  <p class="fb">Підручник: проєкт 4, теми 44–45. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="58.html"><span>← Урок 58</span><b>Проєкт «PyPizza»: кілька вікон</b></a><a class="next" href="60.html"><span>Урок 60 →</span><b>Бренд, місія, візія. Фірмовий стиль</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · проєкт 4, теми 44–45</footer>
+</div>
+<script>window.LESSON={"n": 59, "q": {"final": [["Яка послідовність етапів проєкту правильна?", ["Код → задача → тест", "Задача → підготовка → проєктування → код → тест", "Тест → код → задача"], 1, ""], ["Що поверне \"  Оля \".strip()?", ["\"Оля\"", "\"  Оля \"", "\"\""], 0, ""], ["Як закрити вікно замовлення після підтвердження?", ["order.destroy()", "order.close()", "del order"], 0, ""], ["Що з вивченого в розділі 5 використано в PyPizza?", ["Змінні, розгалуження, цикли, функції, словники, вікна", "Лише print", "Лише цикли"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

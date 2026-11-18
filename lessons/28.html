@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 28. Проєкт «Подорожі»: сторінки і публікація — Інформатика 8</title><meta name="description" content="Завершуємо сайт «Подорожі»: сторінка напрямків з картками, сторінка контактів з формою зворотного зв&#x27;язку, тестування переходів і публікація на GitHub"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r3">← Усі уроки · Розділ 3</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 28</span><span class="chip gr">Розділ 3</span><span class="chip sun">Практика</span><span class="chip gr">Підручник: проєкт 2, теми 20–21</span></div>
+  <h1>Проєкт «Подорожі»: сторінки, тестування, публікація</h1>
+  <p class="lead">Завершуємо сайт «Подорожі»: сторінка напрямків з картками, сторінка контактів з формою зворотного зв'язку, тестування переходів і публікація на GitHub Pages.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Сторінки</b><span>~8 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота</b><span>~35 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Сторінки</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">Практика</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Повторне використання коду</h2></div></div>
+  <p>Шапку і підвал не треба писати заново: скопіюйте їх з <code>index.html</code> у нові сторінки і змініть лише клас <code>active</code> та <code>&lt;title&gt;</code>. Картки напрямків можна оформити тими самими класами <code>.cards</code> і <code>.card</code> — стилі вже є.</p><pre class="code" data-lang="html"><span class="c">&lt;!-- destinations.html: основний вміст --&gt;</span>
+<span class="t">&lt;section</span> <span class="a">class</span>=<span class="s">"intro"</span><span class="t">&gt;</span>
+    <span class="t">&lt;h1</span> <span class="a">class</span>=<span class="s">"intro-title"</span><span class="t">&gt;</span>Популярні напрямки<span class="t">&lt;/h1</span><span class="t">&gt;</span>
+    <span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"cards"</span><span class="t">&gt;</span>
+        <span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"card"</span><span class="t">&gt;</span>
+            <span class="t">&lt;img</span> <span class="a">src</span>=<span class="s">"img/carpathians.jpg"</span> <span class="a">alt</span>=<span class="s">"Карпати"</span> <span class="a">class</span>=<span class="s">"card-img"</span><span class="t">&gt;</span>
+            <span class="t">&lt;div</span> <span class="a">class</span>=<span class="s">"card-content"</span><span class="t">&gt;</span>
+                <span class="t">&lt;h3</span> <span class="a">class</span>=<span class="s">"card-title"</span><span class="t">&gt;</span>Карпати<span class="t">&lt;/h3</span><span class="t">&gt;</span>
+                <span class="t">&lt;p</span><span class="t">&gt;</span>Гори, полонини і Говерла — найвища вершина України.<span class="t">&lt;/p</span><span class="t">&gt;</span>
+                <span class="t">&lt;p</span> <span class="a">class</span>=<span class="s">"price"</span><span class="t">&gt;</span>від 3 500 грн<span class="t">&lt;/p</span><span class="t">&gt;</span>
+            <span class="t">&lt;/div</span><span class="t">&gt;</span>
+        <span class="t">&lt;/div</span><span class="t">&gt;</span>
+    <span class="t">&lt;/div</span><span class="t">&gt;</span>
+<span class="t">&lt;/section</span><span class="t">&gt;</span></pre><pre class="code" data-lang="html"><span class="c">&lt;!-- contact.html: форма зворотного зв'язку --&gt;</span>
+<span class="t">&lt;section</span> <span class="a">class</span>=<span class="s">"contact"</span><span class="t">&gt;</span>
+    <span class="t">&lt;h1</span><span class="t">&gt;</span>Зв'яжіться з нами<span class="t">&lt;/h1</span><span class="t">&gt;</span>
+    <span class="t">&lt;form</span> <span class="a">class</span>=<span class="s">"contact-form"</span><span class="t">&gt;</span>
+        <span class="t">&lt;label</span> <span class="a">for</span>=<span class="s">"name"</span><span class="t">&gt;</span>Ім'я<span class="t">&lt;/label</span><span class="t">&gt;</span>
+        <span class="t">&lt;input</span> <span class="a">type</span>=<span class="s">"text"</span> <span class="a">id</span>=<span class="s">"name"</span> required<span class="t">&gt;</span>
+        <span class="t">&lt;label</span> <span class="a">for</span>=<span class="s">"email"</span><span class="t">&gt;</span>Email<span class="t">&lt;/label</span><span class="t">&gt;</span>
+        <span class="t">&lt;input</span> <span class="a">type</span>=<span class="s">"email"</span> <span class="a">id</span>=<span class="s">"email"</span> required<span class="t">&gt;</span>
+        <span class="t">&lt;label</span> <span class="a">for</span>=<span class="s">"msg"</span><span class="t">&gt;</span>Повідомлення<span class="t">&lt;/label</span><span class="t">&gt;</span>
+        <span class="t">&lt;textarea</span> <span class="a">id</span>=<span class="s">"msg"</span> <span class="a">rows</span>=<span class="s">"5"</span><span class="t">&gt;</span><span class="t">&lt;/textarea</span><span class="t">&gt;</span>
+        <span class="t">&lt;label</span><span class="t">&gt;</span><span class="t">&lt;input</span> <span class="a">type</span>=<span class="s">"checkbox"</span><span class="t">&gt;</span> Підписатися на новини та акції<span class="t">&lt;/label</span><span class="t">&gt;</span>
+        <span class="t">&lt;button</span> <span class="a">type</span>=<span class="s">"submit"</span><span class="t">&gt;</span>Надіслати<span class="t">&lt;/button</span><span class="t">&gt;</span>
+    <span class="t">&lt;/form</span><span class="t">&gt;</span>
+<span class="t">&lt;/section</span><span class="t">&gt;</span></pre>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота</span><h2>Сторінки «Напрямки» і «Контакти», публікація</h2></div></div>
+  <p><b>Мета:</b> завершити багатосторінковий сайт, протестувати переходи між сторінками та опублікувати його.</p>
+  <ol class="pw"><li><b class="t">Сторінка «Напрямки»</b><p>Скопіюйте шапку й підвал з index.html, змініть title на «Подорожі — Напрямки» і <code>active</code>. Основний вміст — 3–6 карток напрямків: фото, назва, опис, ціна.</p></li><li><b class="t">Сторінка «Контакти»</b><p>Шапка, підвал, форма зворотного зв'язку (ім'я, email, повідомлення, прапорець підписки, кнопка) і блок контактів: адреса, телефон, години роботи. За бажанням — Google Мапа (<span class="path">Поділитися → Вставити карту</span> → код iframe).</p></li><li><b class="t">Стилі нових елементів</b><pre class="code" data-lang="css">.price { <span class="a">color</span>: #FF6F61; <span class="a">font-weight</span>: 700; <span class="a">font-size</span>: 18px; }
+.contact { <span class="a">max-width</span>: 600px; <span class="a">margin</span>: 40px auto; <span class="a">padding</span>: 0 20px; }
+.contact-form { <span class="a">display</span>: flex; <span class="a">flex-direction</span>: column; <span class="a">gap</span>: 8px; }
+.contact-form input, .contact-form textarea {
+    <span class="a">padding</span>: 10px; <span class="a">border</span>: 1px solid #ccc; <span class="a">border-radius</span>: 6px; <span class="a">font</span>: inherit;
+}
+.contact-form button {
+    <span class="a">margin-top</span>: 10px; <span class="a">padding</span>: 12px; <span class="a">background</span>: #FF6F61; <span class="a">color</span>: #fff;
+    <span class="a">border</span>: none; <span class="a">border-radius</span>: 6px; <span class="a">cursor</span>: pointer;
+}
+.contact-form <span class="a">button</span>:hover { <span class="a">background</span>: #e85a4f; }</pre></li><li><b class="t">Тестування</b><ul class="clean"><li>Пройдіть по всіх пунктах меню з кожної сторінки (3 × 3 = 9 переходів).</li><li>Перевірте на «смартфоні» в DevTools.</li><li>Валідатор для всіх трьох сторінок.</li></ul></li><li><b class="t">Публікація</b><p>Репозиторій <code>travels</code> → завантажте всі файли й папку img → <span class="path">Settings → Pages</span>. Перевірте переходи вже онлайн.</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Посилання</b><p>Адреса сайту і репозиторію.</p></li><li><b class="t">Здайте в Classroom</b><p>Завдання «Проєкт Подорожі» → <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Сторінка «Напрямки»: 3–6 карток з власними текстами</td><td>3</td></tr><tr><td>Сторінка «Контакти»: форма і контакти</td><td>3</td></tr><tr><td>Однакові шапка, меню, підвал; active на кожній сторінці</td><td>2</td></tr><tr><td>Усі переходи працюють онлайн</td><td>2</td></tr><tr><td>Сайт опубліковано і адаптивний</td><td>2</td></tr></tbody></table></div></div>
+<div class="card"><span class="label">Якщо щось не виходить</span><details><summary>Онлайн посилання меню ведуть на 404</summary><p>Назва файлу в href має збігатися буква в букву, разом з регістром: <code>destinations.html</code>.</p></details><details><summary>На одній сторінці стилі є, на іншій — немає</summary><p>Ви забули <code>&lt;link rel="stylesheet" href="style.css"&gt;</code> у head цієї сторінки.</p></details></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Опублікуйте посилання на обидва свої сайти в Classroom у коментарі «Моє портфоліо».</li><li>Повторіть теми 14–17: на наступному уроці починаємо розділ «Проєктування графічного інтерфейсу».</li></ol>
+  <p class="fb">Підручник: проєкт 2, теми 20–21. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="27.html"><span>← Урок 27</span><b>Проєкт «Подорожі»: головна сторінка</b></a><a class="next" href="29.html"><span>Урок 29 →</span><b>UI/UX-дизайн. Доступність</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · проєкт 2, теми 20–21</footer>
+</div>
+<script>window.LESSON={"n": 28, "q": {"final": [["Що змінюється в шапці на кожній сторінці?", ["Клас active і title", "Логотип", "Файл стилів"], 0, ""], ["Який тег для багаторядкового повідомлення?", ["<textarea>", "<input type=\"long\">", "<message>"], 0, ""], ["Атрибут required означає…", ["поле обов'язкове для заповнення", "поле приховане", "поле лише для чисел"], 0, ""], ["Що перевірити під час тестування багатосторінкового сайту насамперед?", ["Чи всі посилання меню ведуть на правильні сторінки", "Колір логотипу", "Кількість слів"], 0, ""], ["Як має називатися головна сторінка для GitHub Pages?", ["index.html", "home.html", "main.html"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

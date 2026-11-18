@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 38. Змінні і типи даних — Інформатика 8</title><meta name="description" content="Чому Python так популярний, як зберігати дані у змінних і які бувають типи даних. А ще — перше вікно з бібліотекою Tkinter."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 38</span><span class="chip gr">Розділ 5</span><span class="chip gr">Підручник: тема 28</span></div>
+  <h1>Мова програмування Python. Змінні. Типи даних</h1>
+  <p class="lead">Чому Python так популярний, як зберігати дані у змінних і які бувають типи даних. А ще — перше вікно з бібліотекою Tkinter.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Python</b><span>~5 хв</span></a><a href="#s2" data-k="s2"><b>2. Змінні</b><span>~12 хв</span></a><a href="#s3" data-k="s3"><b>3. Tkinter</b><span>~10 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Python</a></li><li><a href="#s2">2. Змінні</a></li><li><a href="#s3">3. Tkinter</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Мова Python</h2></div></div>
+  <p class="def"><b>Мова програмування</b> — формальна мова для запису алгоритмів так, щоб їх міг виконати комп'ютер.</p><div class="grid2"><div class="tile"><b>Простий синтаксис</b><small>Код схожий на англійську, легко читати.</small></div><div class="tile"><b>Універсальна</b><small>Сайти (Instagram, YouTube), аналіз даних, штучний інтелект, ігри, автоматизація.</small></div><div class="tile"><b>Безкоштовна і відкрита</b><small>Величезна спільнота, тисячі бібліотек.</small></div><div class="tile"><b>Відступи важливі</b><small>Блоки коду позначаються відступом у 4 пробіли, а не дужками.</small></div></div>
+</div>
+</section>
+<section id="s2">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A2</span><div><span class="label">Читаємо</span><h2>Змінні і типи даних</h2></div></div>
+  <p class="def"><b>Змінна</b> — іменована область пам'яті, у якій зберігається значення. Значення змінній дають за допомогою знака <code>=</code> (присвоєння).</p><pre class="code" data-lang="py">name = <span class="s">"Олександр"</span>     <span class="c"># str — рядок (текст)</span>
+age = 14               <span class="c"># int — ціле число</span>
+height = 1.69          <span class="c"># float — дійсне (дробове) число</span>
+loves_coding = <span class="k">True</span>    <span class="c"># bool — логічне: True або False</span>
+<span class="k">print</span>(type(height))</pre><div class="out-box">&lt;class 'float'&gt;</div><div class="tbl"><table><thead><tr><th>Тип</th><th>Назва</th><th>Приклади</th></tr></thead><tbody><tr><td><code>int</code></td><td>Ціле число</td><td><code>14</code>, <code>-3</code>, <code>0</code></td></tr><tr><td><code>float</code></td><td>Дійсне число (крапка, не кома!)</td><td><code>1.69</code>, <code>3.0</code></td></tr><tr><td><code>str</code></td><td>Рядок (текст у лапках)</td><td><code>"Привіт"</code>, <code>'8-А'</code>, <code>"14"</code></td></tr><tr><td><code>bool</code></td><td>Логічне значення</td><td><code>True</code>, <code>False</code></td></tr></tbody></table></div><h3>Правила імен змінних</h3><ol class="rules"><li><span>Латинські літери, цифри і <code>_</code>; не починати з цифри: <code>price2</code> ✔, <code>2price</code> ✘.</span></li><li><span>Без пробілів: <code>total_sum</code>.</span></li><li><span>Регістр важливий: <code>Age</code> і <code>age</code> — різні змінні.</span></li><li><span>Не можна використовувати слова Python: <code>print</code>, <code>if</code>, <code>for</code>…</span></li><li><span>Змістовні назви: <code>width</code>, а не <code>x1</code>.</span></li></ol>
+</div><div class="card"><span class="label">Вправа 1</span><h3>Який тип?</h3><div class="ex" data-quiz="ex1"></div><p class="score" id="ex1s"></p></div>
+</section>
+<section id="s3" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A3</span><div><span class="label">Читаємо</span><h2>Перше вікно: бібліотека Tkinter</h2></div></div>
+  <p><b>Tkinter</b> — вбудована бібліотека Python для створення програм з вікнами, кнопками і полями. Її не треба встановлювати окремо.</p><pre class="code" data-lang="py"><span class="k">from</span> tkinter <span class="k">import</span> *
+
+window = Tk()                       <span class="c"># створюємо вікно</span>
+window.title(<span class="s">"Базове вікно"</span>)        <span class="c"># заголовок</span>
+window.geometry(<span class="s">"400x300"</span>)          <span class="c"># розмір ШиринаxВисота</span>
+window.configure(bg=<span class="s">"lightblue"</span>)    <span class="c"># колір фону</span>
+window.resizable(<span class="k">False</span>, <span class="k">False</span>)      <span class="c"># заборонити зміну розміру</span>
+
+window.mainloop()                   <span class="c"># показати вікно і чекати дій</span></pre><div class="tbl"><table><thead><tr><th>Метод</th><th>Що робить</th></tr></thead><tbody><tr><td><code>geometry("450x350+200+100")</code></td><td>Розмір і зміщення від лівого і верхнього краю екрана</td></tr><tr><td><code>minsize(300, 300)</code> / <code>maxsize(800, 800)</code></td><td>Мінімальний / максимальний розмір</td></tr><tr><td><code>configure(bg="#40E0D0")</code></td><td>Колір фону: назва англійською або HEX-код</td></tr><tr><td><code>iconphoto(False, PhotoImage(file="icon.png"))</code></td><td>Іконка вікна з PNG-файлу</td></tr></tbody></table></div><div class="note"><b>Важливо</b><code>mainloop()</code> — завжди останній рядок. Без нього вікно з'явиться і одразу зникне.</div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Опрацюйте тему 28.</li><li>Створіть змінні для 4 типів даних про свого улюбленого героя книги чи фільму і виведіть їх разом з типами: <code>print(name, type(name))</code>.</li></ol>
+  <p class="fb">Підручник: тема 28. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="37.html"><span>← Урок 37</span><b>ПР №19 «Знайомство з IDE»</b></a><a class="next" href="39.html"><span>Урок 39 →</span><b>ПР №20 «Змінні і типи даних»</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · тема 28</footer>
+</div>
+<script>window.LESSON={"n": 38, "q": {"ex1": [["\"14\"", ["int", "str", "float"], 1, "У лапках — рядок."], ["3.0", ["int", "float", "bool"], 1, ""], ["False", ["str", "bool", "int"], 1, ""], ["Яке ім'я змінної правильне?", ["my age", "1place", "first_place"], 2, ""]], "final": [["Змінна —", ["іменована область пам'яті зі значенням", "команда виведення", "тип помилки"], 0, ""], ["Тип даних для 1.75 —", ["int", "float", "str"], 1, ""], ["Як дізнатися тип змінної x?", ["type(x)", "int(x)", "print.type"], 0, ""], ["Що виведе: a = 5; a = 8; print(a)", ["5", "8", "13"], 1, "Нове присвоєння замінює старе значення."], ["Як у Python записати 2,5?", ["2,5", "2.5", "\"2,5\""], 1, ""], ["Яка команда показує вікно Tkinter і чекає дій користувача?", ["window.mainloop()", "window.show()", "print(window)"], 0, ""], ["window.geometry(\"500x400\") задає…", ["колір", "розмір вікна", "заголовок"], 1, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

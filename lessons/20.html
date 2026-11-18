@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 20. Стилі і шрифти. ПР №13 «Форма реєстрації» — Інформатика 8</title><meta name="description" content="Основні властивості CSS: кольори, шрифти, розміри, відступи, рамки. Підключаємо шрифти Google Fonts і створюємо стилізовану форму реєстрації."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r3">← Усі уроки · Розділ 3</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 20</span><span class="chip gr">Розділ 3</span><span class="chip sun">ПР №13</span><span class="chip gr">Підручник: тема 15</span></div>
+  <h1>Стильове оформлення сторінки. Підключення шрифтів. ПР №13</h1>
+  <p class="lead">Основні властивості CSS: кольори, шрифти, розміри, відступи, рамки. Підключаємо шрифти Google Fonts і створюємо стилізовану форму реєстрації.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Шрифти</b><span>~10 хв</span></a><a href="#s2" data-k="s2"><b>2. Відступи</b><span>~10 хв</span></a><a href="#s3" data-k="s3"><b>3. :hover</b><span>~5 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота №13</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Шрифти</a></li><li><a href="#s2">2. Відступи</a></li><li><a href="#s3">3. :hover</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">ПР №13</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Кольори, текст і шрифти</h2></div></div>
+  <div class="tbl"><table><thead><tr><th>Властивість</th><th>Приклад</th><th>Що робить</th></tr></thead><tbody><tr><td><code>color</code></td><td><code>color: #333;</code></td><td>Колір тексту</td></tr><tr><td><code>background</code></td><td><code>background: #f4f4f4;</code></td><td>Фон</td></tr><tr><td><code>font-family</code></td><td><code>font-family: Arial, sans-serif;</code></td><td>Шрифт (з резервним)</td></tr><tr><td><code>font-size</code></td><td><code>font-size: 18px;</code></td><td>Розмір</td></tr><tr><td><code>font-weight</code></td><td><code>font-weight: 700;</code></td><td>Насиченість (400 — звичайний, 700 — жирний)</td></tr><tr><td><code>text-align</code></td><td><code>text-align: center;</code></td><td>Вирівнювання</td></tr><tr><td><code>line-height</code></td><td><code>line-height: 1.5;</code></td><td>Міжрядковий інтервал</td></tr></tbody></table></div><p>Кольори задають назвою (<code>red</code>), HEX-кодом (<code>#1E7A55</code>), <code>rgb(30, 122, 85)</code>. Підбирати зручно на coolors.co або через пошук «color picker».</p><h3>Підключення шрифтів Google Fonts</h3><ol class="stairs"><li><b>fonts.google.com</b><small>оберіть шрифт з підтримкою кирилиці (фільтр Language → Cyrillic): Roboto, Montserrat, Rubik, Comfortaa</small></li><li><b>Get font → Get embed code</b><small>скопіюйте теги <link></small></li><li><b>Вставте в <head></b><small>перед підключенням style.css</small></li><li><b>Застосуйте в CSS</b><small>font-family: 'Montserrat', sans-serif;</small></li></ol><pre class="code" data-lang="html"><span class="t">&lt;link</span> <span class="a">href</span>=<span class="s">"https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap"</span> <span class="a">rel</span>=<span class="s">"stylesheet"</span><span class="t">&gt;</span></pre>
+</div>
+</section>
+<section id="s2">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A2</span><div><span class="label">Читаємо</span><h2>Блокова модель: розміри, відступи, рамки</h2></div></div>
+  <p>Кожен елемент — прямокутна «коробка» з чотирьох шарів:</p><figure class="fig"><svg viewBox="0 0 320 170" width="320"><g font-family="sans-serif" font-size="11"><rect x="5" y="5" width="310" height="160" fill="#FDF2DA" stroke="#E08A1E" stroke-dasharray="4"/><text x="12" y="19" fill="#9a5b00">margin — зовнішній відступ</text><rect x="35" y="28" width="250" height="118" fill="#E08A1E" opacity=".85"/><text x="42" y="42" fill="#fff">border — рамка</text><rect x="50" y="48" width="220" height="86" fill="#E0F2EA"/><text x="58" y="62" fill="#1E7A55">padding — внутрішній відступ</text><rect x="85" y="72" width="150" height="48" fill="#1E7A55"/><text x="160" y="100" fill="#fff" text-anchor="middle">content: width × height</text></g></svg><figcaption>Блокова модель CSS</figcaption></figure><pre class="code" data-lang="css">.card {
+    <span class="a">width</span>: 300px;
+    <span class="a">padding</span>: 16px;              <span class="c">/* усередині */</span>
+    <span class="a">margin</span>: 20px auto;          <span class="c">/* ззовні; auto — центрує блок */</span>
+    <span class="a">border</span>: 1px solid #ccc;
+    <span class="a">border-radius</span>: 10px;        <span class="c">/* заокруглення */</span>
+    <span class="a">box-shadow</span>: 0 4px 10px rgba(0,0,0,.1);   <span class="c">/* тінь */</span>
+}</pre><div class="note"><b>Порада</b>Додайте на початку CSS <code>* { box-sizing: border-box; }</code> — тоді padding і border не збільшуватимуть заданої ширини.</div>
+</div><div class="card"><span class="label">Вправа 1</span><h3>Яка властивість?</h3><div class="ex" data-quiz="ex1"></div><p class="score" id="ex1s"></p></div>
+</section>
+<section id="s3" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A3</span><div><span class="label">Читаємо</span><h2>Стани елементів: :hover і :focus</h2></div></div>
+  <pre class="code" data-lang="css">button {
+    <span class="a">background</span>: #1E7A55;
+    <span class="a">color</span>: white;
+    <span class="a">border</span>: none;
+    <span class="a">padding</span>: 10px 20px;
+    <span class="a">cursor</span>: pointer;          <span class="c">/* курсор-«рука» */</span>
+}
+<span class="a">button</span>:hover {               <span class="c">/* курсор над кнопкою */</span>
+    <span class="a">background</span>: #155c40;
+}
+<span class="a">input</span>:focus {                <span class="c">/* поле, в якому курсор */</span>
+    <span class="a">border-color</span>: #1E7A55;
+    <span class="a">outline</span>: none;
+}</pre>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота №13</span><h2>Створення форми реєстрації користувача</h2></div></div>
+  <p><b>Мета:</b> створити форму реєстрації з різними типами полів і оформити її зовнішнім файлом CSS з підключеним шрифтом Google Fonts.</p>
+  <ol class="pw"><li><b class="t">Підготуйте файли</b><p>Папка <code>register</code>: <code>index.html</code> і <code>style.css</code>. У head підключіть шрифт Google Fonts і <code>&lt;link rel="stylesheet" href="style.css"&gt;</code>.</p></li><li><b class="t">Каркас форми</b><pre class="code" data-lang="html"><span class="t">&lt;h2</span><span class="t">&gt;</span>Форма реєстрації<span class="t">&lt;/h2</span><span class="t">&gt;</span>
+<span class="t">&lt;form</span><span class="t">&gt;</span>
+    <span class="t">&lt;label</span> <span class="a">for</span>=<span class="s">"firstName"</span><span class="t">&gt;</span>Ім'я:<span class="t">&lt;/label</span><span class="t">&gt;</span>
+    <span class="t">&lt;input</span> <span class="a">type</span>=<span class="s">"text"</span> <span class="a">id</span>=<span class="s">"firstName"</span> required<span class="t">&gt;</span>
+
+    <span class="t">&lt;label</span> <span class="a">for</span>=<span class="s">"lastName"</span><span class="t">&gt;</span>Прізвище:<span class="t">&lt;/label</span><span class="t">&gt;</span>
+    <span class="t">&lt;input</span> <span class="a">type</span>=<span class="s">"text"</span> <span class="a">id</span>=<span class="s">"lastName"</span> required<span class="t">&gt;</span>
+<span class="t">&lt;/form</span><span class="t">&gt;</span></pre></li><li><b class="t">Додайте поля</b><ul class="clean"><li>Електронна пошта <code>type="email"</code>;</li><li>Пароль і підтвердження пароля <code>type="password"</code>;</li><li>Вік <code>type="number" min="1" max="100"</code>;</li><li>Стать — <code>&lt;select&gt;</code> з трьома <code>&lt;option&gt;</code>;</li><li>Прапорець «Я погоджуюсь з умовами використання» <code>type="checkbox"</code>;</li><li>Кнопка <code>&lt;button type="submit"&gt;Зареєструватися&lt;/button&gt;</code>.</li></ul></li><li><b class="t">Стилізуйте сторінку</b><pre class="code" data-lang="css">* { <span class="a">box-sizing</span>: border-box; }
+body {
+    <span class="a">font-family</span>: 'Montserrat', sans-serif;
+    <span class="a">background</span>: #f4f4f4;
+    <span class="a">margin</span>: 20px;
+}
+h2 { <span class="a">text-align</span>: center; }
+form {
+    <span class="a">width</span>: 500px;
+    <span class="a">margin</span>: 0 auto;
+    <span class="a">background</span>: white;
+    <span class="a">padding</span>: 24px;
+    <span class="a">border-radius</span>: 10px;
+}
+label { <span class="a">display</span>: block; <span class="a">margin-bottom</span>: 5px; }
+input, select {
+    <span class="a">width</span>: 100%;
+    <span class="a">padding</span>: 8px;
+    <span class="a">margin-bottom</span>: 12px;
+    <span class="a">border</span>: 1px solid #ccc;
+    <span class="a">border-radius</span>: 5px;
+}</pre></li><li><b class="t">Оформіть кнопку і стани</b><p>Кнопка: колір фону, білий текст, без рамки, <code>padding</code>, <code>border-radius</code>, <code>cursor: pointer</code>. Додайте <code>button:hover</code> (темніший колір) і <code>input:focus</code> (кольорова рамка).</p></li><li><b class="t">Свій стиль</b><p>Змініть кольори на власну гармонійну палітру (2–3 кольори), додайте тінь формі <code>box-shadow</code>. Перевірте в режимі смартфона (<kbd>F12</kbd> → <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd>).</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Заархівуйте папку</b><p>ZIP з index.html і style.css або посилання на codepen.io.</p></li><li><b class="t">Здайте в Classroom</b><p>Архів + скріншот форми в браузері → <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Усі поля потрібних типів з label</td><td>4</td></tr><tr><td>Зовнішній CSS підключено правильно</td><td>1</td></tr><tr><td>Шрифт Google Fonts працює</td><td>1</td></tr><tr><td>Стилізація форми: ширина, відступи, рамки, заокруглення</td><td>3</td></tr><tr><td>Кнопка з :hover, поля з :focus</td><td>2</td></tr><tr><td>Власна палітра, охайний вигляд</td><td>1</td></tr></tbody></table></div></div>
+<div class="card"><span class="label">Якщо щось не виходить</span><details><summary>Стилі не застосовуються</summary><p>Перевірте, що style.css лежить у тій самій папці, що й index.html, і назва в href збігається до літери.</p></details><details><summary>Шрифт не змінився</summary><p>Назва в font-family має точно збігатися з назвою на Google Fonts, у лапках, а рядок підключення має стояти в head.</p></details><details><summary>label і поле в одному рядку</summary><p>Додайте <code>label { display: block; }</code> або ширину поля 100%.</p></details></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Підключіть один шрифт Google Fonts до своєї сторінки «Мої улюблені книги» і оформіть її: кольори, відступи, заокруглені рамки зображень.</li><li>Запишіть у зошит схему блокової моделі (content, padding, border, margin).</li></ol>
+  <p class="fb">Підручник: тема 15. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу №13</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="19.html"><span>← Урок 19</span><b>Посилання, форми, мультимедіа, CSS</b></a><a class="next" href="21.html"><span>Урок 21 →</span><b>Flexbox. Макет. Технічне завдання</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · тема 15</footer>
+</div>
+<script>window.LESSON={"n": 20, "q": {"ex1": [["Відступ між рамкою і текстом усередині кнопки —", ["margin", "padding", "border"], 1, ""], ["Як відцентрувати блок шириною 500px по горизонталі?", ["margin: 0 auto;", "text-align: middle;", "padding: center;"], 0, ""], ["Як заокруглити кути?", ["border-radius", "corner", "round"], 0, ""], ["Що задає шрифт?", ["font-size", "font-family", "text-font"], 1, ""]], "final": [["Яка властивість змінює колір тексту?", ["background", "color", "font-color"], 1, ""], ["Що означає sans-serif у font-family?", ["Резервний шрифт без зарубок", "Жирний шрифт", "Помилка"], 0, ""], ["Де вставляють код підключення Google Fonts?", ["У <head>", "У кінці <body>", "У style.css лише"], 0, ""], ["margin — це…", ["внутрішній відступ", "зовнішній відступ", "рамка"], 1, ""], ["Як записати рамку 2 пікселі, суцільну, сіру?", ["border: 2px solid gray;", "border: gray 2;", "frame: 2px;"], 0, ""], ["Псевдоклас для наведення курсора —", [":focus", ":hover", ":active-mouse"], 1, ""], ["Чому шрифт має підтримувати кирилицю?", ["Інакше українські літери буде показано іншим шрифтом", "Так швидше", "Не має значення"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

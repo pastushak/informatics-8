@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 49. ПР №25 «Програми з циклами» — Інформатика 8</title><meta name="description" content="Сума чисел від 1 до N і від A до B, найбільший спільний дільник, рахунок туристів — програми з циклами і графічним інтерфейсом."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 49</span><span class="chip gr">Розділ 5</span><span class="chip sun">ПР №25</span><span class="chip gr">Підручник: теми 34–35</span></div>
+  <h1>Практична робота №25 «Складання програмних проєктів з командами повторення»</h1>
+  <p class="lead">Сума чисел від 1 до N і від A до B, найбільший спільний дільник, рахунок туристів — програми з циклами і графічним інтерфейсом.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Зразок</b><span>~5 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота №25</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Зразок</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">ПР №25</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Зразок: сума від 1 до N</h2></div></div>
+  <pre class="code" data-lang="py"><span class="k">from</span> tkinter <span class="k">import</span> *
+
+<span class="k">def</span> calculate_sum():
+    n = <span class="k">int</span>(entry.get())
+    s = 0
+    <span class="k">for</span> i <span class="k">in</span> <span class="k">range</span>(1, n + 1):
+        s += i
+    result.config(text=f<span class="s">"Сума чисел: {s}"</span>)
+
+window = Tk()
+window.title(<span class="s">"Обчислення суми чисел"</span>)
+window.geometry(<span class="s">"300x150"</span>)
+Label(window, text=<span class="s">"Введіть число N:"</span>).pack()
+entry = Entry(window); entry.pack()
+Button(window, text=<span class="s">"Обчислити"</span>, command=calculate_sum).pack(pady=5)
+result = Label(window, text=<span class="s">""</span>); result.pack()
+window.mainloop()</pre><div class="note"><b>Немає комп'ютера з Python?</b>Консольні програми (з <code>print</code> та <code>input</code>) можна запускати онлайн: <b>onlinegdb.com</b> (оберіть Language: Python 3), <b>programiz.com/python-programming/online-compiler</b>, на смартфоні — застосунок <b>Pydroid 3</b>. Програми з вікнами Tkinter онлайн не працюють — у Pydroid 3 вони запускаються.</div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота №25</span><h2>Складання програмних проєктів з командами повторення</h2></div></div>
+  <p><b>Мета:</b> складати програми з циклами for і while та графічним інтерфейсом.</p>
+  <ol class="pw"><li><b class="t">Завдання 1. Сума від 1 до N</b><p>За зразком.</p></li><li><b class="t">Завдання 2. Сума від A до B</b><p>Два поля (A і B), кнопка, мітка з сумою чисел від A до B включно. Якщо A &gt; B — повідомлення «A має бути менше за B».</p></li><li><b class="t">Завдання 3. НСД перебором</b><p>Вікно «Обчислення НСД (перебір)»: поля a і b, кнопка викликає <code>calculate_gcd()</code>:</p><ol class="rules"><li><span>Визначте менше з двох чисел: <code>min(a, b)</code>.</span></li><li><span>Перевірте всі числа від 1 до min, які ділять і a, і b.</span></li><li><span>Останнє (найбільше) таке число — НСД.</span></li></ol></li><li><b class="t">Завдання 4. Рахунок туристів</b><p>Туристична група: користувач вводить кількість туристів; для кожного (цикл) вводить вік (через <code>input</code> або діалог). Порахуйте, скільки дітей (до 18) і дорослих, і загальну вартість квитків: дитячий — 150 грн, дорослий — 250 грн.</p></li><li><b class="t">Завдання 5. while <span class="star">додатково</span></b><p>Програма «Вгадай число»: комп'ютер загадує <code>random.randint(1, 100)</code>, користувач вгадує в консолі з підказками «більше / менше», поки не вгадає. Виведіть кількість спроб.</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Зберіть код</b><p>Файли .py + скріншоти.</p></li><li><b class="t">Здайте в Classroom</b><p>→ <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Завдання 1–2: суми</td><td>3</td></tr><tr><td>Завдання 3: НСД</td><td>3</td></tr><tr><td>Завдання 4: цикл з підрахунком</td><td>4</td></tr><tr><td>Перевірки введення, зрозумілий інтерфейс</td><td>2</td></tr></tbody></table></div></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Програма: виведіть усі дільники введеного числа і їх кількість.</li></ol>
+  <p class="fb">Підручник: теми 34–35. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу №25</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="48.html"><span>← Урок 48</span><b>Цикли: for, while, range()</b></a><a class="next" href="50.html"><span>Урок 50 →</span><b>Коментарі. Типи помилок. messagebox</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · теми 34–35</footer>
+</div>
+<script>window.LESSON={"n": 49, "q": {"final": [["Сума від 1 до 10 —", ["55", "45", "100"], 0, ""], ["НСД(12, 18) —", ["3", "6", "36"], 1, ""], ["Як підсумувати від a до b включно?", ["for i in range(a, b + 1)", "for i in range(a, b)", "for i in range(b)"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

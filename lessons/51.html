@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 51. ПР №26 «Повідомлення і обробка помилок» — Інформатика 8</title><meta name="description" content="Створюємо програми з різними видами повідомлень, перевіряємо вік для доступу і підтверджуємо вихід з програми. Код — з коментарями."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 51</span><span class="chip gr">Розділ 5</span><span class="chip sun">ПР №26</span><span class="chip gr">Підручник: теми 36–37</span></div>
+  <h1>Практична робота №26 «Складання програмних проєктів»</h1>
+  <p class="lead">Створюємо програми з різними видами повідомлень, перевіряємо вік для доступу і підтверджуємо вихід з програми. Код — з коментарями.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Зразок</b><span>~5 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота №26</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Зразок</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">ПР №26</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Зразок: кнопка підтвердження</h2></div></div>
+  <pre class="code" data-lang="py"><span class="k">from</span> tkinter <span class="k">import</span> *
+<span class="k">from</span> tkinter <span class="k">import</span> messagebox
+
+<span class="k">def</span> ask_confirmation():
+    response = messagebox.askyesno(<span class="s">"Підтвердження"</span>, <span class="s">"Ви впевнені, що хочете продовжити?"</span>)
+    <span class="k">if</span> response:
+        button_confirm.config(text=<span class="s">"Продовжено"</span>, bg=<span class="s">"#2ECC71"</span>)
+    <span class="k">else</span>:
+        button_confirm.config(text=<span class="s">"Скасовано"</span>, bg=<span class="s">"#E74C3C"</span>)
+
+window = Tk()
+window.title(<span class="s">"Види повідомлень"</span>)
+window.geometry(<span class="s">"400x300"</span>)
+button_confirm = Button(window, text=<span class="s">"Підтвердження"</span>, font=(<span class="s">"Arial"</span>, 12), bg=<span class="s">"#3498DB"</span>, fg=<span class="s">"white"</span>, command=ask_confirmation)
+button_confirm.pack(pady=10)
+window.mainloop()</pre><div class="note"><b>Немає комп'ютера з Python?</b>Консольні програми (з <code>print</code> та <code>input</code>) можна запускати онлайн: <b>onlinegdb.com</b> (оберіть Language: Python 3), <b>programiz.com/python-programming/online-compiler</b>, на смартфоні — застосунок <b>Pydroid 3</b>. Програми з вікнами Tkinter онлайн не працюють — у Pydroid 3 вони запускаються.</div>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота №26</span><h2>Складання програмних проєктів</h2></div></div>
+  <p><b>Мета:</b> використовувати діалогові вікна messagebox, обробку помилок і коментарі в програмах з графічним інтерфейсом.</p>
+  <ol class="pw"><li><b class="t">Завдання 1. Види повідомлень</b><p>Вікно 400×300 з міткою і чотирма кнопками (Arial 12, білий текст):</p><ul class="clean"><li><b>Info</b> (фон <code>#2ECC71</code>) → <code>show_info()</code> → <code>showinfo</code>;</li><li><b>Warning</b> (<code>#F39C12</code>) → <code>showwarning</code>;</li><li><b>Error</b> (<code>#E74C3C</code>) → <code>showerror</code>;</li><li><b>Confirm</b> (<code>#3498DB</code>) → <code>askyesno</code>: «Продовжено» зеленим або «Скасовано» червоним.</li></ul></li><li><b class="t">Завдання 2. Перевірка віку для доступу</b><p>Поле для віку і кнопка. Якщо менше 18 — <code>showerror</code> «Доступ заборонено»; інакше — <code>showinfo</code> «Ласкаво просимо!». Якщо введено не число — <code>showwarning</code> через <code>try / except ValueError</code>.</p></li><li><b class="t">Завдання 3. Запит на вихід</b><p>Кнопка «Вийти»: <code>askyesno("Вихід", "Закрити програму?")</code> → якщо так — <code>window.destroy()</code>.</p></li><li><b class="t">Коментарі</b><p>У кожному файлі: коментар-заголовок (що робить програма, автор) і коментарі до кожної функції.</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Зберіть код</b><p>Файли .py + скріншоти діалогових вікон.</p></li><li><b class="t">Здайте в Classroom</b><p>→ <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Завдання 1: чотири види повідомлень</td><td>4</td></tr><tr><td>Завдання 2: умова і обробка помилки введення</td><td>4</td></tr><tr><td>Завдання 3: підтвердження виходу</td><td>2</td></tr><tr><td>Змістовні коментарі</td><td>2</td></tr></tbody></table></div></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Повторіть теми 27–37: наступні уроки — великі програмні проєкти. Встановіть Python на комп'ютер або Pydroid 3 на смартфон, якщо ще не зробили.</li></ol>
+  <p class="fb">Підручник: теми 36–37. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу №26</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="50.html"><span>← Урок 50</span><b>Коментарі. Типи помилок. messagebox</b></a><a class="next" href="52.html"><span>Урок 52 →</span><b>Проєкт «Квадратні рівняння»: інтерфейс</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · теми 36–37</footer>
+</div>
+<script>window.LESSON={"n": 51, "q": {"final": [["Як закрити вікно програми з коду?", ["window.destroy()", "window.close", "exit.window()"], 0, ""], ["Вікно попередження —", ["showwarning", "showinfo", "showerror"], 0, ""], ["Що треба імпортувати для повідомлень?", ["from tkinter import messagebox", "import message", "from tkinter import alert"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>

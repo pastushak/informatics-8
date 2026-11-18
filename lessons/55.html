@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 55. Проєкт «Індекс маси тіла»: код і тести — Інформатика 8</title><meta name="description" content="Реалізуємо обчислення, вибір категорії, зміну кольору й зображення, обробку помилок, і тестуємо на межових значеннях."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="../assets/style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231E7A55%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2215%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E8%3C/text%3E%3C/svg%3E"><script>try{var t=JSON.parse(localStorage.getItem('inf8-theme'));if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="../index.html#r5">← Усі уроки · Розділ 5</a><button class="theme" type="button">Тема ◐</button></div>
+<header class="hero">
+  <div class="meta"><span class="chip">Інформатика · 8 клас</span><span class="chip">Урок 55</span><span class="chip gr">Розділ 5</span><span class="chip sun">Практика</span><span class="chip gr">Підручник: проєкт 2, теми 40–41</span></div>
+  <h1>Проєкт «Визначення індексу маси тіла»: розробка і тестування</h1>
+  <p class="lead">Реалізуємо обчислення, вибір категорії, зміну кольору й зображення, обробку помилок, і тестуємо на межових значеннях.</p>
+  <div class="plan-group"><p class="label">Вивчаємо</p><div class="plan"><a href="#s1" data-k="s1"><b>1. Код</b><span>~8 хв</span></a><a href="#sq" data-k="sq"><b>Самоперевірка</b><span>~7 хв</span></a></div></div><div class="plan-group"><p class="label">Робимо</p><div class="plan"><a href="#sp" data-k="sp"><b>Практична робота</b><span>~30 хв</span></a></div></div>
+</header>
+<nav class="bar" aria-label="Розділи уроку"><ol><li><a href="#s1">1. Код</a></li><li><a href="#sq">Самоперевірка</a></li><li><a href="#sp">Практика</a></li><li><a href="#sh">ДЗ</a></li></ol></nav>
+<section id="s1" data-read="1">
+<div class="card top">
+  <div class="step-head"><span class="step-no">A1</span><div><span class="label">Читаємо</span><h2>Код-зразок</h2></div></div>
+  <pre class="code" data-lang="py"><span class="c"># Проєкт «Визначення індексу маси тіла (ІМТ)»</span>
+<span class="k">from</span> tkinter <span class="k">import</span> *
+<span class="k">from</span> tkinter <span class="k">import</span> messagebox
+
+
+<span class="k">def</span> calculate():
+    <span class="s">""</span><span class="s">"Обчислює ІМТ і визначає категорію."</span><span class="s">""</span>
+    <span class="k">try</span>:
+        weight = <span class="k">float</span>(entry_weight.get())
+        height = <span class="k">float</span>(entry_height.get()) / 100      <span class="c"># см → м</span>
+    <span class="k">except</span> ValueError:
+        messagebox.showerror(<span class="s">"Помилка"</span>, <span class="s">"Введіть вагу і зріст числами"</span>)
+        <span class="k">return</span>
+    <span class="k">if</span> weight &lt;= 0 <span class="k">or</span> height &lt;= 0:
+        messagebox.showwarning(<span class="s">"Увага"</span>, <span class="s">"Значення мають бути більші за нуль"</span>)
+        <span class="k">return</span>
+    bmi = weight / height ** 2
+    <span class="k">if</span> bmi &lt; 18.5:
+        category, color = <span class="s">"дефіцит маси"</span>, <span class="s">"#5DADE2"</span>
+    <span class="k">elif</span> bmi &lt; 25:
+        category, color = <span class="s">"норма"</span>, <span class="s">"#58D68D"</span>
+    <span class="k">elif</span> bmi &lt; 30:
+        category, color = <span class="s">"надлишкова вага"</span>, <span class="s">"#F5B041"</span>
+    <span class="k">else</span>:
+        category, color = <span class="s">"ожиріння"</span>, <span class="s">"#EC7063"</span>
+    result.config(text=f<span class="s">"ІМТ = {round(bmi, 1)}\n{category}"</span>, bg=color)
+    <span class="c"># Зображення: images[category] = PhotoImage(file="norma.png") і т.д.</span>
+    <span class="c"># picture.config(image=images[category])</span>
+
+
+window = Tk()
+window.title(<span class="s">"Індекс маси тіла"</span>)
+window.geometry(<span class="s">"400x330"</span>)
+window.resizable(<span class="k">False</span>, <span class="k">False</span>)
+
+Label(window, text=<span class="s">"Калькулятор ІМТ"</span>, font=(<span class="s">"Arial"</span>, 18, <span class="s">"bold"</span>)).pack(pady=10)
+Label(window, text=<span class="s">"Вага, кг:"</span>, font=(<span class="s">"Arial"</span>, 12)).pack()
+entry_weight = Entry(window, font=(<span class="s">"Arial"</span>, 12), justify=<span class="s">"center"</span>)
+entry_weight.pack()
+Label(window, text=<span class="s">"Зріст, см:"</span>, font=(<span class="s">"Arial"</span>, 12)).pack()
+entry_height = Entry(window, font=(<span class="s">"Arial"</span>, 12), justify=<span class="s">"center"</span>)
+entry_height.pack()
+Button(window, text=<span class="s">"Визначити"</span>, font=(<span class="s">"Arial"</span>, 12), command=calculate).pack(pady=10)
+result = Label(window, text=<span class="s">""</span>, font=(<span class="s">"Arial"</span>, 14), width=22, height=3)
+result.pack()
+picture = Label(window)
+picture.pack()
+
+window.mainloop()</pre><div class="note"><b>Важливо</b>Таблиця категорій ІМТ розроблена для <b>дорослих</b>. У підлітків ІМТ оцінюють за віковими таблицями ВООЗ, і робить це лікар. Тестуйте програму на вигаданих даних дорослих людей — це навчальна задача з програмування.</div><p>Щоб показувати картинки, створіть словник зображень <b>після</b> створення вікна і змінюйте зображення мітки:</p><pre class="code" data-lang="py">images = {
+    <span class="s">"дефіцит маси"</span>: PhotoImage(file=<span class="s">"deficit.png"</span>),
+    <span class="s">"норма"</span>: PhotoImage(file=<span class="s">"norma.png"</span>),
+    <span class="s">"надлишкова вага"</span>: PhotoImage(file=<span class="s">"over.png"</span>),
+    <span class="s">"ожиріння"</span>: PhotoImage(file=<span class="s">"obese.png"</span>),
+}
+<span class="c"># у функції calculate():</span>
+picture.config(image=images[category])</pre>
+</div>
+</section>
+<section id="sq">
+<div class="card top">
+  <div class="step-head"><span class="step-no">✓</span><div><span class="label">Перевіряємо себе</span><h2>Самоперевірка</h2></div></div>
+  <p class="fb">Оберіть одну відповідь. Після кожної з'явиться пояснення. Результат зберігається на сторінці курсу.</p>
+  <div class="ex" data-quiz="final" data-final></div><p class="score" id="finals"></p>
+</div>
+</section>
+<section id="sp">
+<div class="card top">
+  <div class="step-head"><span class="step-no">B1</span><div><span class="label">Робимо · Практична робота</span><h2>Розробка, тестування і впровадження ІМТ</h2></div></div>
+  <p><b>Мета:</b> завершити програму і перевірити її на межових значеннях.</p>
+  <ol class="pw"><li><b class="t">Функція calculate()</b><p>Обчислення, вибір категорії (if / elif / else), колір фону мітки результату.</p></li><li><b class="t">Зображення</b><p>Словник зображень і зміна картинки залежно від категорії.</p></li><li><b class="t">Помилки</b><p>Порожні поля, текст, нуль або від'ємні числа → повідомлення.</p></li><li><b class="t">Тестування</b><p>Ваші 5 тестів з ДЗ + неправильне введення. Таблиця тестів.</p></li></ol>
+</div>
+<div class="card"><span class="label">Здача роботи</span><ol class="pw"><li><b class="t">Фінальна здача</b><p>Папка проєкту в ZIP (код + зображення) + таблиця тестів.</p></li><li><b class="t">Здайте в Classroom</b><p>«Проєкт 2» → <span class="path">Здати</span>.</p></li></ol></div>
+<div class="card"><span class="label">Критерії оцінювання · 12 балів</span><div class="tbl"><table><thead><tr><th>Що оцінюється</th><th>Бали</th></tr></thead><tbody><tr><td>Правильне обчислення ІМТ</td><td>3</td></tr><tr><td>Правильні категорії на межах</td><td>3</td></tr><tr><td>Зображення і колір змінюються</td><td>2</td></tr><tr><td>Обробка помилок</td><td>2</td></tr><tr><td>Таблиця тестів, коментарі</td><td>2</td></tr></tbody></table></div></div>
+</section>
+<section id="sh" data-read="1">
+<div class="card hw">
+  <div class="step-head"><span class="step-no">ДЗ</span><div><span class="label">Вдома</span><h2>Домашнє завдання</h2></div></div>
+  <ol class="pw"><li>Додайте до програми кнопку «Очистити».</li></ol>
+  <p class="fb">Підручник: проєкт 2, теми 40–41. Письмові відповіді здавайте в Classroom до наступного уроку.</p>
+</div>
+</section>
+<div class="card"><span class="label">Мій чек-лист уроку</span><p class="fb">Позначки зберігаються в цьому браузері. Коли все позначено, урок зарахується на сторінці курсу.</p><div class="progress"><i id="bar"></i></div><div class="check" id="check"><label><input type="checkbox" id="c1" data-sec="s1"> Прочитав(ла) теорію</label><label><input type="checkbox" id="c2" data-sec="sq"> Пройшов(ла) самоперевірку</label><label><input type="checkbox" id="c3" data-sec="sp"> Виконав(ла) практичну роботу</label><label><input type="checkbox" id="c4"> Здав(ла) роботу в Classroom</label><label><input type="checkbox" id="c5" data-sec="sh"> Виконав(ла) домашнє завдання</label></div><p class="done-banner" id="donebanner">Урок пройдено. Так тримати!</p></div>
+<nav class="pager"><a class="prev" href="54.html"><span>← Урок 54</span><b>Проєкт «Індекс маси тіла»: інтерфейс</b></a><a class="next" href="56.html"><span>Урок 56 →</span><b>Проєкт «Вартість сайту»: Radiobutton, Checkbutton, Scale</b></a></nav>
+<footer>Підручник: Тріщук І. В., Лазарець О. Ю. Інформатика: підручник для 8 класу. — Тернопіль: Навчальна книга – Богдан, 2025 · проєкт 2, теми 40–41</footer>
+</div>
+<script>window.LESSON={"n": 55, "q": {"final": [["Яка послідовність етапів проєкту правильна?", ["Код → задача → тест", "Задача → підготовка → проєктування → код → тест", "Тест → код → задача"], 1, ""], ["ІМТ = 25.0. Категорія за таблицею —", ["норма", "надлишкова вага"], 1, "Умова bmi < 25 хибна."], ["Словник у Python записують у…", ["{ }", "[ ]", "( )"], 0, ""], ["Як отримати значення зі словника images за ключем \"норма\"?", ["images[\"норма\"]", "images.норма", "images(норма)"], 0, ""]]}};</script>
+<script src="../assets/lesson.js"></script>
+</body></html>
